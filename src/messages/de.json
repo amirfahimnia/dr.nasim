@@ -1,23 +1,122 @@
 {
   "Metadata": {
-    "title": "Dr. Nasim Gholami | Ästhetische Medizin",
-    "description": "Individuelle ästhetische Behandlungen mit Fokus auf natürliche Ergebnisse."
+    "title": "Dr. Nasim Gholami | Ästhetische Medizin & Hautgesundheit",
+    "description": "Spezialisierte ästhetische Behandlungen und Hautverjüngung – natürlich, wissenschaftlich und persönlich."
   },
   "Navigation": {
-    "home": "Startseite",
-    "about": "Über mich",
-    "treatments": "Behandlungen",
-    "results": "Ergebnisse",
-    "articles": "Artikel",
-    "contact": "Kontakt",
-    "appointment": "Beratung buchen"
+    "brand": "Dr. Nasim Gholami",
+    "items": {
+      "home": "Startseite",
+      "about": "Über mich",
+      "services": "Behandlungen",
+      "results": "Ergebnisse",
+      "articles": "Artikel",
+      "contact": "Kontakt"
+    },
+    "phoneCta": "Jetzt anrufen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",
     "title": "Natürliche Schönheit, echtes Selbstvertrauen",
-    "description": "Medizinisches Wissen, Erfahrung und Ästhetik vereint für natürliche und persönliche Ergebnisse.",
+    "description": "Mit der Verbindung aus Wissenschaft, langjähriger Erfahrung und einem feinen Gespür für Ästhetik helfe ich Ihnen, die natürlichste und schönste Version Ihrer selbst zu zeigen.",
     "primaryAction": "Beratung buchen",
     "secondaryAction": "Behandlungen ansehen",
     "patients": "Zufriedene Patienten"
+  },
+  "Services": {
+    "eyebrow": "Unsere Behandlungen",
+    "title": "Die beliebtesten Behandlungen für Schönheit, Verjüngung und Hautgesundheit",
+    "items": {
+      "rejuvenation": {
+        "title": "Hautverjüngung",
+        "description": "Hauterneuerung durch bewährte Wissenschaft – langanhaltend und harmonisch."
+      },
+      "filler": {
+        "title": "Filler & Konturierung",
+        "description": "Volumen und Kontur natürlich wiederherstellen mit geprüften Fillern und sanfter Technik."
+      },
+      "botox": {
+        "title": "Stirn- & Augenpartie-Botox",
+        "description": "Dynamische Falten mildern, ohne die natürliche Mimik zu verlieren."
+      },
+      "laser": {
+        "title": "Laserepilation",
+        "description": "Glatte, gleichmäßige Haut mit der neuesten Generation sicherer Laser."
+      },
+      "meso": {
+        "title": "Mesotherapie & PRP",
+        "description": "Tiefenwirksame Nährstoffe und kollagenstimulierende Pflege für strahlende Haut."
+      }
+    },
+    "viewAll": "Alle Behandlungen ansehen"
+  },
+  "About": {
+    "eyebrow": "Über mich",
+    "title": "Dr. Nasim Gholami",
+    "description": "Als ästhetische Ärztin mit über sechs Jahren Erfahrung glaube ich fest daran, dass wahre Schönheit in Harmonie und Proportion liegt. Mein Ziel: Ergebnisse, die natürlich wirken und Ihr Selbstvertrauen nachhaltig stärken.",
+    "features": [
+      "Ausführliche Beratung vor jeder Behandlung",
+      "Ausschließlich zertifizierte, zugelassene Produkte",
+      "Streng hygienische, professionelle Umgebung",
+      "Sorgfältige Nachsorge während der Erholung",
+      "Individueller Behandlungsplan für jeden Patienten"
+    ],
+    "cta": "Mehr über mich lesen"
+  },
+  "Statistics": {
+    "items": [
+      { "value": "+2000", "label": "Zufriedene Patienten" },
+      { "value": "+6", "label": "Jahre Erfahrung" },
+      { "value": "+15", "label": "Spezialisierungen" },
+      { "value": "100%", "label": "Patientenzufriedenheit" }
+    ]
+  },
+  "Testimonials": {
+    "eyebrow": "Stimmen unserer Patienten",
+    "title": "Was Patienten sagen",
+    "subtitle": "Ihr Vertrauen ist unser Stolz",
+    "items": [
+      {
+        "quote": "Ich hatte lange nach einer Ärztin gesucht, deren Ergebnisse wirklich natürlich wirken. Die Arbeit war hervorragend — meine Freunde sahen, dass sich etwas verändert hatte, ohne zu wissen, was genau.",
+        "name": "Maryam K.",
+        "role": "Verjüngung"
+      },
+      {
+        "quote": "Schon beim ersten Beratungsgespräch fühlte ich mich bestens aufgehoben. Alles wurde klar erklärt und das Ergebnis übertraf meine Erwartungen.",
+        "name": "Negin R.",
+        "role": "Filler-Behandlung"
+      },
+      {
+        "quote": "Die Klinik selbst ist unglaublich beruhigend und professionell. Die Qualität der Arbeit und die Fürsorge dahinter sind es absolut wert, zu vertrauen.",
+        "name": "Aida H.",
+        "role": "Mesotherapie"
+      }
+    ]
+  },
+  "Cta": {
+    "title": "Vereinbaren Sie Ihren Spezialistentermin",
+    "description": "Reservieren Sie Ihre Beratung in Sekunden – telefonisch oder über unser Online-Formular.",
+    "primaryAction": "Beratung buchen",
+    "phoneLabel": "Direkt anrufen"
+  },
+  "Footer": {
+    "tagline": "Ästhetische Medizin & Hautgesundheit",
+    "address": "Teheran, Vali-e-Asr-Straße, Nr. 120",
+    "hours": "Samstag – Mittwoch • 10:00 – 20:00",
+    "sections": {
+      "contact": "Kontakt",
+      "navigation": "Schnellzugriff",
+      "social": "Folgen Sie uns"
+    },
+    "rights": "Alle Rechte vorbehalten.",
+    "credit": "Design & Entwicklung"
+  },
+  "Common": {
+    "bookConsultation": "Beratung buchen",
+    "learnMore": "Mehr erfahren",
+    "viewTreatments": "Behandlungen ansehen",
+    "backToTop": "Nach oben"
   }
 }

@@ -1,24 +1,120 @@
 @import "tailwindcss";
 
+/* ----------------------------------------------------------------------------
+ * Design tokens — single source of truth for the Dr. Nasim brand
+ * --------------------------------------------------------------------------*/
 :root {
-  --background: #ffffff;
-  --foreground: #24211f;
+  /* Surfaces */
+  --color-cream: #f8f4ef;
+  --color-cream-soft: #fbf7f2;
+  --color-cream-light: #f1ebe2;
+
+  /* Brand */
+  --color-gold: #b4874f;
+  --color-gold-soft: #d4af7f;
+  --color-gold-deep: #8e6932;
+  --color-eyebrow: #b8763e;
+
+  /* Accent */
+  --color-sage: #8aa68e;
+  --color-sage-deep: #6f8a73;
+
+  /* Ink */
+  --color-ink: #2b2622;
+  --color-ink-soft: #3a342f;
+  --color-body: #6f6358;
+  --color-muted: #9b8e80;
+  --color-line: #e8ddd0;
+  --color-surface: #ffffff;
+
+  /* Type scale (modular) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-full: 9999px;
+
+  /* Shadows — keep very soft, premium feel */
+  --shadow-xs: 0 1px 2px 0 rgba(43, 38, 34, 0.04);
+  --shadow-sm: 0 2px 6px -1px rgba(43, 38, 34, 0.06),
+    0 1px 2px -1px rgba(43, 38, 34, 0.04);
+  --shadow-md: 0 8px 24px -8px rgba(43, 38, 34, 0.1),
+    0 2px 6px -2px rgba(43, 38, 34, 0.05);
+  --shadow-lg: 0 18px 48px -16px rgba(43, 38, 34, 0.16),
+    0 4px 12px -4px rgba(43, 38, 34, 0.06);
+
+  /* Layout */
+  --container-max: 1280px;
+  --section-y: clamp(3.5rem, 6vw, 6.5rem);
 }
 
+/* Tailwind v4 — expose tokens as utilities */
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-soft: var(--color-cream-soft);
+  --color-cream-light: var(--color-cream-light);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-gold-deep: var(--color-gold-deep);
+  --color-eyebrow: var(--color-eyebrow);
+  --color-sage: var(--color-sage);
+  --color-sage-deep: var(--color-sage-deep);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-body: var(--color-body);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-surface: var(--color-surface);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  --font-display: var(--font-vazirmatn), var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-vazirmatn), var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-vazirmatn), var(--font-inter), system-ui, sans-serif;
+}
+
+/* ----------------------------------------------------------------------------
+ * Reset + base typography
+ * --------------------------------------------------------------------------*/
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  text-rendering: optimizeLegibility;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
 }
 
 button,
@@ -27,17 +123,67 @@ input,
 textarea,
 select {
   font: inherit;
+  color: inherit;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Logical alignment helpers — RTL friendly */
 html[dir="rtl"] body {
   text-align: right;
 }
-
 html[dir="ltr"] body {
   text-align: left;
+}
+
+/* Focus ring — calm, brand-coloured */
+:where(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-gold);
+  color: var(--color-surface);
+}
+
+/* ----------------------------------------------------------------------------
+ * Motion — gentle, defensive
+ * --------------------------------------------------------------------------*/
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

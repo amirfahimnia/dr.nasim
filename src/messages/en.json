@@ -1,23 +1,122 @@
 {
   "Metadata": {
-    "title": "Dr. Nasim Gholami | Aesthetic Medicine",
-    "description": "Personalised aesthetic and skin treatments focused on natural results."
+    "title": "Dr. Nasim Gholami | Aesthetic Medicine & Skin Health",
+    "description": "Specialised aesthetic and rejuvenation treatments with a natural, scientific and personal approach."
   },
   "Navigation": {
-    "home": "Home",
-    "about": "About",
-    "treatments": "Treatments",
-    "results": "Results",
-    "articles": "Articles",
-    "contact": "Contact",
-    "appointment": "Book consultation"
+    "brand": "Dr. Nasim Gholami",
+    "items": {
+      "home": "Home",
+      "about": "About",
+      "services": "Treatments",
+      "results": "Results",
+      "articles": "Articles",
+      "contact": "Contact"
+    },
+    "phoneCta": "Call now",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",
     "title": "Natural beauty, genuine confidence",
-    "description": "Combining medical knowledge, experience and artistry to create results that feel natural and personal.",
-    "primaryAction": "Book a consultation",
+    "description": "By combining science, years of expertise and a true sense of artistry, I help you reveal the finest, most natural version of yourself.",
+    "primaryAction": "Book consultation",
     "secondaryAction": "View treatments",
     "patients": "Satisfied patients"
+  },
+  "Services": {
+    "eyebrow": "Our treatments",
+    "title": "The most-loved treatments for beauty, rejuvenation and skin health",
+    "items": {
+      "rejuvenation": {
+        "title": "Facial rejuvenation",
+        "description": "Skin revival through proven science and a long-lasting, balanced approach."
+      },
+      "filler": {
+        "title": "Filler & contouring",
+        "description": "Restore volume and contour naturally with trusted fillers and gentle technique."
+      },
+      "botox": {
+        "title": "Forehead & eye-area Botox",
+        "description": "Soften dynamic lines while keeping every facial expression beautifully natural."
+      },
+      "laser": {
+        "title": "Laser hair removal",
+        "description": "Silky, even skin with the latest generation of safe, low-downtime lasers."
+      },
+      "meso": {
+        "title": "Mesotherapy & PRP",
+        "description": "Deep nourishment and collagen stimulation for visibly brighter, healthier skin."
+      }
+    },
+    "viewAll": "View all treatments"
+  },
+  "About": {
+    "eyebrow": "About me",
+    "title": "Dr. Nasim Gholami",
+    "description": "An aesthetic physician with over six years of experience, deeply convinced that real beauty lives in harmony and proportion. Throughout my career I've focused on results that look natural — yet profoundly elevate your confidence.",
+    "features": [
+      "In-depth consultation before every treatment",
+      "Only certified, fully authorised products",
+      "Strictly hygienic, professional environment",
+      "Careful follow-up throughout recovery",
+      "A truly personal plan for every patient"
+    ],
+    "cta": "Read more about me"
+  },
+  "Statistics": {
+    "items": [
+      { "value": "+2000", "label": "Happy patients" },
+      { "value": "+6", "label": "Years of practice" },
+      { "value": "+15", "label": "Specialised courses" },
+      { "value": "100%", "label": "Patient satisfaction" }
+    ]
+  },
+  "Testimonials": {
+    "eyebrow": "Patient voices",
+    "title": "What patients say",
+    "subtitle": "Your trust is our pride",
+    "items": [
+      {
+        "quote": "I'd been searching for a doctor whose results would look truly natural. The work was exceptional — my friends noticed something changed but none of them guessed what.",
+        "name": "Maryam K.",
+        "role": "Rejuvenation patient"
+      },
+      {
+        "quote": "From the very first consultation I felt in safe hands. Everything was explained clearly and the final result exceeded everything I had hoped for.",
+        "name": "Negin R.",
+        "role": "Filler patient"
+      },
+      {
+        "quote": "The clinic itself is so calming and professional. The quality of the work and the care behind it were absolutely worth trusting.",
+        "name": "Aida H.",
+        "role": "Mesotherapy patient"
+      }
+    ]
+  },
+  "Cta": {
+    "title": "Book your specialist appointment today",
+    "description": "Reserve your consultation in seconds — by phone or via our online booking form.",
+    "primaryAction": "Book consultation",
+    "phoneLabel": "Direct call"
+  },
+  "Footer": {
+    "tagline": "Aesthetic medicine & skin health",
+    "address": "Tehran, Vali-e-Asr Street, No. 120",
+    "hours": "Saturday – Wednesday • 10:00 – 20:00",
+    "sections": {
+      "contact": "Contact",
+      "navigation": "Quick links",
+      "social": "Follow us"
+    },
+    "rights": "All rights reserved.",
+    "credit": "Designed & built by"
+  },
+  "Common": {
+    "bookConsultation": "Book consultation",
+    "learnMore": "Learn more",
+    "viewTreatments": "View treatments",
+    "backToTop": "Back to top"
   }
 }

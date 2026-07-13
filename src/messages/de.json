@@ -1,0 +1,23 @@
+{
+  "Metadata": {
+    "title": "Dr. Nasim Gholami | Ästhetische Medizin",
+    "description": "Individuelle ästhetische Behandlungen mit Fokus auf natürliche Ergebnisse."
+  },
+  "Navigation": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "treatments": "Behandlungen",
+    "results": "Ergebnisse",
+    "articles": "Artikel",
+    "contact": "Kontakt",
+    "appointment": "Beratung buchen"
+  },
+  "Hero": {
+    "eyebrow": "Dr. Nasim Gholami",
+    "title": "Natürliche Schönheit, echtes Selbstvertrauen",
+    "description": "Medizinisches Wissen, Erfahrung und Ästhetik vereint für natürliche und persönliche Ergebnisse.",
+    "primaryAction": "Beratung buchen",
+    "secondaryAction": "Behandlungen ansehen",
+    "patients": "Zufriedene Patienten"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "Metadata": {
+    "title": "Dr. Nasim Gholami | Aesthetic Medicine",
+    "description": "Personalised aesthetic and skin treatments focused on natural results."
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "treatments": "Treatments",
+    "results": "Results",
+    "articles": "Articles",
+    "contact": "Contact",
+    "appointment": "Book consultation"
+  },
+  "Hero": {
+    "eyebrow": "Dr. Nasim Gholami",
+    "title": "Natural beauty, genuine confidence",
+    "description": "Combining medical knowledge, experience and artistry to create results that feel natural and personal.",
+    "primaryAction": "Book a consultation",
+    "secondaryAction": "View treatments",
+    "patients": "Satisfied patients"
+  }
+}

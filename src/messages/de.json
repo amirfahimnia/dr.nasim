@@ -23,7 +23,9 @@
     "description": "Mit der Verbindung aus Wissenschaft, langjähriger Erfahrung und einem feinen Gespür für Ästhetik helfe ich Ihnen, die natürlichste und schönste Version Ihrer selbst zu zeigen.",
     "primaryAction": "Beratung buchen",
     "secondaryAction": "Behandlungen ansehen",
-    "patients": "Zufriedene Patienten"
+    "patients": "Zufriedene Patienten",
+    "certification": "Fachärztlich zertifiziert",
+    "discipline": "Ästhetische Medizin"
   },
   "Services": {
     "eyebrow": "Unsere Behandlungen",
@@ -63,14 +65,27 @@
       "Sorgfältige Nachsorge während der Erholung",
       "Individueller Behandlungsplan für jeden Patienten"
     ],
-    "cta": "Mehr über mich lesen"
+    "cta": "Mehr über mich lesen",
+    "discipline": "Ästhetische Medizin"
   },
   "Statistics": {
     "items": [
-      { "value": "+2000", "label": "Zufriedene Patienten" },
-      { "value": "+6", "label": "Jahre Erfahrung" },
-      { "value": "+15", "label": "Spezialisierungen" },
-      { "value": "100%", "label": "Patientenzufriedenheit" }
+      {
+        "value": "+2000",
+        "label": "Zufriedene Patienten"
+      },
+      {
+        "value": "+6",
+        "label": "Jahre Erfahrung"
+      },
+      {
+        "value": "+15",
+        "label": "Spezialisierungen"
+      },
+      {
+        "value": "100%",
+        "label": "Patientenzufriedenheit"
+      }
     ]
   },
   "Testimonials": {
@@ -118,5 +133,35 @@
     "learnMore": "Mehr erfahren",
     "viewTreatments": "Behandlungen ansehen",
     "backToTop": "Nach oben"
+  },
+  "BeforeAfter": {
+    "eyebrow": "Ergebnisse-Galerie",
+    "title": "Echte Beispiele aus unseren Behandlungen",
+    "subtitle": "Jedes Ergebnis bewahrt Ihre natürliche Identität.",
+    "before": "Vorher",
+    "after": "Nachher",
+    "viewDetail": "Details ansehen",
+    "cases": [
+      {
+        "treatment": "Hautverjüngung",
+        "duration": "3 Monate",
+        "summary": "Wiederhergestellte Vitalität durch kombinierte Technik."
+      },
+      {
+        "treatment": "Wangen-Filler",
+        "duration": "1 Sitzung",
+        "summary": "Subtile Kontur und Volumen mit geprüftem Filler."
+      },
+      {
+        "treatment": "Stirn-Botox",
+        "duration": "1 Sitzung",
+        "summary": "Dynamische Falten gemildert, Mimik gewahrt."
+      },
+      {
+        "treatment": "Haar-Mesotherapie",
+        "duration": "4 Sitzungen",
+        "summary": "Gesteigertes Wachstum durch direkte Follikel-Ernährung."
+      }
+    ]
   }
 }

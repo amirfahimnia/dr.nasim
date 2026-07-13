@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { Services } from "@/components/services/Services";
+import { BeforeAfter } from "@/components/before-after/BeforeAfter";
 import { About } from "@/components/about/About";
 import { Statistics } from "@/components/statistics/Statistics";
 import { Testimonials } from "@/components/testimonials/Testimonials";
@@ -29,6 +30,7 @@ export default async function HomePage({ params }: Props) {
       <main id="main">
         <Hero />
         <Services />
+        <BeforeAfter />
         <About />
         <Statistics />
         <Testimonials />

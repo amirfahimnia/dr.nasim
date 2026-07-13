@@ -1,52 +1,48 @@
+"use client";
+
 import * as React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 type PlaceholderTone = "warm" | "soft" | "ink" | "rose";
 type PlaceholderKind = "portrait" | "service" | "abstract";
 
 export interface PlaceholderImageProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  /** Caption for screen-readers (also shown as elegant italic text). */
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onError"> {
+  /** Accessible label for the image (also rendered as small caption if no src). */
   label?: string;
-  /** Visual tone. */
+  /** Visual tone used for the SVG fallback. */
   tone?: PlaceholderTone;
-  /** Which motif to draw. */
+  /** Which motif to draw when no `src` is provided. */
   kind?: PlaceholderKind;
   /** Tailwind aspect-ratio utility, e.g. "aspect-[4/5]", "aspect-square". */
   aspect?: string;
   /** Optional small chip-style category (e.g. service name). */
   badge?: string;
+
+  /**
+   * Optional image URL. When provided, a Next/Image is rendered with native
+   * lazy-load + responsive `sizes`. If the file is missing the slot falls back
+   * to the brand SVG motif so the layout never looks broken.
+   *
+   * Drop real photography at /public/images/... and pass e.g.:
+   *   src="/images/hero.jpg"
+   *   src="/images/before-after/rejuvenation-before.jpg"
+   */
+  src?: string;
 }
 
 const palettes: Record<
   PlaceholderTone,
   { a: string; b: string; ink: string; rim: string }
 > = {
-  warm: {
-    a: "#f1ebe2",
-    b: "#e8ddd0",
-    ink: "#b4874f",
-    rim: "#d4af7f"
-  },
-  soft: {
-    a: "#fbf7f2",
-    b: "#f1ebe2",
-    ink: "#8aa68e",
-    rim: "#c8d6cb"
-  },
-  ink: {
-    a: "#3a342f",
-    b: "#2b2622",
-    ink: "#d4af7f",
-    rim: "#6f6358"
-  },
-  rose: {
-    a: "#f6e4d6",
-    b: "#ecd6c3",
-    ink: "#b8763e",
-    rim: "#d4af7f"
-  }
+  warm: { a: "#f1ebe2", b: "#e8ddd0", ink: "#b4874f", rim: "#d4af7f" },
+  soft: { a: "#fbf7f2", b: "#f1ebe2", ink: "#8aa68e", rim: "#c8d6cb" },
+  ink: { a: "#3a342f", b: "#2b2622", ink: "#d4af7f", rim: "#6f6358" },
+  rose: { a: "#f6e4d6", b: "#ecd6c3", ink: "#b8763e", rim: "#d4af7f" }
 };
+
+const IS_DEV = process.env.NODE_ENV !== "production";
 
 function Portrait({ ink, rim }: { ink: string; rim: string }) {
   return (
@@ -63,7 +59,6 @@ function Portrait({ ink, rim }: { ink: string; rim: string }) {
         </linearGradient>
       </defs>
       <rect width="200" height="250" fill="url(#bg-grad)" />
-      {/* Subtle frame */}
       <rect
         x="14"
         y="14"
@@ -75,7 +70,6 @@ function Portrait({ ink, rim }: { ink: string; rim: string }) {
         strokeOpacity="0.5"
         rx="6"
       />
-      {/* Abstract portrait silhouette */}
       <g opacity="0.85">
         <ellipse cx="100" cy="92" rx="34" ry="40" fill={ink} fillOpacity="0.55" />
         <path
@@ -89,19 +83,12 @@ function Portrait({ ink, rim }: { ink: string; rim: string }) {
           fillOpacity="0.6"
         />
       </g>
-      {/* Light highlight on cheek */}
       <circle cx="115" cy="90" r="6" fill="#ffffff" fillOpacity="0.18" />
     </svg>
   );
 }
 
-function ServiceArt({
-  ink,
-  rim
-}: {
-  ink: string;
-  rim: string;
-}) {
+function ServiceArt({ ink, rim }: { ink: string; rim: string }) {
   return (
     <svg
       viewBox="0 0 200 200"
@@ -116,7 +103,6 @@ function ServiceArt({
         </radialGradient>
       </defs>
       <rect width="200" height="200" fill="url(#svc-grad)" />
-      {/* Abstract floral motif */}
       <g opacity="0.7" fill="none" stroke={ink} strokeWidth="0.9">
         <circle cx="100" cy="100" r="42" />
         <circle cx="100" cy="100" r="28" />
@@ -162,9 +148,15 @@ function Abstract({ ink, rim }: { ink: string; rim: string }) {
 }
 
 /**
- * Elegant SVG-placeholder for portrait/photography slots while real
- * imagery is being prepared. Use the `label` slot to communicate what
- * the photo will depict; the rendered caption is purely decorative.
+ * Image slot for sections that need photography.
+ *
+ * Two modes:
+ *  1. `src` provided  → renders <next/image fill /> (lazy, responsive).
+ *     If the asset 404s, swaps to the brand SVG motif so layouts never break.
+ *  2. `src` undefined → renders the SVG motif directly.
+ *
+ * In development builds a tiny chip shows the public drop-in path as an
+ * editor hint. That chip is removed from production via NODE_ENV check.
  */
 export function PlaceholderImage({
   label,
@@ -172,24 +164,41 @@ export function PlaceholderImage({
   kind = "portrait",
   aspect = "aspect-[4/5]",
   badge,
+  src,
   className,
   ...props
 }: PlaceholderImageProps) {
   const palette = palettes[tone];
+  const [errored, setErrored] = React.useState(false);
+  const showImg = Boolean(src) && !errored;
+
   return (
     <div
-      role="img"
+      role={showImg ? undefined : "img"}
       aria-label={label ?? "Photo placeholder"}
       className={cn(
-        "relative w-full overflow-hidden rounded-2xl",
+        "relative w-full overflow-hidden rounded-2xl bg-cream-light",
         aspect,
         className
       )}
       {...props}
     >
-      {kind === "portrait" && <Portrait ink={palette.ink} rim={palette.rim} />}
-      {kind === "service" && <ServiceArt ink={palette.ink} rim={palette.rim} />}
-      {kind === "abstract" && <Abstract ink={palette.ink} rim={palette.rim} />}
+      {showImg ? (
+        <Image
+          src={src ?? ""}
+          alt={label ?? ""}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          onError={() => setErrored(true)}
+          className="object-cover"
+        />
+      ) : kind === "portrait" ? (
+        <Portrait ink={palette.ink} rim={palette.rim} />
+      ) : kind === "service" ? (
+        <ServiceArt ink={palette.ink} rim={palette.rim} />
+      ) : (
+        <Abstract ink={palette.ink} rim={palette.rim} />
+      )}
 
       {badge ? (
         <span className="absolute start-3 top-3 inline-flex items-center rounded-full bg-surface/90 px-3 py-1 text-xs font-medium text-ink shadow-xs backdrop-blur">
@@ -197,9 +206,18 @@ export function PlaceholderImage({
         </span>
       ) : null}
 
-      {label ? (
+      {!showImg && label ? (
         <span className="absolute inset-x-0 bottom-0 block bg-gradient-to-t from-black/20 to-transparent px-4 py-3 text-xs italic text-surface/85">
           {label}
+        </span>
+      ) : null}
+
+      {IS_DEV && src ? (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute end-3 bottom-3 hidden rounded-full bg-ink/80 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-cream/90 sm:inline"
+        >
+          {src.replace(/^\/images\//, "")}
         </span>
       ) : null}
     </div>

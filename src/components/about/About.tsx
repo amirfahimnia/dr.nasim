@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 
 import { Container } from "@/design-system/ui/Container";
 import { Button } from "@/design-system/ui/Button";
@@ -8,7 +8,10 @@ import { brand } from "@/design-system/tokens";
 
 export async function About() {
   const t = await getTranslations("About");
-  const tagline = t.has("tagline") ? t("tagline") : brand.tagline.en;
+  const locale = await getLocale();
+  const taglineKey: keyof typeof brand.tagline =
+    locale === "fa" || locale === "de" ? locale : "en";
+  const tagline = brand.tagline[taglineKey];
 
   return (
     <section
@@ -82,7 +85,7 @@ export async function About() {
               <div className="absolute -bottom-4 end-6 rounded-2xl bg-surface px-4 py-3 shadow-md ring-1 ring-line/50">
                 <p className="text-xs italic text-muted">&ldquo;{tagline}&rdquo;</p>
                 <p className="mt-1 text-sm font-semibold text-ink">
-                  Aesthetic Medicine
+                  {t("discipline")}
                 </p>
               </div>
             </div>

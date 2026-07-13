@@ -23,7 +23,9 @@
     "description": "By combining science, years of expertise and a true sense of artistry, I help you reveal the finest, most natural version of yourself.",
     "primaryAction": "Book consultation",
     "secondaryAction": "View treatments",
-    "patients": "Satisfied patients"
+    "patients": "Satisfied patients",
+    "certification": "Board certified",
+    "discipline": "Aesthetic Medicine"
   },
   "Services": {
     "eyebrow": "Our treatments",
@@ -63,14 +65,27 @@
       "Careful follow-up throughout recovery",
       "A truly personal plan for every patient"
     ],
-    "cta": "Read more about me"
+    "cta": "Read more about me",
+    "discipline": "Aesthetic Medicine"
   },
   "Statistics": {
     "items": [
-      { "value": "+2000", "label": "Happy patients" },
-      { "value": "+6", "label": "Years of practice" },
-      { "value": "+15", "label": "Specialised courses" },
-      { "value": "100%", "label": "Patient satisfaction" }
+      {
+        "value": "+2000",
+        "label": "Happy patients"
+      },
+      {
+        "value": "+6",
+        "label": "Years of practice"
+      },
+      {
+        "value": "+15",
+        "label": "Specialised courses"
+      },
+      {
+        "value": "100%",
+        "label": "Patient satisfaction"
+      }
     ]
   },
   "Testimonials": {
@@ -118,5 +133,35 @@
     "learnMore": "Learn more",
     "viewTreatments": "View treatments",
     "backToTop": "Back to top"
+  },
+  "BeforeAfter": {
+    "eyebrow": "Results gallery",
+    "title": "Real examples from our treatments",
+    "subtitle": "Every result is designed to preserve your natural identity.",
+    "before": "Before",
+    "after": "After",
+    "viewDetail": "View details",
+    "cases": [
+      {
+        "treatment": "Facial rejuvenation",
+        "duration": "3 months",
+        "summary": "Restored skin vitality through a combined technique."
+      },
+      {
+        "treatment": "Cheek filler",
+        "duration": "1 session",
+        "summary": "Subtle volume and contour with a trusted filler."
+      },
+      {
+        "treatment": "Forehead Botox",
+        "duration": "1 session",
+        "summary": "Softened dynamic lines, kept natural expression."
+      },
+      {
+        "treatment": "Hair mesotherapy",
+        "duration": "4 sessions",
+        "summary": "Strengthened growth via direct follicle nutrition."
+      }
+    ]
   }
 }

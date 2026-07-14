@@ -64,36 +64,35 @@
   "About": {
     "eyebrow": "About me",
     "title": "Dr. Nasim Gholami",
-    "description": "An aesthetic physician with over six years of experience, deeply convinced that real beauty lives in harmony and proportion. Throughout my career I've focused on results that look natural — yet profoundly elevate your confidence.",
+    "description": "Years of specialisation in aesthetic medicine and skin care have shaped a clear belief: real beauty is the harmony between preserving your natural features and quietly elevating your confidence. I combine the most trusted scientific methods with a precise artistic eye — so every result feels refined, balanced and unmistakably yours.",
+    "imageAlt": "Dr. Nasim Gholami — in clinic",
     "features": [
-      "In-depth consultation before every treatment",
-      "Only certified, fully authorised products",
-      "Strictly hygienic, professional environment",
-      "Careful follow-up throughout recovery",
-      "A truly personal plan for every patient"
+      "Over ten years of specialist experience in beauty, rejuvenation and skin care",
+      "Only the world's most trusted products and the very latest techniques",
+      "A treatment plan tailored entirely to each patient's individual needs"
     ],
-    "cta": "Read more about me",
-    "discipline": "Aesthetic Medicine"
-  },
-  "Statistics": {
-    "items": [
-      {
-        "value": "+2000",
-        "label": "Happy patients"
-      },
-      {
-        "value": "+6",
-        "label": "Years of practice"
-      },
-      {
-        "value": "+15",
-        "label": "Specialised courses"
-      },
-      {
-        "value": "100%",
-        "label": "Patient satisfaction"
-      }
-    ]
+    "cta": "Free consultation",
+    "stats": {
+      "heading": "Practice highlights",
+      "items": [
+        {
+          "value": "+2000",
+          "label": "Happy patients"
+        },
+        {
+          "value": "+6",
+          "label": "Years of practice"
+        },
+        {
+          "value": "+15",
+          "label": "Specialised courses"
+        },
+        {
+          "value": "100%",
+          "label": "Patient satisfaction"
+        }
+      ]
+    }
   },
   "Testimonials": {
     "eyebrow": "Patient voices",

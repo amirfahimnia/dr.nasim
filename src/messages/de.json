@@ -64,36 +64,35 @@
   "About": {
     "eyebrow": "Über mich",
     "title": "Dr. Nasim Gholami",
-    "description": "Als ästhetische Ärztin mit über sechs Jahren Erfahrung glaube ich fest daran, dass wahre Schönheit in Harmonie und Proportion liegt. Mein Ziel: Ergebnisse, die natürlich wirken und Ihr Selbstvertrauen nachhaltig stärken.",
+    "description": "Meine langjährige Spezialisierung in ästhetischer Medizin und Hautpflege hat eine klare Überzeugung gefestigt: Wahre Schönheit bewahrt Ihre natürlichen Züge und stärkt zugleich Ihr Selbstvertrauen. Ich verbinde modernste wissenschaftliche Methoden mit einem präzisen ästhetischen Auge — so entstehen Ergebnisse, die verfeinert, harmonisch und ganz individuell sind.",
+    "imageAlt": "Dr. Nasim Gholami — in der Klinik",
     "features": [
-      "Ausführliche Beratung vor jeder Behandlung",
-      "Ausschließlich zertifizierte, zugelassene Produkte",
-      "Streng hygienische, professionelle Umgebung",
-      "Sorgfältige Nachsorge während der Erholung",
-      "Individueller Behandlungsplan für jeden Patienten"
+      "Über zehn Jahre spezialisierte Erfahrung in Ästhetik, Verjüngung und Hautpflege",
+      "Ausschließlich erstklassige Produkte und die modernsten Methoden weltweit",
+      "Ein Behandlungsplan, der vollständig auf die individuellen Bedürfnisse jedes Patienten abgestimmt ist"
     ],
-    "cta": "Mehr über mich lesen",
-    "discipline": "Ästhetische Medizin"
-  },
-  "Statistics": {
-    "items": [
-      {
-        "value": "+2000",
-        "label": "Zufriedene Patienten"
-      },
-      {
-        "value": "+6",
-        "label": "Jahre Erfahrung"
-      },
-      {
-        "value": "+15",
-        "label": "Spezialisierungen"
-      },
-      {
-        "value": "100%",
-        "label": "Patientenzufriedenheit"
-      }
-    ]
+    "cta": "Kostenlose Beratung",
+    "stats": {
+      "heading": "Praxis auf einen Blick",
+      "items": [
+        {
+          "value": "+2000",
+          "label": "Zufriedene Patienten"
+        },
+        {
+          "value": "+6",
+          "label": "Jahre Erfahrung"
+        },
+        {
+          "value": "+15",
+          "label": "Spezialisierungen"
+        },
+        {
+          "value": "100%",
+          "label": "Patientenzufriedenheit"
+        }
+      ]
+    }
   },
   "Testimonials": {
     "eyebrow": "Stimmen unserer Patienten",

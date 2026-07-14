@@ -7,8 +7,10 @@ import { cn } from "@/lib/cn";
 type PlaceholderTone = "warm" | "soft" | "ink" | "rose";
 type PlaceholderKind = "portrait" | "service" | "abstract";
 
-export interface PlaceholderImageProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onError"> {
+export interface PlaceholderImageProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  "onError"
+> {
   /** Accessible label for the image (also rendered as small caption if no src). */
   label?: string;
   /** Visual tone used for the SVG fallback. */
@@ -71,7 +73,14 @@ function Portrait({ ink, rim }: { ink: string; rim: string }) {
         rx="6"
       />
       <g opacity="0.85">
-        <ellipse cx="100" cy="92" rx="34" ry="40" fill={ink} fillOpacity="0.55" />
+        <ellipse
+          cx="100"
+          cy="92"
+          rx="34"
+          ry="40"
+          fill={ink}
+          fillOpacity="0.55"
+        />
         <path
           d="M52 250 C 52 178, 78 142, 100 142 C 122 142, 148 178, 148 250 Z"
           fill={ink}
@@ -177,7 +186,7 @@ export function PlaceholderImage({
       role={showImg ? undefined : "img"}
       aria-label={label ?? "Photo placeholder"}
       className={cn(
-        "relative w-full overflow-hidden rounded-2xl bg-cream-light",
+        "relative w-full overflow-hidden rounded-xl bg-cream-light",
         aspect,
         className
       )}

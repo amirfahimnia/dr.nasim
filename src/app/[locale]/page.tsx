@@ -5,7 +5,6 @@ import { Hero } from "@/components/hero/Hero";
 import { Services } from "@/components/services/Services";
 import { BeforeAfter } from "@/components/before-after/BeforeAfter";
 import { About } from "@/components/about/About";
-import { Statistics } from "@/components/statistics/Statistics";
 import { Testimonials } from "@/components/testimonials/Testimonials";
 import { CallToAction } from "@/components/cta/CallToAction";
 import { Footer } from "@/components/footer/Footer";
@@ -32,7 +31,6 @@ export default async function HomePage({ params }: Props) {
         <Services />
         <BeforeAfter />
         <About />
-        <Statistics />
         <Testimonials />
         <CallToAction />
       </main>

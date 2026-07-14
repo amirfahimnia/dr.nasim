@@ -36,17 +36,15 @@ export function BookingCTA({
     const el = ref.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting && !firedRef.current) {
-            firedRef.current = true;
-            el.classList.add("animate-cta-attention");
-            io.disconnect();
-          }
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting && !firedRef.current) {
+          firedRef.current = true;
+          el.classList.add("animate-cta-attention");
+          io.disconnect();
         }
       }
-    );
+    });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -58,8 +56,8 @@ export function BookingCTA({
       onClick={onClick}
       aria-label={t("bookAppointment")}
       className={cn(
-        "inline-flex items-center justify-center gap-1.5 rounded-full bg-[var(--color-cyan)] font-medium text-white shadow-sm",
-        "transition-all duration-200 hover:bg-[var(--color-cyan-deep)] hover:shadow-md active:scale-[0.97]",
+        "inline-flex items-center justify-center gap-1.5 rounded-full bg-[var(--color-nasim-purple)] font-medium text-white shadow-sm",
+        "transition-all duration-200 hover:bg-[var(--color-nasim-purple-deep)] hover:shadow-md active:scale-[0.97]",
         size === "md"
           ? "w-full gap-2 px-4 py-3 text-base"
           : "h-9 px-3 text-xs sm:gap-2 sm:px-4 sm:text-sm",

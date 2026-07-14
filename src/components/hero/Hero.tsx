@@ -21,7 +21,7 @@ export async function Hero() {
           on the end side. */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/hero.png"
+          src="/images/dr-nasim-hero-bg.jpg"
           alt=""
           fill
           priority

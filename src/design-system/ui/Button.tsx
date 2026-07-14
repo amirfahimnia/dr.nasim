@@ -38,21 +38,14 @@ const sizeStyles: Record<ButtonSize, string> = {
   lg: "h-14 px-8 text-base rounded-full"
 };
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
-    {
-      className,
-      variant = "gold",
-      size = "md",
-      type = "button",
-      ...props
-    },
+    { className, variant = "red", size = "md", type = "button", ...props },
     ref
   ) {
     return (

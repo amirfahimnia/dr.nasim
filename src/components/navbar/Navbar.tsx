@@ -13,7 +13,6 @@ import { BookingCTA } from "@/components/navbar/BookingCTA";
 import { LanguageDropdown } from "@/components/navbar/LanguageDropdown";
 
 const NAV_KEYS = [
-  "home",
   "services",
   "results",
   "articles",
@@ -94,7 +93,7 @@ export function Navbar() {
               key={key}
               href={hrefFor(key)}
               className={cn(
-                "rounded-full px-4 py-2 text-sm transition-colors",
+                "rounded-full px-4 py-2 text-md transition-colors",
                 isActive(key)
                   ? "bg-cream-soft text-ink font-medium"
                   : "text-body hover:text-ink hover:bg-cream-soft/70"

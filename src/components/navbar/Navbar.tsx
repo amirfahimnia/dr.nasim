@@ -109,9 +109,10 @@ export function Navbar() {
           <a
             href="#contact"
             aria-label={t("bookAppointment")}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line bg-surface/70 text-ink transition-colors hover:bg-cream-soft hover:border-line/60 backdrop-blur-sm"
+            className="inline-flex h-9 items-center gap-1.5 rounded-full bg-cyan px-3 text-xs font-medium text-white shadow-sm transition-all duration-200 hover:bg-cyan-deep hover:shadow-md active:scale-[0.97] sm:gap-2 sm:px-4 sm:text-sm"
           >
             <CalendarIcon size={16} />
+            <span className="leading-none">{t("shortBookAppointment")}</span>
           </a>
           <button
             type="button"

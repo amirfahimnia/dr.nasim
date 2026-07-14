@@ -21,7 +21,8 @@
       "menuLabel": "Verfügbare Sprachen",
       "current": "Aktuelle Sprache"
     },
-    "bookAppointment": "Beratung buchen"
+    "bookAppointment": "Beratung buchen",
+    "shortBookAppointment": "Termin"
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",

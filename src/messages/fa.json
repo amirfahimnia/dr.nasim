@@ -21,7 +21,8 @@
       "menuLabel": "زبان‌های موجود",
       "current": "زبان فعلی"
     },
-    "bookAppointment": "رزرو نوبت مشاوره"
+    "bookAppointment": "رزرو نوبت مشاوره",
+    "shortBookAppointment": "رزرو نوبت"
   },
   "Hero": {
     "eyebrow": "دکتر نسیم غلامی",

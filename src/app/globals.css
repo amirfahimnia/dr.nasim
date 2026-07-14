@@ -18,6 +18,8 @@
   /* Accent */
   --color-sage: #8aa68e;
   --color-sage-deep: #6f8a73;
+  --color-cyan: #2991b9;
+  --color-cyan-deep: #1f7aa1;
 
   /* Ink */
   --color-ink: #2b2622;
@@ -73,6 +75,8 @@
   --color-eyebrow: var(--color-eyebrow);
   --color-sage: var(--color-sage);
   --color-sage-deep: var(--color-sage-deep);
+  --color-cyan: var(--color-cyan);
+  --color-cyan-deep: var(--color-cyan-deep);
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
   --color-body: var(--color-body);

@@ -15,7 +15,12 @@
     },
     "phoneCta": "تماس فوری",
     "openMenu": "باز کردن منو",
-    "closeMenu": "بستن منو"
+    "closeMenu": "بستن منو",
+    "languageDropdown": {
+      "label": "تغییر زبان",
+      "menuLabel": "زبان‌های موجود",
+      "current": "زبان فعلی"
+    }
   },
   "Hero": {
     "eyebrow": "دکتر نسیم غلامی",
@@ -100,10 +105,22 @@
   },
   "Statistics": {
     "items": [
-      { "value": "+2000", "label": "مراجع راضی" },
-      { "value": "+6", "label": "سال تجربه کاری" },
-      { "value": "+15", "label": "دوره تخصصی" },
-      { "value": "100%", "label": "رضایت مراجعین" }
+      {
+        "value": "+2000",
+        "label": "مراجع راضی"
+      },
+      {
+        "value": "+6",
+        "label": "سال تجربه کاری"
+      },
+      {
+        "value": "+15",
+        "label": "دوره تخصصی"
+      },
+      {
+        "value": "100%",
+        "label": "رضایت مراجعین"
+      }
     ]
   },
   "Testimonials": {

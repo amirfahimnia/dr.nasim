@@ -160,6 +160,16 @@ html[dir="ltr"] body {
 }
 
 /* ----------------------------------------------------------------------------
+ * Locale-aware mirror
+ * When <html dir="rtl"> is active, any element with `.flip-rtl` is mirrored
+ * horizontally around its vertical centre. Used on the hero photo so the
+ * portrait feels natural on Persian RTL pages.
+ * --------------------------------------------------------------------------*/
+html[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* ----------------------------------------------------------------------------
  * Motion — gentle, defensive
  * --------------------------------------------------------------------------*/
 @keyframes fade-up {

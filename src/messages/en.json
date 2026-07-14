@@ -15,7 +15,12 @@
     },
     "phoneCta": "Call now",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "languageDropdown": {
+      "label": "Change language",
+      "menuLabel": "Available languages",
+      "current": "Current language"
+    }
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",

@@ -12,7 +12,7 @@ export async function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden pb-24 pt-8 sm:pb-28 sm:pt-10 lg:pb-32 lg:pt-14"
+      className="relative isolate overflow-hidden"
       aria-labelledby="hero-title"
     >
       {/* Full-bleed background photograph with cream gradient for text legibility.
@@ -26,11 +26,7 @@ export async function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-cream-95 via-cream/80 to-cream-30 rtl:bg-gradient-to-l"
+          className="object-cover object-right flip-rtl"
         />
       </div>
 

@@ -98,6 +98,25 @@ export function TelegramIcon(props: IconProps) {
   );
 }
 
+export function GlobeIcon(props: IconProps) {
+  return (
+    <svg {...withDefaults(props)}>
+      <circle cx="12" cy="12" r="9.25" />
+      <path d="M3 12h18" />
+      <path d="M12 2.75c2.6 3 4 6 4 9.25s-1.4 6.25-4 9.25c-2.6-3-4-6-4-9.25s1.4-6.25 4-9.25Z" />
+    </svg>
+  );
+}
+
+export function ChevronDownIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: props.strokeWidth ?? 1.8 });
+  return (
+    <svg {...p}>
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+
 export function WhatsappIcon(props: IconProps) {
   return (
     <svg {...withDefaults(props)}>

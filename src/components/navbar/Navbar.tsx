@@ -12,6 +12,7 @@ import {
   MenuIcon,
   PhoneIcon
 } from "@/design-system/icons";
+import { LanguageDropdown } from "@/components/navbar/LanguageDropdown";
 
 const NAV_KEYS = ["home", "services", "results", "articles", "about", "contact"] as const;
 
@@ -109,17 +110,20 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile menu trigger */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cream-soft text-ink lg:hidden"
-          aria-label={open ? t("closeMenu") : t("openMenu")}
-          aria-expanded={open}
-          aria-controls="primary-mobile-nav"
-        >
-          {open ? <CloseIcon /> : <MenuIcon />}
-        </button>
+        {/* End-side cluster: language dropdown + mobile hamburger */}
+        <div className="flex items-center gap-2">
+          <LanguageDropdown />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cream-soft text-ink lg:hidden"
+            aria-label={open ? t("closeMenu") : t("openMenu")}
+            aria-expanded={open}
+            aria-controls="primary-mobile-nav"
+          >
+            {open ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}

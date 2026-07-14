@@ -2,6 +2,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 
 import { Container } from "@/design-system/ui/Container";
 import { brand } from "@/design-system/tokens";
+import Image from "next/image";
 import { PhoneIcon, InstagramIcon, TelegramIcon, WhatsappIcon } from "@/design-system/icons";
 
 const NAV_KEYS = ["home", "services", "results", "articles", "about", "contact"] as const;
@@ -36,14 +37,14 @@ export async function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-gold/15 ring-1 ring-gold/30">
-                <svg viewBox="0 0 24 24" className="h-5 w-5 text-gold-soft" aria-hidden>
-                  <path
-                    fill="currentColor"
-                    d="M12 2c5 4 7 8 7 11a7 7 0 1 1-14 0c0-3 2-7 7-11Zm0 5.5c-2 3-3 5.5-3 7a3 3 0 0 0 6 0c0-1.5-1-4-3-7Z"
-                  />
-                </svg>
-              </span>
+              <Image
+                src="/images/logo.svg"
+                alt=""
+                width={80}
+                height={54}
+                unoptimized
+                className="h-8 w-auto brightness-150 drop-shadow-[0_0_6px_rgba(248,244,239,0.18)]"
+              />
               <span className="text-base font-semibold text-cream">
                 {brand.name}
               </span>

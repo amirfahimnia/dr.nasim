@@ -117,6 +117,18 @@ export function ChevronDownIcon(props: IconProps) {
   );
 }
 
+export function CalendarIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: 1.6 });
+  return (
+    <svg {...p}>
+      <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
+      <path d="M3.5 10h17" />
+      <path d="M8 3.5v3M16 3.5v3" />
+      <circle cx="12" cy="14" r="1.05" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export function WhatsappIcon(props: IconProps) {
   return (
     <svg {...withDefaults(props)}>

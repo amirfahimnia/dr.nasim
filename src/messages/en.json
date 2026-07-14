@@ -20,7 +20,8 @@
       "label": "Change language",
       "menuLabel": "Available languages",
       "current": "Current language"
-    }
+    },
+    "bookAppointment": "Book consultation"
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",

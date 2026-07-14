@@ -55,7 +55,7 @@ export async function Services() {
             return (
               <li
                 key={key}
-                className="group flex flex-col rounded-2xl bg-surface p-3 shadow-xs ring-1 ring-line/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="group flex flex-col rounded-xl bg-surface p-3 shadow-xs ring-1 ring-line/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
               >
                 <PlaceholderImage
                   tone="soft"

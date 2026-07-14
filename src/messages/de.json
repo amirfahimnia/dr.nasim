@@ -20,7 +20,8 @@
       "label": "Sprache ändern",
       "menuLabel": "Verfügbare Sprachen",
       "current": "Aktuelle Sprache"
-    }
+    },
+    "bookAppointment": "Beratung buchen"
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",

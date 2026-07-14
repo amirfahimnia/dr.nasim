@@ -2,15 +2,16 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
 import { brand } from "@/design-system/tokens";
 import { cn } from "@/lib/cn";
 import {
+  CalendarIcon,
   CloseIcon,
-  MenuIcon,
-  PhoneIcon
+  MenuIcon
 } from "@/design-system/icons";
 import { LanguageDropdown } from "@/components/navbar/LanguageDropdown";
 
@@ -63,30 +64,22 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
-        {/* Phone CTA — visual left on LTR, right on RTL */}
-        <a
-          href={`tel:${brand.phone.tel}`}
-          className="hidden items-center gap-2 rounded-full bg-sage px-5 py-2.5 text-sm font-medium text-surface shadow-sm transition hover:bg-sage-deep hover:shadow-md sm:inline-flex"
-          aria-label={brand.phone.display}
-        >
-          <PhoneIcon size={16} />
-          <span dir="ltr">{brand.phone.display}</span>
-        </a>
 
-        {/* Brand logo — always centred on mobile, right-of-nav on desktop */}
+
         <Link
           href={`/${locale}`}
-          className="flex items-center gap-2 lg:order-first"
+          className="flex items-center gap-2.5 lg:order-first"
           aria-label={brand.name}
         >
-          <span className="grid h-10 w-10 place-items-center rounded-full bg-gold/15 ring-1 ring-gold/30">
-            <svg viewBox="0 0 24 24" className="h-5 w-5 text-gold-deep" aria-hidden>
-              <path
-                fill="currentColor"
-                d="M12 2c5 4 7 8 7 11a7 7 0 1 1-14 0c0-3 2-7 7-11Zm0 5.5c-2 3-3 5.5-3 7a3 3 0 0 0 6 0c0-1.5-1-4-3-7Z"
-              />
-            </svg>
-          </span>
+          <Image
+            src="/images/logo.svg"
+            alt=""
+            width={80}
+            height={54}
+            unoptimized
+            priority
+            className="h-9 sm:h-10 w-auto"
+          />
           <span className="hidden text-[15px] font-semibold text-ink sm:inline">
             {tBrand("brand")}
           </span>
@@ -110,9 +103,16 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* End-side cluster: language dropdown + mobile hamburger */}
+        {/* End-side cluster: language dropdown + appointment button + mobile hamburger */}
         <div className="flex items-center gap-2">
           <LanguageDropdown />
+          <a
+            href="#contact"
+            aria-label={t("bookAppointment")}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line bg-surface/70 text-ink transition-colors hover:bg-cream-soft hover:border-line/60 backdrop-blur-sm"
+          >
+            <CalendarIcon size={16} />
+          </a>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -150,15 +150,7 @@ export function Navbar() {
                 </Link>
               ))}
             </nav>
-            <div className="border-t border-line/60 p-3">
-              <a
-                href={`tel:${brand.phone.tel}`}
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-sage px-5 py-3 text-sm font-medium text-surface"
-              >
-                <PhoneIcon size={16} />
-                <span dir="ltr">{brand.phone.display}</span>
-              </a>
-            </div>
+
           </div>
         </div>
       ) : null}

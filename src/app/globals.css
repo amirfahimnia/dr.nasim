@@ -97,57 +97,65 @@
 
 /* ----------------------------------------------------------------------------
  * Reset + base typography
+ *
+ * Wrapped in `@layer base` so Tailwind v4's utilities (which live in
+ * `@layer utilities`) can override these declarations as intended. Without
+ * this layer wrapping, ALL unlayered rules win over Tailwind utilities per the
+ * CSS Cascade Layers spec — making `text-white`, `text-xs`, `font-medium`,
+ * `hover:*`, etc. silently lose on `<a>` and `<button>` elements.
  * --------------------------------------------------------------------------*/
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-}
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
 
-body {
-  margin: 0;
-  background: var(--color-cream);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-synthesis: none;
-}
+  body {
+    margin: 0;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+  }
 
-button,
-a,
-input,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-img,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-}
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
 
-/* Logical alignment helpers — RTL friendly */
-html[dir="rtl"] body {
-  text-align: right;
-}
-html[dir="ltr"] body {
-  text-align: left;
+  /* Logical alignment helpers — RTL friendly */
+  html[dir="rtl"] body {
+    text-align: right;
+  }
+  html[dir="ltr"] body {
+    text-align: left;
+  }
 }
 
 /* Focus ring — calm, brand-coloured */
@@ -189,6 +197,36 @@ html[dir="rtl"] .flip-rtl {
 
 .animate-fade-up {
   animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+/* ----------------------------------------------------------------------------
+ * Cta attention — plays once when the booking CTA first intersects the
+ * viewport. Designed to be inviting, not noisy. A gentle scale-up + a
+ * cyan halo blooms outward, then settles. Single iteration by default;
+ * silenced for users with prefers-reduced-motion via the global media
+ * query further down.
+ * --------------------------------------------------------------------------*/
+@keyframes cta-attention-in {
+  0% {
+    transform: scale(0.985);
+    box-shadow: 0 0 0 0 rgba(41, 145, 185, 0);
+  }
+  20% {
+    transform: scale(1.045);
+    box-shadow: 0 0 0 8px rgba(41, 145, 185, 0.35);
+  }
+  60% {
+    transform: scale(1.012);
+    box-shadow: 0 0 0 14px rgba(41, 145, 185, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(41, 145, 185, 0);
+  }
+}
+
+.animate-cta-attention {
+  animation: cta-attention-in 1.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

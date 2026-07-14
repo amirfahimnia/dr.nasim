@@ -8,14 +8,18 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { brand } from "@/design-system/tokens";
 import { cn } from "@/lib/cn";
-import {
-  CalendarIcon,
-  CloseIcon,
-  MenuIcon
-} from "@/design-system/icons";
+import { CloseIcon, MenuIcon } from "@/design-system/icons";
+import { BookingCTA } from "@/components/navbar/BookingCTA";
 import { LanguageDropdown } from "@/components/navbar/LanguageDropdown";
 
-const NAV_KEYS = ["home", "services", "results", "articles", "about", "contact"] as const;
+const NAV_KEYS = [
+  "home",
+  "services",
+  "results",
+  "articles",
+  "about",
+  "contact"
+] as const;
 
 export function Navbar() {
   const t = useTranslations("Navigation");
@@ -64,8 +68,6 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
-
-
         <Link
           href={`/${locale}`}
           className="flex items-center gap-2.5 lg:order-first"
@@ -106,14 +108,7 @@ export function Navbar() {
         {/* End-side cluster: language dropdown + appointment button + mobile hamburger */}
         <div className="flex items-center gap-2">
           <LanguageDropdown />
-          <a
-            href="#contact"
-            aria-label={t("bookAppointment")}
-            className="inline-flex h-9 items-center gap-1.5 rounded-full bg-cyan px-3 text-xs font-medium text-white shadow-sm transition-all duration-200 hover:bg-cyan-deep hover:shadow-md active:scale-[0.97] sm:gap-2 sm:px-4 sm:text-sm"
-          >
-            <CalendarIcon size={16} />
-            <span className="leading-none">{t("shortBookAppointment")}</span>
-          </a>
+          <BookingCTA />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -152,6 +147,10 @@ export function Navbar() {
               ))}
             </nav>
 
+            {/* Bottom CTA — booking */}
+            <div className="border-t border-line/60 p-2">
+              <BookingCTA size="md" onClick={() => setOpen(false)} />
+            </div>
           </div>
         </div>
       ) : null}

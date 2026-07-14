@@ -1,13 +1,24 @@
 import * as React from "react";
 import { cn } from "@/lib/cn";
 
-type ButtonVariant = "gold" | "sage" | "ghost" | "ink" | "outline-light";
+type ButtonVariant =
+  | "gold"
+  | "purple"
+  | "sage"
+  | "ghost"
+  | "ink"
+  | "outline-light";
 type ButtonSize = "sm" | "md" | "lg";
 
 const variantStyles: Record<ButtonVariant, string> = {
   gold: [
     "bg-gold text-surface shadow-sm",
     "hover:bg-gold-deep hover:shadow-md",
+    "active:scale-[0.98]"
+  ].join(" "),
+  purple: [
+    "bg-[var(--color-nasim-purple)] text-white shadow-sm",
+    "hover:bg-[var(--color-nasim-purple-deep)] hover:shadow-md hover:shadow-[var(--color-nasim-purple-deep)]/20",
     "active:scale-[0.98]"
   ].join(" "),
   sage: [
@@ -45,7 +56,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
-    { className, variant = "red", size = "md", type = "button", ...props },
+    { className, variant = "purple", size = "md", type = "button", ...props },
     ref
   ) {
     return (

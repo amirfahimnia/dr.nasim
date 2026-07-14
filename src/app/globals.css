@@ -216,24 +216,87 @@ html[dir="rtl"] .flip-rtl {
 @keyframes cta-attention-in {
   0% {
     transform: scale(0.985);
-    box-shadow: 0 0 0 0 rgba(41, 145, 185, 0);
+    box-shadow: 0 0 0 0 rgba(146, 63, 114, 0);
   }
   20% {
     transform: scale(1.045);
-    box-shadow: 0 0 0 8px rgba(41, 145, 185, 0.35);
+    box-shadow: 0 0 0 8px rgba(146, 63, 114, 0.35);
   }
   60% {
     transform: scale(1.012);
-    box-shadow: 0 0 0 14px rgba(41, 145, 185, 0);
+    box-shadow: 0 0 0 14px rgba(146, 63, 114, 0);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(41, 145, 185, 0);
+    box-shadow: 0 0 0 0 rgba(146, 63, 114, 0);
   }
 }
 
 .animate-cta-attention {
   animation: cta-attention-in 1.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+/* ----------------------------------------------------------------------------
+ * Footer aurora + marquee
+ * Slow, drifting radial orbs give the dark footer its luminous glow; the
+ * marquee plays a horizontal ticker of brand words. Both honour
+ * prefers-reduced-motion via the global media query at the bottom of the
+ * file.
+ * --------------------------------------------------------------------------*/
+@keyframes orb-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(20px, -16px, 0) scale(1.06);
+  }
+}
+
+.animate-orb-drift {
+  animation: orb-drift 24s ease-in-out infinite;
+}
+
+/* Marquee — drift the row in LTR (-50% lands on next duplicated copy). */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* RTL — drift in the opposite direction so reading direction still feels
+   natural on Persian pages. */
+@keyframes marquee-rtl {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 42s linear infinite;
+  will-change: transform;
+}
+
+html[dir="rtl"] .animate-marquee {
+  animation-name: marquee-rtl;
+}
+
+/* Soft film-grain for the dark luxe footer surface. Pure CSS so it has no
+   runtime cost. */
+.bg-grain {
+  background-image: radial-gradient(
+      rgba(248, 244, 239, 0.045) 1px,
+      transparent 1px
+    ),
+    radial-gradient(rgba(248, 244, 239, 0.03) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 1px;
 }
 
 @media (prefers-reduced-motion: reduce) {

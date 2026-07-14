@@ -47,13 +47,11 @@ export function Navbar() {
   }, [open]);
 
   const hrefFor = (key: (typeof NAV_KEYS)[number]) => {
-    const slug =
-      key === "home" ? "" : key === "services" ? "#services" : `#${key}`;
-    return `/${locale}${slug}`;
+    return `/${locale}#${key}`;
   };
 
   const isActive = (key: (typeof NAV_KEYS)[number]) => {
-    if (key === "home") return pathname === `/${locale}`;
+    if (key === "services") return pathname === `/${locale}#services`;
     return pathname.includes(`#${key}`);
   };
 

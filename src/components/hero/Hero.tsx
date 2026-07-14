@@ -60,7 +60,7 @@ export async function Hero() {
             </p>
 
             <div className="mt-2 flex flex-wrap items-center gap-3">
-              <Button variant="gold" size="lg" className="gap-2">
+              <Button variant="purple" size="lg" className="gap-2">
                 {t("primaryAction")}
                 <ArrowLeftIcon size={16} />
               </Button>

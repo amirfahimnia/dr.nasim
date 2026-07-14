@@ -133,7 +133,30 @@
       "social": "Follow us"
     },
     "rights": "All rights reserved.",
-    "credit": "Designed & built by"
+    "credit": "Designed & built by",
+    "backToTopAria": "Back to top",
+    "signature": {
+      "eyebrow": "An invitation",
+      "title": "Let's begin your story.",
+      "note": "A short message — by phone, WhatsApp or a single tap — is all it takes to meet Dr Nasim in person and design the version of you that already feels true."
+    },
+    "reservationCard": {
+      "eyebrow": "Reservation",
+      "title": "Speak directly",
+      "note": "Confidential, unhurried. A 15-minute discovery call — we'll listen, advise, and only ever suggest what feels right.",
+      "phoneLabel": "Direct line"
+    },
+    "visitHeading": "Visit the studio",
+    "addressLabel": "Address",
+    "hoursLabel": "Hours",
+    "exploreHeading": "Explore",
+    "marquee": {
+      "label1": "Aesthetic Medicine",
+      "label2": "Skin Health",
+      "label3": "Naturally You",
+      "label4": "Dr. Nasim Gholami",
+      "label5": "Est. Tehran 2019"
+    }
   },
   "Common": {
     "bookConsultation": "Book consultation",

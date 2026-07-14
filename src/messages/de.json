@@ -133,7 +133,30 @@
       "social": "Folgen Sie uns"
     },
     "rights": "Alle Rechte vorbehalten.",
-    "credit": "Design & Entwicklung"
+    "credit": "Design & Entwicklung",
+    "backToTopAria": "Nach oben",
+    "signature": {
+      "eyebrow": "Eine Einladung",
+      "title": "Beginnen wir Ihre Geschichte.",
+      "note": "Eine kurze Nachricht — per Telefon, WhatsApp oder mit einem Fingertipp — genügt, um Dr. Nasim persönlich zu treffen und die Version Ihrer selbst zu gestalten, die sich schon lange richtig anfühlt."
+    },
+    "reservationCard": {
+      "eyebrow": "Termin",
+      "title": "Direkt sprechen",
+      "note": "Vertraulich, in Ruhe. Ein 15-min\u00fctiges Erstgespr\u00e4ch — wir h\u00f6ren zu, beraten und empfehlen nur, was sich stimmig anf\u00fchlt.",
+      "phoneLabel": "Direktwahl"
+    },
+    "visitHeading": "Studio besuchen",
+    "addressLabel": "Adresse",
+    "hoursLabel": "Öffnungszeiten",
+    "exploreHeading": "Entdecken",
+    "marquee": {
+      "label1": "Ästhetische Medizin",
+      "label2": "Hautgesundheit",
+      "label3": "Natürlich Sie",
+      "label4": "Dr. Nasim Gholami",
+      "label5": "Gegründet Teheran 2019"
+    }
   },
   "Common": {
     "bookConsultation": "Beratung buchen",

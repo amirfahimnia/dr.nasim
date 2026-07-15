@@ -1,0 +1,41 @@
+/* ----------------------------------------------------------------------------
+ * .section — full-bleed section wrapper with theme + spacing modifiers.
+ * Tone and spacing are independent — combine as needed: e.g.
+ *   className="section section--dark section--lg"
+ * --------------------------------------------------------------------------*/
+.section {
+  position: relative;
+}
+
+/* tone (background + base text colour) */
+.section--default {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+.section--soft {
+  background: var(--color-cream-soft);
+  color: var(--color-ink);
+}
+.section--dark {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+.section--white {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+/* spacing (vertical padding) */
+.section--md { padding-block: 4rem; }
+@media (min-width: 640px) { .section--md { padding-block: 5rem; } }
+
+.section--lg { padding-block: 5rem; }
+@media (min-width: 640px) { .section--lg { padding-block: 7rem; } }
+
+.section--xl { padding-block: 6rem; }
+@media (min-width: 640px) { .section--xl { padding-block: 8rem; } }
+
+/* divider — paired with any tone */
+.section--divider {
+  border-block-start: 1px solid rgba(232, 221, 208, 0.6);
+}

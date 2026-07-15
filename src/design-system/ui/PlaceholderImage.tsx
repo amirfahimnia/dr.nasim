@@ -7,18 +7,16 @@ import { cn } from "@/lib/cn";
 type PlaceholderTone = "warm" | "soft" | "ink" | "rose";
 type PlaceholderKind = "portrait" | "service" | "abstract";
 
-export interface PlaceholderImageProps extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  "onError"
-> {
+export interface PlaceholderImageProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onError"> {
   /** Accessible label for the image (also rendered as small caption if no src). */
   label?: string;
   /** Visual tone used for the SVG fallback. */
   tone?: PlaceholderTone;
   /** Which motif to draw when no `src` is provided. */
   kind?: PlaceholderKind;
-  /** Tailwind aspect-ratio utility, e.g. "aspect-[4/5]", "aspect-square". */
-  aspect?: string;
+  /** CSS `aspect-ratio` value, e.g. "4/5", "5/4", "1/1". Defaults to 4/5. */
+  ratio?: string;
   /** Optional small chip-style category (e.g. service name). */
   badge?: string;
 
@@ -50,7 +48,7 @@ function Portrait({ ink, rim }: { ink: string; rim: string }) {
   return (
     <svg
       viewBox="0 0 200 250"
-      className="h-full w-full"
+      className="placeholder-image__motif"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
     >
@@ -101,7 +99,7 @@ function ServiceArt({ ink, rim }: { ink: string; rim: string }) {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="h-full w-full"
+      className="placeholder-image__motif"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
     >
@@ -131,7 +129,7 @@ function Abstract({ ink, rim }: { ink: string; rim: string }) {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="h-full w-full"
+      className="placeholder-image__motif"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
     >
@@ -171,10 +169,11 @@ export function PlaceholderImage({
   label,
   tone = "warm",
   kind = "portrait",
-  aspect = "aspect-[4/5]",
+  ratio = "4/5",
   badge,
   src,
   className,
+  style,
   ...props
 }: PlaceholderImageProps) {
   const palette = palettes[tone];
@@ -185,11 +184,8 @@ export function PlaceholderImage({
     <div
       role={showImg ? undefined : "img"}
       aria-label={label ?? "Photo placeholder"}
-      className={cn(
-        "relative w-full overflow-hidden rounded-xl bg-cream-light",
-        aspect,
-        className
-      )}
+      className={cn("placeholder-image", className)}
+      style={{ aspectRatio: ratio, ...style }}
       {...props}
     >
       {showImg ? (
@@ -199,7 +195,7 @@ export function PlaceholderImage({
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           onError={() => setErrored(true)}
-          className="object-cover"
+          className="placeholder-image__img"
         />
       ) : kind === "portrait" ? (
         <Portrait ink={palette.ink} rim={palette.rim} />
@@ -210,22 +206,15 @@ export function PlaceholderImage({
       )}
 
       {badge ? (
-        <span className="absolute start-3 top-3 inline-flex items-center rounded-full bg-surface/90 px-3 py-1 text-xs font-medium text-ink shadow-xs backdrop-blur">
-          {badge}
-        </span>
+        <span className="placeholder-image__badge">{badge}</span>
       ) : null}
 
       {!showImg && label ? (
-        <span className="absolute inset-x-0 bottom-0 block bg-gradient-to-t from-black/20 to-transparent px-4 py-3 text-xs italic text-surface/85">
-          {label}
-        </span>
+        <span className="placeholder-image__caption">{label}</span>
       ) : null}
 
       {IS_DEV && src ? (
-        <span
-          aria-hidden
-          className="pointer-events-none absolute end-3 bottom-3 hidden rounded-full bg-ink/80 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-cream/90 sm:inline"
-        >
+        <span aria-hidden className="placeholder-image__dev-path">
           {src.replace(/^\/images\//, "")}
         </span>
       ) : null}

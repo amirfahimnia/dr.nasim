@@ -1,0 +1,150 @@
+/* ----------------------------------------------------------------------------
+ * .cta — booking nudge section. A glassy surface card over a warm gradient
+ * background with two blurred ambient orbs. Decorative floral motif appears
+ * only on md+.
+ * --------------------------------------------------------------------------*/
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: 5rem;
+}
+@media (min-width: 640px) { .cta { padding-block: 6rem; } }
+
+.cta__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-cream-soft) 0%,
+    var(--color-cream-light) 50%,
+    var(--color-cream-soft) 100%
+  );
+}
+
+.cta__orb {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.cta__orb--gold-tl {
+  inset-block-start: -6rem;
+  inset-inline-start: 0;
+  height: 18rem;
+  width: 18rem;
+  background: rgba(180, 135, 79, 0.15);
+}
+
+.cta__orb--sage-br {
+  inset-block-end: -6rem;
+  inset-inline-end: 0;
+  height: 20rem;
+  width: 20rem;
+  background: rgba(138, 166, 142, 0.15);
+}
+
+.cta__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 1.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  outline: 1px solid rgba(232, 221, 208, 0.5);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+@media (min-width: 640px) { .cta__card { padding: 3rem; } }
+@media (min-width: 768px) {
+  .cta__card {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: start;
+  }
+}
+
+.cta__motif {
+  display: none;
+  flex-shrink: 0;
+  height: 8rem;
+  width: 8rem;
+  color: rgba(180, 135, 79, 0.45);
+}
+@media (min-width: 768px) { .cta__motif { display: block; } }
+
+.cta__body { flex: 1; }
+
+.cta__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+@media (min-width: 640px) { .cta__title { font-size: 1.875rem; } }
+
+.cta__description {
+  margin-block-start: 0.75rem;
+  max-width: 36rem;
+  margin-inline: auto;
+  font-size: var(--text-base);
+  line-height: 1.75rem;
+  color: var(--color-body);
+}
+@media (min-width: 768px) { .cta__description { margin-inline: 0; } }
+
+.cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) { .cta__actions { flex-direction: row; } }
+@media (min-width: 768px) { .cta__actions { flex-direction: column; } }
+
+.cta__phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border: 1px solid var(--color-sage);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+
+.cta__phone:hover {
+  background: var(--color-sage);
+  color: var(--color-surface);
+}
+
+.cta__phone-label {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  line-height: 1.4;
+}
+
+.cta__phone-caption {
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--color-body);
+}
+
+.cta__phone:hover .cta__phone-caption {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cta__phone-number {
+  display: block;
+  direction: ltr;
+}

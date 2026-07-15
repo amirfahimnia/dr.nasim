@@ -11,7 +11,6 @@ import {
   CalendarIcon,
   ArrowLeftIcon
 } from "@/design-system/icons";
-import { cn } from "@/lib/cn";
 
 const NAV_KEYS = [
   "services",
@@ -59,53 +58,35 @@ export async function Footer() {
   return (
     <footer
       id="footer"
-      className="relative isolate overflow-hidden bg-ink text-cream"
+      className="footer"
       aria-labelledby="footer-heading"
     >
-      {/* ── Decorative background ─────────────────────────────────────────── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-      >
-        {/* Aurora orbs — slow, omnidirectional drift. Motion-safe via global
-            prefers-reduced-motion media query. */}
-        <div className="animate-orb-drift absolute -top-48 start-[-12%] h-[30rem] w-[30rem] rounded-full bg-[var(--color-nasim-purple)]/35 blur-[120px]" />
-        <div
-          className="animate-orb-drift absolute top-[28%] end-[-12%] h-[26rem] w-[26rem] rounded-full bg-gold/20 blur-[140px]"
-          style={{ animationDelay: "-9s", animationDuration: "32s" }}
-        />
-        <div
-          className="animate-orb-drift absolute bottom-[-12%] start-[28%] h-[24rem] w-[24rem] rounded-full bg-[var(--color-nasim-purple-deep)]/45 blur-[130px]"
-          style={{ animationDelay: "-18s", animationDuration: "38s" }}
-        />
+      {/* Decorative background */}
+      <div aria-hidden className="footer__bg">
+        {/* Aurora orbs — slow, omnidirectional drift */}
+        <div className="footer__orb footer__orb--purple-tr" />
+        <div className="footer__orb footer__orb--gold-mr" />
+        <div className="footer__orb footer__orb--purple-deep-bl" />
 
         {/* Print-style grain */}
-        <div className="bg-grain absolute inset-0 opacity-60 mix-blend-overlay" />
+        <div className="footer__grain" />
 
         {/* Top hairline */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-soft/45 to-transparent" />
+        <div className="footer__hairline" />
       </div>
 
-      <h2 id="footer-heading" className="sr-only">
+      <h2 id="footer-heading" className="footer__heading">
         {brand.name} — {tF("sections.navigation")}
       </h2>
 
       <Container>
-        {/* ── 1. Marquee strip ────────────────────────────────────────────── */}
-        <div
-          aria-hidden
-          className="-mx-5 sm:-mx-8 lg:-mx-12 mb-16 flex overflow-hidden border-y border-cream/10 py-5"
-        >
-          <div className="flex shrink-0 animate-marquee items-center gap-10 whitespace-nowrap px-6 will-change-transform">
+        {/* 1. Marquee strip */}
+        <div aria-hidden className="footer__marquee">
+          <div className="footer__marquee-track">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
               (item, i) => (
-                <span
-                  key={i}
-                  className="flex items-center gap-10 text-[13px] font-medium uppercase tracking-[0.22em] text-cream/55"
-                >
-                  <span className="text-[var(--color-nasim-purple)]/80">
-                    ✦
-                  </span>
+                <span key={i} className="footer__marquee-item">
+                  <span className="footer__marquee-bullet">✦</span>
                   <span>{item}</span>
                 </span>
               )
@@ -113,144 +94,141 @@ export async function Footer() {
           </div>
         </div>
 
-        {/* ── 2. Signature hero ───────────────────────────────────────────── */}
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
+        {/* 2. Signature hero */}
+        <div className="footer__signature">
           {/* Oversized display statement */}
-          <div className="lg:col-span-7">
-            <p className="flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.24em] text-gold-soft">
-              <span className="block h-px w-10 bg-gold-soft/70" />
+          <div className="footer__signature-text">
+            <p className="footer__signature-eyebrow">
+              <span className="footer__signature-eyebrow-rule" />
               <span>{tF("signature.eyebrow")}</span>
             </p>
 
-            <p className="mt-6 font-semibold leading-[0.95] tracking-tight text-cream text-[clamp(2.75rem,7.2vw,5.75rem)]">
+            <p className="footer__signature-title">
               {tF("signature.title")}
             </p>
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-cream/85 sm:text-lg">
+            <p className="footer__signature-note">
               {tF("signature.note")}
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a
-                href="#contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-nasim-purple)] px-7 py-4 text-base font-medium text-white shadow-lg shadow-[var(--color-nasim-purple-deep)]/30 transition-all duration-300 hover:scale-[1.02] hover:bg-[var(--color-nasim-purple-deep)] hover:shadow-xl hover:shadow-[var(--color-nasim-purple-deep)]/40"
-              >
+            <div className="footer__signature-actions">
+              <a href="#contact" className="footer__signature-cta">
                 <CalendarIcon size={18} />
                 <span>{tNav("bookAppointment")}</span>
                 <ArrowLeftIcon
                   size={16}
-                  className="transition-transform duration-300 group-hover:-translate-x-1 rtl:group-hover:translate-x-1"
+                  className="footer__signature-cta-arrow flip-rtl"
                 />
               </a>
               <a
                 href={`tel:${brand.phone.tel}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-cream/25 px-6 py-4 text-base text-cream/90 transition-all duration-200 hover:border-gold-soft hover:bg-cream/5 hover:text-cream"
+                className="footer__signature-phone"
               >
-                <PhoneIcon size={18} className="text-gold-soft" />
-                <span dir="ltr">{brand.phone.display}</span>
+                <PhoneIcon
+                  size={18}
+                  className="footer__signature-phone-icon"
+                />
+                <span dir="ltr" className="footer__signature-phone-number">
+                  {brand.phone.display}
+                </span>
               </a>
             </div>
           </div>
 
           {/* Glassmorphic reservation card */}
-          <div className="lg:col-span-5">
-            <div className="group/cta relative overflow-hidden rounded-3xl border border-cream/15 bg-cream/[0.07] p-7 shadow-[0_24px_60px_-32px_rgba(146,63,114,0.55)] backdrop-blur-md sm:p-8">
+          <div className="footer__reservation">
+            <div className="footer__reservation-card">
               {/* internal gradient wash */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-[var(--color-nasim-purple)]/30 via-transparent to-gold/15"
+                className="footer__reservation-wash"
               />
               {/* a single hair-thin gold line top edge */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-gold-soft/60 to-transparent"
+                className="footer__reservation-hairline"
               />
 
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gold-soft">
+              <p className="footer__reservation-eyebrow">
                 {tF("reservationCard.eyebrow")}
               </p>
-              <p className="mt-4 text-2xl font-semibold leading-tight tracking-tight text-cream sm:text-3xl">
+              <p className="footer__reservation-title">
                 {tF("reservationCard.title")}
               </p>
-              <p className="mt-3 text-sm leading-7 text-cream/80">
+              <p className="footer__reservation-note">
                 {tF("reservationCard.note")}
               </p>
 
-              <div className="mt-6 flex items-center gap-3 rounded-2xl border border-cream/12 bg-cream/[0.07] px-4 py-3">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-[var(--color-nasim-purple)]/30 text-[var(--color-nasim-purple)] ring-1 ring-[var(--color-nasim-purple)]/50">
+              <div className="footer__reservation-phone-row">
+                <span className="footer__reservation-phone-icon">
                   <PhoneIcon size={18} />
                 </span>
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream/70">
+                  <p className="footer__reservation-phone-label">
                     {tF("reservationCard.phoneLabel")}
                   </p>
                   <p
                     dir="ltr"
-                    className="text-base font-medium tracking-tight text-cream"
+                    className="footer__reservation-phone-number"
                   >
                     {brand.phone.display}
                   </p>
                 </div>
               </div>
 
-              <a
-                href="#contact"
-                className={cn(
-                  "group/cta mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-cream px-6 py-4 text-base font-medium text-ink shadow-sm transition-all duration-300 hover:bg-gold-soft hover:shadow-md"
-                )}
-              >
+              <a href="#contact" className="footer__reservation-cta">
                 <span>{tNav("bookAppointment")}</span>
                 <ArrowLeftIcon
                   size={16}
-                  className="transition-transform duration-300 group-hover/cta:-translate-x-1 rtl:group-hover/cta:translate-x-1"
+                  className="footer__reservation-cta-arrow flip-rtl"
                 />
               </a>
             </div>
           </div>
         </div>
 
-        {/* ── 3. Information grid ─────────────────────────────────────────── */}
-        <div className="mt-24 grid gap-12 border-t border-cream/10 pt-14 lg:grid-cols-12 lg:gap-10">
+        {/* 3. Information grid */}
+        <div className="footer__info">
           {/* Brand block */}
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-3">
+          <div className="footer__info-brand">
+            <div className="footer__info-brand-row">
               <Image
                 src="/images/logo.svg"
                 alt=""
                 width={80}
                 height={54}
                 unoptimized
-                className="h-10 w-auto brightness-150 drop-shadow-[0_0_6px_rgba(248,244,239,0.2)]"
+                className="footer__info-brand-logo"
               />
-              <span className="text-lg font-semibold tracking-tight text-cream">
+              <span className="footer__info-brand-name">
                 {brand.name}
               </span>
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-7 text-cream/70">
+            <p className="footer__info-brand-tagline">
               {brand.tagline[locale as "fa" | "en" | "de"] ??
                 brand.tagline.en}
             </p>
           </div>
 
           {/* Address + Hours as elegant stacked cards */}
-          <div className="lg:col-span-4">
-            <h3 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gold-soft">
+          <div className="footer__info-visit">
+            <h3 className="footer__info-heading">
               {tF("visitHeading")}
             </h3>
-            <ul className="mt-5 space-y-3">
-              <li className="rounded-2xl border border-cream/10 bg-cream/[0.05] px-5 py-4 backdrop-blur-sm transition-colors duration-300 hover:border-cream/25 hover:bg-cream/[0.08]">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-cream/70">
+            <ul className="footer__visit-list">
+              <li className="footer__visit-item">
+                <p className="footer__visit-item-label">
                   {tF("addressLabel")}
                 </p>
-                <p className="mt-1.5 text-sm leading-6 text-cream/85">
+                <p className="footer__visit-item-value">
                   {tF("address")}
                 </p>
               </li>
-              <li className="rounded-2xl border border-cream/10 bg-cream/[0.05] px-5 py-4 backdrop-blur-sm transition-colors duration-300 hover:border-cream/25 hover:bg-cream/[0.08]">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-cream/70">
+              <li className="footer__visit-item">
+                <p className="footer__visit-item-label">
                   {tF("hoursLabel")}
                 </p>
-                <p className="mt-1.5 text-sm leading-6 text-cream/85">
+                <p className="footer__visit-item-value">
                   {tF("hours")}
                 </p>
               </li>
@@ -258,18 +236,15 @@ export async function Footer() {
           </div>
 
           {/* Quick links + social pills */}
-          <div className="lg:col-span-4">
-            <h3 className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gold-soft">
+          <div className="footer__info-explore">
+            <h3 className="footer__info-heading">
               {tF("exploreHeading")}
             </h3>
-            <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+            <ul className="footer__explore-list">
               {NAV_KEYS.map((key) => (
                 <li key={key}>
-                  <a
-                    href={hrefFor(key)}
-                    className="inline-flex items-center gap-2 text-cream/85 transition-colors duration-200 hover:text-gold-soft"
-                  >
-                    <span className="flip-rtl text-[var(--color-nasim-purple)]/70">
+                  <a href={hrefFor(key)} className="footer__explore-link">
+                    <span className="footer__explore-link-arrow flip-rtl">
                       →
                     </span>
                     <span>{tNav(`items.${key}`)}</span>
@@ -278,7 +253,7 @@ export async function Footer() {
               ))}
             </ul>
 
-            <div className="mt-7 flex flex-wrap items-center gap-2">
+            <div className="footer__social-row">
               {[
                 {
                   href: brand.socials.instagram,
@@ -300,7 +275,7 @@ export async function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/[0.04] px-4 py-2.5 text-xs font-medium text-cream/85 backdrop-blur-sm transition-all duration-200 hover:scale-[1.02] hover:border-[var(--color-nasim-purple)]/60 hover:bg-[var(--color-nasim-purple)]/20 hover:text-cream"
+                  className="footer__social-pill"
                 >
                   <Icon size={14} />
                   {label}
@@ -311,30 +286,27 @@ export async function Footer() {
         </div>
       </Container>
 
-      {/* ── 4. Fine print + back-to-top ──────────────────────────────────── */}
-      <div className="mt-20 border-t border-cream/10">
+      {/* 4. Fine print + back-to-top */}
+      <div className="footer__fineprint">
         <Container>
-          <div className="flex flex-col items-start gap-4 py-7 text-xs text-cream/55 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-cream/70">
+          <div className="footer__fineprint-inner">
+            <p className="footer__fineprint-rights">
               © {year} {brand.name}. {tF("rights")}
             </p>
-            <div className="flex items-center gap-6">
-              <p>
+            <div className="footer__fineprint-right">
+              <p className="footer__fineprint-credit">
                 {tF("credit")} ·{" "}
-                <span className="text-cream/80">Dr. Nasim Studio</span>
+                <span>Dr. Nasim Studio</span>
               </p>
               <a
                 href="#home"
                 aria-label={tCommon("backToTop")}
-                className="group inline-flex items-center gap-2 rounded-full border border-cream/15 px-3.5 py-2 text-cream/85 transition-all duration-200 hover:border-gold-soft hover:bg-cream/5 hover:text-cream"
+                className="footer__top-link"
               >
-                <span className="uppercase tracking-[0.18em]">
+                <span className="footer__top-link-label">
                   {tCommon("backToTop")}
                 </span>
-                <span
-                  aria-hidden
-                  className="grid h-5 w-5 place-items-center rounded-full bg-cream/10 transition-transform duration-300 group-hover:-translate-y-0.5"
-                >
+                <span aria-hidden className="footer__top-link-arrow">
                   ↑
                 </span>
               </a>

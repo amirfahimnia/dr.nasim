@@ -1,5 +1,4 @@
 import * as React from "react";
-import { cn } from "@/lib/cn";
 
 type IconProps = React.SVGAttributes<SVGElement> & {
   size?: number;
@@ -9,7 +8,7 @@ type IconProps = React.SVGAttributes<SVGElement> & {
 function withDefaults({
   size = 20,
   strokeWidth = 1.6,
-  className,
+  style,
   ...rest
 }: IconProps) {
   return {
@@ -21,8 +20,8 @@ function withDefaults({
     strokeWidth,
     strokeLinecap: "round" as const,
     strokeLinejoin: "round" as const,
-    className: cn("shrink-0", className),
     "aria-hidden": true,
+    style: { flexShrink: 0, display: "block", ...style },
     ...rest
   };
 }

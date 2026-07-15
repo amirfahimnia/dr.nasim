@@ -80,7 +80,7 @@ export default async function LocaleLayout({
       className={`${vazirmatn.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-cream text-ink antialiased">
+      <body>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

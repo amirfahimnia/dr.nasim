@@ -1,0 +1,22 @@
+/* ----------------------------------------------------------------------------
+ * .container — centred max-width wrapper used at every section root.
+ * Responsive horizontal padding scales with the screen.
+ * --------------------------------------------------------------------------*/
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container { padding-inline: 2rem; }
+}
+@media (min-width: 1024px) {
+  .container { padding-inline: 3rem; }
+}
+
+/* size variants — max-width */
+.container--sm { max-width: 48rem; }
+.container--md { max-width: 64rem; }
+.container--lg { max-width: 72rem; }
+.container--xl { max-width: var(--container-max); }

@@ -1,0 +1,36 @@
+/* ----------------------------------------------------------------------------
+ * Dr. Nasim — BEM block stylesheet aggregator
+ *
+ * This file is the single entry point that `globals.css` imports. Each
+ * imported file defines one BEM block (`.block`, `.block__element`,
+ * `.block--modifier`). The order below determines the cascade: utilities
+ * that need to override base block styles go later in the list.
+ *
+ * To add a new block, drop `src/styles/blocks/<name>.css` and append the
+ * @import line below. To remove a block, delete the file and the line.
+ *
+ * `@import` is resolved natively by Next.js 16 + Turbopack (Lightning CSS).
+ * --------------------------------------------------------------------------*/
+
+/* Design-system primitives — used everywhere */
+@import "./blocks/button.css";
+@import "./blocks/container.css";
+@import "./blocks/section.css";
+
+/* Atomic shared components */
+@import "./blocks/avatar-stack.css";
+@import "./blocks/placeholder-image.css";
+@import "./blocks/booking-cta.css";
+@import "./blocks/language-dropdown.css";
+
+/* Section content blocks */
+@import "./blocks/hero.css";
+@import "./blocks/services.css";
+@import "./blocks/before-after.css";
+@import "./blocks/testimonials.css";
+@import "./blocks/cta.css";
+
+/* Section assembly blocks (depend on the primitives + content blocks) */
+@import "./blocks/navbar.css";
+@import "./blocks/about.css";
+@import "./blocks/footer.css";

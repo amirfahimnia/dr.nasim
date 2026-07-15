@@ -1,7 +1,19 @@
-@import "tailwindcss";
+/* ----------------------------------------------------------------------------
+ * Dr. Nasim — Global styles
+ *
+ *   1. Block stylesheets (one BEM block per file)            <- @import below
+ *   2. Design tokens (single source of truth)
+ *   3. Reset + base typography (logical-axis where possible)
+ *   4. Cross-component utility classes (.flip-rtl, .animate-fade-up)
+ *   5. Global focus / selection / motion-guard
+ * --------------------------------------------------------------------------*/
+@import "../styles/index.css";
 
 /* ----------------------------------------------------------------------------
- * Design tokens — single source of truth for the Dr. Nasim brand
+ * Design tokens — single source of truth
+ * Every BEM block references these via `var(--token-name)`. Adding or
+ * renaming a token here propagates site-wide; do not hardcode hex values
+ * inside block CSS.
  * --------------------------------------------------------------------------*/
 :root {
   /* Surfaces */
@@ -31,7 +43,7 @@
   --color-line: #e8ddd0;
   --color-surface: #ffffff;
 
-  /* Type scale (modular) */
+  /* Type scale */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -44,6 +56,12 @@
   --text-6xl: 3.75rem;
   --text-7xl: 4.5rem;
 
+  /* Leading — paired with --text-* tokens for predictable rhythm */
+  --leading-tight: 1.06;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
   /* Radii */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
@@ -52,12 +70,14 @@
   --radius-2xl: 1.75rem;
   --radius-full: 9999px;
 
-  /* Shadows — keep very soft, premium feel */
+  /* Shadows */
   --shadow-xs: 0 1px 2px 0 rgba(43, 38, 34, 0.04);
   --shadow-sm:
-    0 2px 6px -1px rgba(43, 38, 34, 0.06), 0 1px 2px -1px rgba(43, 38, 34, 0.04);
+    0 2px 6px -1px rgba(43, 38, 34, 0.06),
+    0 1px 2px -1px rgba(43, 38, 34, 0.04);
   --shadow-md:
-    0 8px 24px -8px rgba(43, 38, 34, 0.1), 0 2px 6px -2px rgba(43, 38, 34, 0.05);
+    0 8px 24px -8px rgba(43, 38, 34, 0.1),
+    0 2px 6px -2px rgba(43, 38, 34, 0.05);
   --shadow-lg:
     0 18px 48px -16px rgba(43, 38, 34, 0.16),
     0 4px 12px -4px rgba(43, 38, 34, 0.06);
@@ -65,107 +85,98 @@
   /* Layout */
   --container-max: 1280px;
   --section-y: clamp(3.5rem, 6vw, 6.5rem);
-}
 
-/* Tailwind v4 — expose tokens as utilities */
-@theme inline {
-  --color-cream: var(--color-cream);
-  --color-cream-soft: var(--color-cream-soft);
-  --color-cream-light: var(--color-cream-light);
-  --color-gold: var(--color-gold);
-  --color-gold-soft: var(--color-gold-soft);
-  --color-gold-deep: var(--color-gold-deep);
-  --color-eyebrow: var(--color-eyebrow);
-  --color-sage: var(--color-sage);
-  --color-sage-deep: var(--color-sage-deep);
-  --color-cyan: var(--color-cyan);
-  --color-cyan-deep: var(--color-cyan-deep);
-  --color-ink: var(--color-ink);
-  --color-ink-soft: var(--color-ink-soft);
-  --color-body: var(--color-body);
-  --color-muted: var(--color-muted);
-  --color-line: var(--color-line);
-  --color-surface: var(--color-surface);
-
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-xl: var(--radius-xl);
-  --radius-2xl: var(--radius-2xl);
-
-  --font-display:
-    var(--font-vazirmatn), var(--font-inter), system-ui, sans-serif;
-  --font-sans: var(--font-vazirmatn), var(--font-inter), system-ui, sans-serif;
-  --font-serif: var(--font-vazirmatn), var(--font-inter), system-ui, sans-serif;
+  /* Font stacks — set on <html> by the layout */
+  --font-vazirmatn-fallback: "Vazirmatn", "Inter", system-ui, sans-serif;
+  --font-inter-fallback: "Inter", system-ui, sans-serif;
 }
 
 /* ----------------------------------------------------------------------------
  * Reset + base typography
- *
- * Wrapped in `@layer base` so Tailwind v4's utilities (which live in
- * `@layer utilities`) can override these declarations as intended. Without
- * this layer wrapping, ALL unlayered rules win over Tailwind utilities per the
- * CSS Cascade Layers spec — making `text-white`, `text-xs`, `font-medium`,
- * `hover:*`, etc. silently lose on `<a>` and `<button>` elements.
  * --------------------------------------------------------------------------*/
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    font-feature-settings:
-      "kern" 1,
-      "liga" 1,
-      "calt" 1;
-  }
-
-  body {
-    margin: 0;
-    background: var(--color-cream);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: var(--text-base);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-synthesis: none;
-  }
-
-  button,
-  a,
-  input,
-  textarea,
-  select {
-    font: inherit;
-    color: inherit;
-  }
-
-  a {
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  img,
-  svg,
-  video {
-    display: block;
-    max-width: 100%;
-  }
-
-  /* Logical alignment helpers — RTL friendly */
-  html[dir="rtl"] body {
-    text-align: right;
-  }
-  html[dir="ltr"] body {
-    text-align: left;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Focus ring — calm, brand-coloured */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-vazirmatn-fallback), var(--font-inter-fallback);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  /* `text-align: start` mirrors with `dir` automatically — no LTR/RTL override needed. */
+  text-align: start;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+ * .skip-link — visually hidden until focused, then jumps to the page main.
+ * Single-instance accessibility utility, lives in globals.
+ * --------------------------------------------------------------------------*/
+.skip-link {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  /* Modern SR / screen-magnifier tooling prefers clip-path alongside the
+     legacy clip declaration. */
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
+
+.skip-link:focus {
+  position: fixed;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
+  z-index: 50;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-size: var(--text-sm);
+  clip: auto;
+  overflow: visible;
+}
+
+/* ----------------------------------------------------------------------------
+ * Focus ring — calm, brand-coloured
+ * --------------------------------------------------------------------------*/
 :where(button, a, input, textarea, select, [tabindex]):focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 3px;
@@ -179,17 +190,16 @@
 }
 
 /* ----------------------------------------------------------------------------
- * Locale-aware mirror
- * When <html dir="rtl"> is active, any element with `.flip-rtl` is mirrored
- * horizontally around its vertical centre. Used on the hero photo so the
- * portrait feels natural on Persian RTL pages.
+ * RTL helper — `flip-rtl` mirrors an element horizontally when the document
+ * direction is RTL, useful for arrow icons and asymmetric hero imagery.
  * --------------------------------------------------------------------------*/
 html[dir="rtl"] .flip-rtl {
   transform: scaleX(-1);
 }
 
 /* ----------------------------------------------------------------------------
- * Motion — gentle, defensive
+ * .animate-fade-up — generic fade-rise used on mount (Hero, dropdown menus).
+ * Component-defined keyframes live in their respective block files.
  * --------------------------------------------------------------------------*/
 @keyframes fade-up {
   from {
@@ -207,98 +217,8 @@ html[dir="rtl"] .flip-rtl {
 }
 
 /* ----------------------------------------------------------------------------
- * Cta attention — plays once when the booking CTA first intersects the
- * viewport. Designed to be inviting, not noisy. A gentle scale-up + a
- * cyan halo blooms outward, then settles. Single iteration by default;
- * silenced for users with prefers-reduced-motion via the global media
- * query further down.
+ * Motion safety — silenced for prefers-reduced-motion users.
  * --------------------------------------------------------------------------*/
-@keyframes cta-attention-in {
-  0% {
-    transform: scale(0.985);
-    box-shadow: 0 0 0 0 rgba(146, 63, 114, 0);
-  }
-  20% {
-    transform: scale(1.045);
-    box-shadow: 0 0 0 8px rgba(146, 63, 114, 0.35);
-  }
-  60% {
-    transform: scale(1.012);
-    box-shadow: 0 0 0 14px rgba(146, 63, 114, 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(146, 63, 114, 0);
-  }
-}
-
-.animate-cta-attention {
-  animation: cta-attention-in 1.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
-}
-
-/* ----------------------------------------------------------------------------
- * Footer aurora + marquee
- * Slow, drifting radial orbs give the dark footer its luminous glow; the
- * marquee plays a horizontal ticker of brand words. Both honour
- * prefers-reduced-motion via the global media query at the bottom of the
- * file.
- * --------------------------------------------------------------------------*/
-@keyframes orb-drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(20px, -16px, 0) scale(1.06);
-  }
-}
-
-.animate-orb-drift {
-  animation: orb-drift 24s ease-in-out infinite;
-}
-
-/* Marquee — drift the row in LTR (-50% lands on next duplicated copy). */
-@keyframes marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-/* RTL — drift in the opposite direction so reading direction still feels
-   natural on Persian pages. */
-@keyframes marquee-rtl {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(50%, 0, 0);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 42s linear infinite;
-  will-change: transform;
-}
-
-html[dir="rtl"] .animate-marquee {
-  animation-name: marquee-rtl;
-}
-
-/* Soft film-grain for the dark luxe footer surface. Pure CSS so it has no
-   runtime cost. */
-.bg-grain {
-  background-image: radial-gradient(
-      rgba(248, 244, 239, 0.045) 1px,
-      transparent 1px
-    ),
-    radial-gradient(rgba(248, 244, 239, 0.03) 1px, transparent 1px);
-  background-size: 3px 3px, 7px 7px;
-  background-position: 0 0, 1px 1px;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

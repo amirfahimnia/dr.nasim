@@ -59,14 +59,14 @@ export function LanguageDropdown() {
     };
   }, [open]);
 
-  // Dropdown stays open across re-renders until an item is picked, so we close
-  // it before navigation begins rather than waiting for an effect.
+  // Dropdown stays open across re-renders until an item is picked, so we
+  // close it before navigation begins rather than waiting for an effect.
   const onItemSelect = React.useCallback(() => setOpen(false), []);
 
   const current = LOCALE_META[currentLocale];
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className="language-dropdown">
       <button
         ref={buttonRef}
         type="button"
@@ -77,28 +77,23 @@ export function LanguageDropdown() {
         lang={current.iso}
         dir={currentLocale === "fa" ? "rtl" : "ltr"}
         className={cn(
-          "inline-flex h-9 items-center gap-2 rounded-full px-3 text-sm font-medium",
-          "border border-line bg-surface/70 text-ink",
-          "transition-colors hover:bg-cream-soft",
-          "backdrop-blur-sm"
+          "language-dropdown__trigger",
+          open && "language-dropdown__trigger--open"
         )}
       >
-        <GlobeIcon size={16} className="text-ink/70" />
-        <span aria-hidden className="hidden leading-none sm:inline">
+        <GlobeIcon
+          size={16}
+          className="language-dropdown__trigger-icon"
+        />
+        <span aria-hidden className="language-dropdown__trigger-name">
           {current.native}
         </span>
-        <span
-          aria-hidden
-          className="inline leading-none font-semibold tracking-wider sm:hidden"
-        >
+        <span aria-hidden className="language-dropdown__trigger-code">
           {current.code}
         </span>
         <ChevronDownIcon
           size={14}
-          className={cn(
-            "transition-transform duration-200",
-            open && "rotate-180"
-          )}
+          className="language-dropdown__trigger-caret"
         />
       </button>
 
@@ -106,22 +101,15 @@ export function LanguageDropdown() {
         <div
           role="menu"
           aria-label={t("menuLabel")}
-          className={cn(
-            "absolute end-0 z-50 mt-2 w-56 origin-top-end",
-            "overflow-hidden rounded-2xl bg-surface shadow-lg",
-            "ring-1 ring-line animate-fade-up"
-          )}
-          style={{ animationDuration: "180ms" }}
+          className="language-dropdown__menu"
         >
-          <p className="px-4 pt-3 pb-1 text-[11px] font-medium uppercase tracking-wider text-muted">
-            {t("current")}
-          </p>
-          <ul className="pb-1.5">
+          <p className="language-dropdown__menu-eyebrow">{t("current")}</p>
+          <ul className="language-dropdown__list">
             {routing.locales.map((loc) => {
               const meta = LOCALE_META[loc];
               const isActive = loc === currentLocale;
               return (
-                <li key={loc}>
+                <li key={loc} className="language-dropdown__item">
                   <Link
                     href={pathname}
                     locale={loc}
@@ -131,28 +119,24 @@ export function LanguageDropdown() {
                     lang={meta.iso}
                     dir={loc === "fa" ? "rtl" : "ltr"}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-2.5 text-sm transition-colors",
-                      isActive
-                        ? "bg-cream-soft text-ink"
-                        : "text-body hover:bg-cream-soft hover:text-ink"
+                      "language-dropdown__option",
+                      isActive && "language-dropdown__option--active"
                     )}
                   >
                     <span
                       aria-hidden
-                      className={cn(
-                        "grid h-7 w-9 place-items-center rounded-md text-[10.5px] font-semibold tracking-wider",
-                        isActive
-                          ? "bg-gold/15 text-gold-deep ring-1 ring-gold/30"
-                          : "bg-cream-soft text-ink/70"
-                      )}
+                      className="language-dropdown__option-code"
                     >
                       {meta.code}
                     </span>
-                    <span className="flex-1 text-start font-medium">
+                    <span className="language-dropdown__option-name">
                       {meta.native}
                     </span>
                     {isActive ? (
-                      <CheckIcon size={16} className="text-gold-deep" />
+                      <CheckIcon
+                        size={16}
+                        className="language-dropdown__option-check"
+                      />
                     ) : null}
                   </Link>
                 </li>

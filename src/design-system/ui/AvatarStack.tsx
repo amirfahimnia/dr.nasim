@@ -23,23 +23,28 @@ export function AvatarStack({
   className
 }: AvatarStackProps) {
   return (
-    <div className={cn("flex items-center", className)}>
+    <div className={cn("avatar-stack", className)}>
       {Array.from({ length: count }).map((_, i) => {
         const fill = warmTones[i % warmTones.length];
         return (
           <span
             key={i}
-            className="relative inline-flex items-center justify-center rounded-full bg-cream shadow-xs ring-2 ring-cream"
+            className="avatar-stack__avatar"
             style={{
               width: size,
               height: size,
-              // logical-positioning: negative margin end (right in LTR, left in RTL)
-              marginInlineEnd: i === 0 ? 0 : -size * 0.32,
+              // logical-positioning: negative margin on inline-start side (flips with dir)
+              marginInlineStart: i === 0 ? 0 : -size * 0.32,
               zIndex: count - i
             }}
             aria-hidden="true"
           >
-            <svg viewBox="0 0 40 40" width={size} height={size}>
+            <svg
+              viewBox="0 0 40 40"
+              width={size}
+              height={size}
+              className="avatar-stack__avatar-svg"
+            >
               <defs>
                 <linearGradient id={`av-${i}`} x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor={fill} stopOpacity="0.95" />
@@ -47,7 +52,13 @@ export function AvatarStack({
                 </linearGradient>
               </defs>
               <circle cx="20" cy="20" r="20" fill={`url(#av-${i})`} />
-              <circle cx="20" cy="17" r="6.5" fill="#ffffff" fillOpacity="0.35" />
+              <circle
+                cx="20"
+                cy="17"
+                r="6.5"
+                fill="#ffffff"
+                fillOpacity="0.35"
+              />
               <path
                 d="M6 35 C 8 26, 14 22, 20 22 C 26 22, 32 26, 34 35 Z"
                 fill="#ffffff"

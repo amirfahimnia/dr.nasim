@@ -4,19 +4,6 @@ import { cn } from "@/lib/cn";
 type SectionTone = "default" | "soft" | "dark" | "white";
 type SectionSpacing = "md" | "lg" | "xl";
 
-const toneStyles: Record<SectionTone, string> = {
-  default: "bg-cream",
-  soft: "bg-cream-soft",
-  dark: "bg-ink text-cream",
-  white: "bg-surface"
-};
-
-const spacingStyles: Record<SectionSpacing, string> = {
-  md: "py-16 sm:py-20",
-  lg: "py-20 sm:py-28",
-  xl: "py-24 sm:py-32"
-};
-
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   tone?: SectionTone;
   spacing?: SectionSpacing;
@@ -26,7 +13,7 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 
 export function Section({
   className,
-  tone = "default",
+  tone = "soft",
   spacing = "lg",
   as,
   divider,
@@ -37,10 +24,10 @@ export function Section({
   return (
     <Component
       className={cn(
-        "relative",
-        toneStyles[tone],
-        spacingStyles[spacing],
-        divider && "border-t border-line/60",
+        "section",
+        `section--${tone}`,
+        `section--${spacing}`,
+        divider && "section--divider",
         className
       )}
       {...props}

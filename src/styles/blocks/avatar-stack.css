@@ -1,0 +1,26 @@
+/* ----------------------------------------------------------------------------
+ * .avatar-stack — synthetic overlapping avatar cluster for social proof.
+ * Avatars are rimmed with the page background colour so they appear to
+ * overlap. The negative inline-start margin is set via inline `style` on
+ * each avatar because the offset depends on the avatar size.
+ * --------------------------------------------------------------------------*/
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-stack__avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-cream);
+  box-shadow: var(--shadow-xs);
+  outline: 2px solid var(--color-cream);
+}
+
+.avatar-stack__avatar-svg {
+  display: block;
+  border-radius: var(--radius-full);
+}

@@ -31,79 +31,68 @@ export async function BeforeAfter() {
   return (
     <section
       id="before-after"
-      className="relative bg-cream py-20 sm:py-28"
+      className="before-after"
       aria-labelledby="before-after-title"
     >
       <Container>
-        <header className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-          <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-eyebrow">
-            <span className="h-px w-6 bg-eyebrow/50" />
+        <header className="before-after__header">
+          <p className="before-after__eyebrow">
+            <span className="before-after__eyebrow-rule" />
             {t("eyebrow")}
-            <span className="h-px w-6 bg-eyebrow/50" />
+            <span className="before-after__eyebrow-rule" />
           </p>
-          <h2
-            id="before-after-title"
-            className="text-balance text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl"
-          >
+          <h2 id="before-after-title" className="before-after__title">
             {t("title")}
           </h2>
-          <p className="mt-3 text-base text-body">{t("subtitle")}</p>
+          <p className="before-after__subtitle">{t("subtitle")}</p>
         </header>
 
-        <ul
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2"
-          role="list"
-        >
+        <ul className="before-after__list" role="list">
           {cases.map((c) => (
-            <li
-              key={c.slug}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-surface shadow-xs ring-1 ring-line/50 transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              {/* Grid flips naturally with parent dir: in /fa RTL the "بعد" tile
-                  appears on the visual-start (right) and "قبل" on the visual-end. */}
-              <div className="grid grid-cols-2 divide-x divide-line/60 rtl:divide-x-reverse">
-                <div className="relative">
+            <li key={c.slug} className="before-after__item">
+              {/* Tile pair — the visual order between "before" and "after"
+                  follows the document direction automatically. CSS handles
+                  the divider via logical border-inline-start. */}
+              <div className="before-after__pair">
+                <div className="before-after__slot">
                   <PlaceholderImage
                     label={`Before — ${c.treatment}`}
                     tone="soft"
                     kind="service"
-                    aspect="aspect-[4/5]"
+                    ratio="4/5"
                     src={`/images/before-after/${c.slug}-before.jpg`}
-                    className="rounded-none"
+                    style={{ borderRadius: 0 }}
                   />
-                  <span className="absolute start-3 top-3 inline-flex items-center rounded-full bg-surface/85 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-ink shadow-xs ring-1 ring-line/40 backdrop-blur">
+                  <span className="before-after__chip before-after__chip--before">
                     {t("before")}
                   </span>
                 </div>
-                <div className="relative">
+                <div className="before-after__slot">
                   <PlaceholderImage
                     label={`After — ${c.treatment}`}
                     tone="warm"
                     kind="service"
-                    aspect="aspect-[4/5]"
+                    ratio="4/5"
                     src={`/images/before-after/${c.slug}-after.jpg`}
-                    className="rounded-none"
+                    style={{ borderRadius: 0 }}
                   />
-                  <span className="absolute end-3 top-3 inline-flex items-center rounded-full bg-ink px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-cream shadow-xs">
+                  <span className="before-after__chip before-after__chip--after">
                     {t("after")}
                   </span>
                 </div>
               </div>
 
-              <div className="flex flex-1 flex-col gap-2 p-6">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg font-semibold text-ink">
+              <div className="before-after__body">
+                <div className="before-after__item-head">
+                  <h3 className="before-after__item-title">
                     {c.treatment}
                   </h3>
-                  <span className="rounded-full bg-cream-soft px-3 py-1 text-xs font-medium text-eyebrow ring-1 ring-line/40">
+                  <span className="before-after__item-duration">
                     {c.duration}
                   </span>
                 </div>
-                <p className="text-sm leading-6 text-body">{c.summary}</p>
-                <a
-                  href="#contact"
-                  className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-gold-deep transition hover:text-gold"
-                >
+                <p className="before-after__item-summary">{c.summary}</p>
+                <a href="#contact" className="before-after__item-link">
                   {t("viewDetail")}
                   <ArrowLeftIcon size={14} />
                 </a>

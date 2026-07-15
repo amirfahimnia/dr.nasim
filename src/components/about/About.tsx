@@ -15,67 +15,56 @@ export async function About() {
   return (
     <section
       id="about"
-      className="relative isolate overflow-hidden bg-cream-soft py-20 pb-12 sm:py-24 sm:pb-16 lg:py-28 lg:pb-32"
+      className="about"
       aria-labelledby="about-title"
     >
       {/* === Section backdrop === */}
-      {/* Full-bleed portrait — `-z-10` keeps it below in-flow inside the section's `isolate`. */}
       <Image
         src="/images/dr-nasim-about-bg.jpg"
         alt={t("imageAlt")}
         fill
         sizes="100vw"
-        className="-z-10 object-cover"
+        className="about__bg"
       />
-      {/* Bottom ink wash adds premium depth and contrast for the stats card. */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-[5] h-1/2 bg-gradient-to-t from-ink/40 via-ink/10 to-transparent"
-      />
+      {/* Bottom ink wash — premium depth + stats-card contrast */}
+      <div aria-hidden className="about__ink-wash" />
 
-      {/* === Foreground: 12-col grid, text on visual LEFT (RTL) + stats on visual RIGHT (RTL) ===
-          `col-start-7` places the text column on the visual LEFT in RTL (right in LTR).
-          `col-start-1` places the stats card on the visual RIGHT in RTL (left in LTR).
-          `lg:items-end` aligns the stats card's bottom edge to the text panel's bottom edge,
-          producing the side-by-side "align with the text" composition. */}
+      {/* === Foreground: 12-col grid, text visual LEFT (RTL) + stats visual RIGHT ===
+          `col-start-7` places text on visual LEFT in RTL (right in LTR).
+          `col-start-1` places stats on visual RIGHT in RTL (left in LTR).
+          `items-end` aligns the stats card's bottom edge with the text panel. */}
       <Container>
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-x-10 xl:gap-x-14">
-          {/* TEXT — visual LEFT in RTL. Own cream/glass backdrop so it stays
-              readable wherever the grid column lands (LTR or RTL). */}
-          <div className="lg:col-span-6 lg:col-start-7">
-            <div className="rounded-3xl bg-cream/85 p-6 shadow-xl ring-1 ring-line/25 backdrop-blur supports-[backdrop-filter]:bg-cream/70 sm:p-8 lg:p-10">
-              <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-eyebrow">
-                <span className="h-px w-6 bg-eyebrow/50" />
+        <div className="about__grid">
+          {/* TEXT — visual LEFT in RTL. Per-column cream/glass backdrop
+              keeps it readable wherever the grid column lands. */}
+          <div className="about__text-col">
+            <div className="about__panel">
+              <p className="about__eyebrow">
+                <span className="about__eyebrow-rule" />
                 {t("eyebrow")}
               </p>
-              <h2
-                id="about-title"
-                className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] xl:text-5xl"
-              >
+              <h2 id="about-title" className="about__title">
                 {t("title")}
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-body sm:text-lg">
-                {t("description")}
-              </p>
+              <p className="about__description">{t("description")}</p>
 
-              <ul className="mt-8 grid max-w-xl gap-3" role="list">
+              <ul className="about__features" role="list">
                 {features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-3 text-base text-ink"
-                  >
+                  <li key={feature} className="about__feature">
                     <span
-                      className="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold/15 text-gold-deep"
+                      className="about__feature-check"
                       aria-hidden
                     >
                       <CheckIcon size={12} />
                     </span>
-                    <span className="leading-7">{feature}</span>
+                    <span className="about__feature-text">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8">
+              <div className="about__cta">
                 <Button variant="gold" size="lg">
                   {t("cta")}
                 </Button>
@@ -83,23 +72,23 @@ export async function About() {
             </div>
           </div>
 
-          {/* STATS CARD — visual RIGHT in RTL, bottom-aligned via grid `items-end`. */}
-          <div className="lg:col-span-6 lg:col-start-1">
+          {/* STATS CARD — visual RIGHT in RTL, bottom-aligned via items-end */}
+          <div className="about__stats-col">
             <ul
               dir="ltr"
               aria-label={t("stats.heading")}
               role="list"
-              className="grid grid-cols-2 gap-y-6 overflow-hidden rounded-2xl bg-cream/95 px-6 py-7 shadow-xl ring-1 ring-line/40 backdrop-blur supports-[backdrop-filter]:bg-cream/85 sm:grid-cols-4 sm:gap-y-0 sm:divide-x sm:divide-line/40 sm:px-8 sm:py-8"
+              className="about__stats"
             >
               {stats.map((stat) => (
                 <li
                   key={stat.label}
-                  className="flex flex-col items-center justify-center gap-1 px-4 text-center sm:py-0"
+                  className="about__stat"
                 >
-                  <span className="text-3xl font-semibold leading-none tracking-tight text-ink sm:text-4xl">
+                  <span className="about__stat-value">
                     {stat.value}
                   </span>
-                  <span className="text-xs leading-tight text-muted sm:text-sm">
+                  <span className="about__stat-label">
                     {stat.label}
                   </span>
                 </li>

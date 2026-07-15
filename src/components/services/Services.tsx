@@ -28,61 +28,47 @@ export async function Services() {
   return (
     <section
       id="services"
-      className="relative bg-cream py-20 sm:py-28"
+      className="services"
       aria-labelledby="services-title"
     >
       <Container>
-        <header className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
-          <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-eyebrow">
-            <span className="h-px w-6 bg-eyebrow/50" />
+        <header className="services__header">
+          <p className="services__eyebrow">
+            <span className="services__eyebrow-rule" />
             {t("eyebrow")}
-            <span className="h-px w-6 bg-eyebrow/50" />
+            <span className="services__eyebrow-rule" />
           </p>
-          <h2
-            id="services-title"
-            className="text-balance text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl"
-          >
+          <h2 id="services-title" className="services__title">
             {t("title")}
           </h2>
         </header>
 
-        <ul
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5"
-          role="list"
-        >
+        <ul className="services__list" role="list">
           {KEYS.map((key, idx) => {
             const Icon = ICONS[idx];
             return (
-              <li
-                key={key}
-                className="group flex flex-col rounded-xl bg-surface p-3 shadow-xs ring-1 ring-line/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-              >
+              <li key={key} className="services__card">
                 <PlaceholderImage
                   tone="soft"
                   kind="service"
-                  aspect="aspect-[5/4]"
+                  ratio="5/4"
                   label={t(`items.${key}.title`)}
-                  className="mb-4"
                 />
-                <div className="flex items-start justify-between gap-3 px-1">
-                  <h3 className="text-base font-semibold text-ink">
+                <div className="services__card-head">
+                  <h3 className="services__card-title">
                     {t(`items.${key}.title`)}
                   </h3>
-                  <span
-                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-cream-soft text-gold-deep ring-1 ring-line/50 transition group-hover:bg-gold group-hover:text-surface group-hover:ring-gold"
-                    aria-hidden
-                  >
+                  <span className="services__card-icon" aria-hidden>
                     <Icon size={18} />
                   </span>
                 </div>
-                <p className="mt-2 px-1 text-sm leading-6 text-body">
+                <p className="services__card-description">
                   {t(`items.${key}.description`)}
                 </p>
-                <a
-                  href="#contact"
-                  className="mt-4 inline-flex items-center gap-1 px-1 text-sm font-medium text-gold-deep transition hover:text-gold"
-                >
-                  <span>{t("viewAll").split(" ").slice(0, 2).join(" ")}</span>
+                <a href="#contact" className="services__card-link">
+                  <span>
+                    {t("viewAll").split(" ").slice(0, 2).join(" ")}
+                  </span>
                   <ArrowLeftIcon size={14} />
                 </a>
               </li>
@@ -90,7 +76,7 @@ export async function Services() {
           })}
         </ul>
 
-        <div className="mt-12 flex justify-center">
+        <div className="services__cta-row">
           <Button variant="ghost" size="lg">
             {t("viewAll")}
           </Button>

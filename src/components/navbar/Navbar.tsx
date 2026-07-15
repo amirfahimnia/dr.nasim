@@ -56,18 +56,11 @@ export function Navbar() {
   };
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-40 w-full transition-[background-color,box-shadow,border-color] duration-300",
-        scrolled
-          ? "bg-cream/85 backdrop-blur-md shadow-xs border-b border-line/40"
-          : "bg-transparent"
-      )}
-    >
-      <div className="mx-auto flex h-20 w-full max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
+    <header className={cn("navbar", scrolled && "navbar--scrolled")}>
+      <div className="navbar__inner">
         <Link
           href={`/${locale}`}
-          className="flex items-center gap-2.5 lg:order-first"
+          className="navbar__brand"
           aria-label={brand.name}
         >
           <Image
@@ -77,24 +70,20 @@ export function Navbar() {
             height={54}
             unoptimized
             priority
-            className="h-9 sm:h-10 w-auto"
+            className="navbar__brand-logo"
           />
-          <span className="hidden text-[15px] font-semibold text-ink sm:inline">
-            {tBrand("brand")}
-          </span>
+          <span className="navbar__brand-name">{tBrand("brand")}</span>
         </Link>
 
         {/* Nav items — desktop */}
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="navbar__nav" aria-label="Primary">
           {NAV_KEYS.map((key) => (
             <Link
               key={key}
               href={hrefFor(key)}
               className={cn(
-                "rounded-full px-4 py-2 text-md transition-colors",
-                isActive(key)
-                  ? "bg-cream-soft text-ink font-medium"
-                  : "text-body hover:text-ink hover:bg-cream-soft/70"
+                "navbar__nav-item",
+                isActive(key) && "navbar__nav-item--active"
               )}
             >
               {t(`items.${key}`)}
@@ -103,13 +92,13 @@ export function Navbar() {
         </nav>
 
         {/* End-side cluster: language dropdown + appointment button + mobile hamburger */}
-        <div className="flex items-center gap-2">
+        <div className="navbar__actions">
           <LanguageDropdown />
           <BookingCTA />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cream-soft text-ink lg:hidden"
+            className="navbar__hamburger"
             aria-label={open ? t("closeMenu") : t("openMenu")}
             aria-expanded={open}
             aria-controls="primary-mobile-nav"
@@ -121,22 +110,20 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {open ? (
-        <div
-          id="primary-mobile-nav"
-          className="absolute inset-x-0 top-full lg:hidden"
-        >
-          <div className="mx-4 mt-2 overflow-hidden rounded-2xl bg-surface shadow-lg ring-1 ring-line/60">
-            <nav className="flex flex-col p-2" aria-label="Primary mobile">
+        <div id="primary-mobile-nav" className="navbar__drawer">
+          <div className="navbar__drawer-card">
+            <nav
+              className="navbar__drawer-list"
+              aria-label="Primary mobile"
+            >
               {NAV_KEYS.map((key) => (
                 <Link
                   key={key}
                   href={hrefFor(key)}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "rounded-xl px-4 py-3 text-base transition-colors",
-                    isActive(key)
-                      ? "bg-cream-soft text-ink font-medium"
-                      : "text-body hover:bg-cream-soft"
+                    "navbar__drawer-item",
+                    isActive(key) && "navbar__drawer-item--active"
                   )}
                 >
                   {t(`items.${key}`)}
@@ -145,7 +132,7 @@ export function Navbar() {
             </nav>
 
             {/* Bottom CTA — booking */}
-            <div className="border-t border-line/60 p-2">
+            <div className="navbar__drawer-cta">
               <BookingCTA size="md" onClick={() => setOpen(false)} />
             </div>
           </div>

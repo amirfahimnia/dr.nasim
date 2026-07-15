@@ -16,12 +16,12 @@ interface BookingCTAProps {
 
 /**
  * Locale-aware booking CTA. Plays `cta-attention-in` (a subtle scale +
- * cyan halo) exactly once on first intersection with the viewport. Reuses
+ * halo) exactly once on first intersection with the viewport. Reuses
  * the global `prefers-reduced-motion` media query to silence the
  * animation for users who opt out of motion.
  *
- * `sm` — header pill (h-9).
- * `md` — full-width drawer button (w-full).
+ * `sm` — header pill (mobile-friendly height).
+ * `md` — full-width drawer button.
  */
 export function BookingCTA({
   className,
@@ -40,7 +40,7 @@ export function BookingCTA({
       for (const entry of entries) {
         if (entry.isIntersecting && !firedRef.current) {
           firedRef.current = true;
-          el.classList.add("animate-cta-attention");
+          el.classList.add("booking-cta--attended");
           io.disconnect();
         }
       }
@@ -55,17 +55,12 @@ export function BookingCTA({
       href="#contact"
       onClick={onClick}
       aria-label={t("bookAppointment")}
-      className={cn(
-        "inline-flex items-center justify-center gap-1.5 rounded-full bg-[var(--color-nasim-purple)] font-medium text-white shadow-sm",
-        "transition-all duration-200 hover:bg-[var(--color-nasim-purple-deep)] hover:shadow-md active:scale-[0.97]",
-        size === "md"
-          ? "w-full gap-2 px-4 py-3 text-base"
-          : "h-9 px-3 text-xs sm:gap-2 sm:px-4 sm:text-sm",
-        className
-      )}
+      className={cn("booking-cta", `booking-cta--${size}`, className)}
     >
       <CalendarIcon size={size === "md" ? 18 : 16} />
-      <span className="leading-none">{t("shortBookAppointment")}</span>
+      <span className="booking-cta__label">
+        {t("shortBookAppointment")}
+      </span>
     </a>
   );
 }

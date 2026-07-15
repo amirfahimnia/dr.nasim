@@ -15,20 +15,48 @@ export async function About() {
   return (
     <section
       id="about"
-      className="relative bg-cream-soft py-20 sm:py-28 lg:pb-36"
+      className="relative isolate overflow-hidden bg-cream-soft py-20 sm:py-24 lg:py-32 lg:pb-44"
       aria-labelledby="about-title"
     >
+      {/* === Background layers (all stacking BELOW in-flow content) === */}
+
+      {/* Full-bleed background image — `-z-10` keeps it behind the cream-overlay text region */}
+      <Image
+        src="/images/dr-nasim-about-bg.jpg"
+        alt={t("imageAlt")}
+        fill
+        sizes="100vw"
+        className="-z-10 object-cover"
+      />
+
+      {/* Cream-soft overlay — solid on the LEFT ~55%, fades to the image on the right.
+          NOTE: rgb(251,247,242) = --color-cream-soft (#fbf7f2). Tailwind v4
+          arbitrary-value `bg-[…]` can't read CSS variables in rgba stops, so
+          the literal is hard-coded; track any token rename. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[linear-gradient(90deg,var(--color-cream-soft)_0%,rgba(251,247,242,0.95)_30%,rgba(251,247,242,0.85)_45%,rgba(251,247,242,0)_70%)]"
+      />
+
+      {/* Bottom ink wash for premium depth and stats-card contrast */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/35 via-ink/10 to-transparent"
+      />
+
+      {/* === Foreground content === */}
+
       <Container>
-        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-20">
-          {/* Text column — pinned to col-1 (visual left) in BOTH LTR and RTL */}
-          <div className="lg:col-start-2 lg:row-start-1 lg:pt-2">
+        {/* Text — pinned to the LEFT on lg+ so it sits over the cream overlay region */}
+        <div className="grid lg:grid-cols-12 lg:gap-12">
+          <div className="relative lg:col-span-7 lg:col-start-1 lg:py-2">
             <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-eyebrow">
               <span className="h-px w-6 bg-eyebrow/50" />
               {t("eyebrow")}
             </p>
             <h2
               id="about-title"
-              className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl"
+              className="text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] xl:text-5xl"
             >
               {t("title")}
             </h2>
@@ -60,27 +88,18 @@ export async function About() {
             </div>
           </div>
 
-          {/* Image column — pinned to col-2 (visual right) in BOTH LTR and RTL */}
-          <div className="relative lg:col-start-1 lg:row-start-1">
-            {/* Soft warm halo behind the portrait for premium feel */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-tr from-gold/20 via-cream-light to-eyebrow/15 blur-2xl"
-            />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-lg ring-1 ring-line/50">
-              <Image
-                src="/images/dr-nasim-about-bg.jpg"
-                alt={t("imageAlt")}
-                fill
-                sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
+          {/* Empty right column — balances the cream panel on lg+ */}
+          <div
+            aria-hidden
+            className="hidden lg:col-start-8 lg:col-span-5 lg:block"
+          />
         </div>
+      </Container>
 
-        {/* Floating horizontal stats card — pulled up to overlap the bottom of both columns */}
-        <div className="relative z-10 -mt-12 sm:-mt-14 lg:-mt-20">
+      {/* Floating stats card — uses `relative z-10` to clear all background
+          layers and the section's `isolate` stacking context. */}
+      <Container>
+        <div className="relative z-10 -mt-12 sm:-mt-16 lg:-mt-20">
           <ul
             dir="ltr"
             aria-label={t("stats.heading")}

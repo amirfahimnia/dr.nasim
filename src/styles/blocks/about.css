@@ -14,10 +14,16 @@
   padding-block-end: 3rem;
 }
 @media (min-width: 640px) {
-  .about { padding-block: 6rem; padding-block-end: 4rem; }
+  .about {
+    padding-block: 6rem;
+    padding-block-end: 4rem;
+  }
 }
 @media (min-width: 1024px) {
-  .about { padding-block: 7rem; padding-block-end: 8rem; }
+  .about {
+    padding-block: 7rem;
+    padding-block-end: 8rem;
+  }
 }
 
 .about__bg {
@@ -45,23 +51,24 @@
 }
 
 .about__grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2.5rem;
 }
 @media (min-width: 1024px) {
   .about__grid {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    display: flex;
+    flex-direction: row-reverse;
     align-items: end;
     column-gap: 2.5rem;
   }
 }
 @media (min-width: 1280px) {
-  .about__grid { column-gap: 3.5rem; }
+  .about__grid {
+    column-gap: 3.5rem;
+  }
 }
 
-/* Text column — visual LEFT in RTL via grid-column-start: 7 (cols 7-12
-   mirror to left in RTL). In LTR this lands on the right half; both
-   locales get a readable cream backdrop via the inner panel. */
 .about__text-col {
   /* mobile default — natural document flow */
 }
@@ -73,21 +80,25 @@
 }
 
 .about__panel {
-  padding: 1.5rem;
-  border-radius: 1.75rem;
-  background: rgba(251, 247, 242, 0.85);
-  outline: 1px solid rgba(232, 221, 208, 0.25);
-  box-shadow: var(--shadow-xl, 0 18px 48px -16px rgba(43, 38, 34, 0.16), 0 4px 12px -4px rgba(43, 38, 34, 0.06));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: none;
 }
 
 @supports (backdrop-filter: blur(8px)) {
-  .about__panel { background: rgba(251, 247, 242, 0.7); }
+  .about__panel {
+    background: none;
+  }
 }
 
-@media (min-width: 640px) { .about__panel { padding: 2rem; } }
-@media (min-width: 1024px) { .about__panel { padding: 2.5rem; } }
+@media (min-width: 640px) {
+  .about__panel {
+    padding: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .about__panel {
+    padding: 0;
+  }
+}
 
 .about__eyebrow {
   display: inline-flex;
@@ -114,9 +125,21 @@
   letter-spacing: -0.015em;
   color: var(--color-ink);
 }
-@media (min-width: 640px) { .about__title { font-size: 2.25rem; } }
-@media (min-width: 1024px) { .about__title { font-size: 2.75rem; } }
-@media (min-width: 1280px) { .about__title { font-size: 3rem; } }
+@media (min-width: 640px) {
+  .about__title {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .about__title {
+    font-size: 2.75rem;
+  }
+}
+@media (min-width: 1280px) {
+  .about__title {
+    font-size: 3rem;
+  }
+}
 
 .about__description {
   margin-block-start: 1.25rem;
@@ -126,7 +149,9 @@
   color: var(--color-body);
 }
 @media (min-width: 640px) {
-  .about__description { font-size: var(--text-lg); }
+  .about__description {
+    font-size: var(--text-lg);
+  }
 }
 
 .about__features {
@@ -163,7 +188,9 @@
   line-height: 1.75rem;
 }
 
-.about__cta { margin-block-start: 2rem; }
+.about__cta {
+  margin-block-start: 2rem;
+}
 
 /* Stats column — visual RIGHT in RTL via grid-column-start: 1 */
 .about__stats-col {
@@ -185,18 +212,24 @@
   border-radius: var(--radius-2xl);
   background: rgba(251, 247, 242, 0.95);
   outline: 1px solid rgba(232, 221, 208, 0.4);
-  box-shadow: var(--shadow-xl, 0 18px 48px -16px rgba(43, 38, 34, 0.16), 0 4px 12px -4px rgba(43, 38, 34, 0.06));
+  box-shadow: var(
+    --shadow-xl,
+    0 18px 48px -16px rgba(43, 38, 34, 0.16),
+    0 4px 12px -4px rgba(43, 38, 34, 0.06)
+  );
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
 @supports (backdrop-filter: blur(8px)) {
-  .about__stats { background: rgba(251, 247, 242, 0.85); }
+  .about__stats {
+    background: rgba(251, 247, 242, 0.85);
+  }
 }
 
 @media (min-width: 640px) {
   .about__stats {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
     row-gap: 0;
     padding: 2rem;
   }
@@ -207,7 +240,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
+  gap: 1rem;
   padding-inline: 1rem;
   text-align: center;
 }
@@ -226,11 +259,19 @@
   letter-spacing: -0.02em;
   color: var(--color-ink);
 }
-@media (min-width: 640px) { .about__stat-value { font-size: 2.25rem; } }
+@media (min-width: 640px) {
+  .about__stat-value {
+    font-size: 2.25rem;
+  }
+}
 
 .about__stat-label {
   font-size: var(--text-xs);
   line-height: 1.2;
   color: var(--color-muted);
 }
-@media (min-width: 640px) { .about__stat-label { font-size: var(--text-sm); } }
+@media (min-width: 640px) {
+  .about__stat-label {
+    font-size: var(--text-sm);
+  }
+}

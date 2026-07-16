@@ -10,13 +10,7 @@ export async function Hero() {
   const t = await getTranslations("Hero");
 
   return (
-    <section
-      id="home"
-      className="hero"
-      aria-labelledby="hero-title"
-    >
-      {/* Full-bleed background photograph. The `flip-rtl` global utility
-          mirrors horizontally on Persian pages so the doctor faces inward. */}
+    <section id="home" className="hero" aria-labelledby="hero-title">
       <div className="hero__bg">
         <Image
           src="/images/dr-nasim-hero-bg.jpg"
@@ -29,20 +23,13 @@ export async function Hero() {
       </div>
 
       {/* Decorative warm washes */}
-      <div
-        aria-hidden
-        className="hero__orb hero__orb--gold-tr"
-      />
-      <div
-        aria-hidden
-        className="hero__orb hero__orb--eyebrow-bl"
-      />
+      <div aria-hidden className="hero__orb hero__orb--gold-tr" />
+      <div aria-hidden className="hero__orb hero__orb--eyebrow-bl" />
 
       <Container>
         <div className="hero__inner">
           <div className="hero__content animate-fade-up">
             <p className="hero__eyebrow">
-              <span className="hero__eyebrow-rule" />
               <span>{t("eyebrow")}</span>
             </p>
 

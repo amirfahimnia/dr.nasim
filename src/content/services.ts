@@ -30,7 +30,7 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "fraxel-laser",
-    image: "/images/services/fraxel.webp",
+    image: "/images/services/fraxel.jpg",
     copy: {
       fa: {
         title: "لیزر فرکسل",
@@ -262,7 +262,7 @@ export const services: Service[] = [
 
   {
     slug: "thermage",
-    image: "/images/services/thermage.webp",
+    image: "/images/services/thermage.jpg",
     copy: {
       fa: {
         title: "ترماژ",
@@ -494,7 +494,7 @@ export const services: Service[] = [
 
   {
     slug: "laser-hair-removal",
-    image: "/images/services/laser-hair-removal.webp",
+    image: "/images/services/laser-hair-removal.jpg",
     copy: {
       fa: {
         title: "لیزر موهای زائد",
@@ -726,7 +726,7 @@ export const services: Service[] = [
 
   {
     slug: "lip-filler",
-    image: "/images/services/lip-filler.webp",
+    image: "/images/services/lip-filler.jpg",
     copy: {
       fa: {
         title: "تزریق ژل لب",
@@ -958,7 +958,7 @@ export const services: Service[] = [
 
   {
     slug: "skin-laser",
-    image: "/images/services/skin-laser.webp",
+    image: "/images/services/skin-laser.jpg",
     copy: {
       fa: {
         title: "لیزر لک صورت",
@@ -1190,7 +1190,7 @@ export const services: Service[] = [
 
   {
     slug: "microneedling",
-    image: "/images/services/microneedling.webp",
+    image: "/images/services/microneedling.jpg",
     copy: {
       fa: {
         title: "میکرونیدلینگ",
@@ -1422,7 +1422,7 @@ export const services: Service[] = [
 
   {
     slug: "botox",
-    image: "/images/services/botox.webp",
+    image: "/images/services/botox.jpg",
     copy: {
       fa: {
         title: "تزریق بوتاکس",
@@ -1654,7 +1654,7 @@ export const services: Service[] = [
 
   {
     slug: "hifu",
-    image: "/images/services/hifu.webp",
+    image: "/images/services/hifu.jpg",
     copy: {
       fa: {
         title: "هایفوتراپی",
@@ -1886,7 +1886,7 @@ export const services: Service[] = [
 
   {
     slug: "mesotherapy",
-    image: "/images/services/microneedling.webp",
+    image: "/images/services/mesotherapy.jpg",
     copy: {
       fa: {
         title: "مزوتراپی و PRP",

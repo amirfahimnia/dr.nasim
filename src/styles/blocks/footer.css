@@ -202,8 +202,10 @@ html[dir="rtl"] .footer__heading {
   animation: footer-marquee 50s linear infinite;
 }
 
+/* Three identical runs; RTL travels positively for the same reason as the
+   guests rail — a reversed track would leave the strip blank. */
 html[dir="rtl"] .footer__marquee-track {
-  animation-direction: reverse;
+  animation-name: footer-marquee-rtl;
 }
 
 .footer__marquee-item {
@@ -233,6 +235,12 @@ html[dir="rtl"] .footer__marquee-item {
 @keyframes footer-marquee {
   to {
     transform: translate3d(-33.33%, 0, 0);
+  }
+}
+
+@keyframes footer-marquee-rtl {
+  to {
+    transform: translate3d(33.33%, 0, 0);
   }
 }
 

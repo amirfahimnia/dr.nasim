@@ -56,8 +56,10 @@
   animation: guests-scroll 46s linear infinite;
 }
 
+/* RTL: the run is anchored right, so it must travel positively. Reversing
+   the animation instead would park the track outside the clip window. */
 html[dir="rtl"] .guests__rail-track {
-  animation-direction: reverse;
+  animation-name: guests-scroll-rtl;
 }
 
 .guests__rail:hover .guests__rail-track {
@@ -100,5 +102,11 @@ html[dir="rtl"] .guests__rail-track {
 @keyframes guests-scroll {
   to {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes guests-scroll-rtl {
+  to {
+    transform: translate3d(50%, 0, 0);
   }
 }

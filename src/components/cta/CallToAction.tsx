@@ -1,31 +1,22 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 
 import { Container } from "@/design-system/ui/Container";
-import { Button } from "@/design-system/ui/Button";
-import { brand } from "@/design-system/tokens";
-import { PhoneIcon } from "@/design-system/icons";
+import { ButtonLink } from "@/design-system/ui/Button";
+import { clinic } from "@/content/clinic";
+import type { Locale } from "@/content/clinic";
+import { CalendarIcon, PhoneIcon } from "@/design-system/icons";
 
 export async function CallToAction() {
   const t = await getTranslations("Cta");
+  const locale = (await getLocale()) as Locale;
 
   return (
-    <section
-      id="contact"
-      className="cta"
-      aria-labelledby="cta-title"
-    >
-      {/* Decorative backdrop */}
-      <div aria-hidden className="cta__bg" />
-
-      <div aria-hidden className="cta__orb cta__orb--gold-tl" />
-      <div aria-hidden className="cta__orb cta__orb--sage-br" />
-
+    <section id="contact" className="cta" aria-labelledby="cta-title">
       <Container>
         <div className="cta__card">
-          {/* Decorative floral motif — visible on md+ only */}
           <div aria-hidden className="cta__motif">
             <svg viewBox="0 0 100 100" className="cta__motif-svg">
-              <g fill="none" stroke="currentColor" strokeWidth="0.7">
+              <g fill="none" stroke="currentColor" strokeWidth="0.6">
                 <path d="M50 5 C 35 35 50 65 50 95" />
                 <path d="M50 25 C 30 30 25 50 20 30" />
                 <path d="M50 25 C 70 30 75 50 80 30" />
@@ -41,6 +32,7 @@ export async function CallToAction() {
           </div>
 
           <div className="cta__body">
+            <p className="eyebrow cta__eyebrow">{t("eyebrow")}</p>
             <h2 id="cta-title" className="cta__title">
               {t("title")}
             </h2>
@@ -48,19 +40,25 @@ export async function CallToAction() {
           </div>
 
           <div className="cta__actions">
-            <Button variant="gold" size="lg">
-              {t("primaryAction")}
-            </Button>
-            <a
-              href={`tel:${brand.phone.tel}`}
-              className="cta__phone"
-              aria-label={`${t("phoneLabel")} ${brand.phone.display}`}
+            <ButtonLink
+              href={`/${locale}/appointment`}
+              variant="cream"
+              size="lg"
             >
-              <PhoneIcon size={16} />
+              <CalendarIcon size={17} />
+              {t("primaryAction")}
+            </ButtonLink>
+
+            <a
+              href={`tel:${clinic.phone.tel}`}
+              className="cta__phone"
+              aria-label={`${t("phoneLabel")} ${clinic.phone.display}`}
+            >
+              <PhoneIcon size={17} />
               <span className="cta__phone-label">
                 <span className="cta__phone-caption">{t("phoneLabel")}</span>
                 <span dir="ltr" className="cta__phone-number">
-                  {brand.phone.display}
+                  {clinic.phone.display}
                 </span>
               </span>
             </a>

@@ -1,0 +1,56 @@
+/* ----------------------------------------------------------------------------
+ * .marquee — decorative word band between the hero and the service grid.
+ * The track is duplicated so the loop is seamless; RTL reverses direction.
+ * --------------------------------------------------------------------------*/
+.marquee {
+  overflow: hidden;
+  background: var(--color-espresso);
+  color: var(--color-cream);
+  border-block-start: 1px solid rgba(248, 244, 239, 0.08);
+  padding-block: 0.875rem;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: marquee-scroll 42s linear infinite;
+}
+
+html[dir="rtl"] .marquee__track {
+  animation-direction: reverse;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-inline-end: 1.5rem;
+}
+
+.marquee__word {
+  font-family: var(--font-display);
+  font-size: clamp(0.9375rem, 1.5vw, 1.25rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(248, 244, 239, 0.7);
+  white-space: nowrap;
+}
+
+html[dir="rtl"] .marquee__word {
+  font-family: var(--font-vazirmatn-fallback);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.marquee__sep {
+  color: var(--color-gold);
+  opacity: 0.75;
+  font-size: 0.875rem;
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

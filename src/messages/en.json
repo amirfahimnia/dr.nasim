@@ -1,19 +1,19 @@
 {
   "Metadata": {
     "title": "Dr. Nasim Gholami | Aesthetic Medicine & Skin Health",
-    "description": "Specialised aesthetic and rejuvenation treatments with a natural, scientific and personal approach."
+    "description": "Specialist aesthetic and rejuvenation treatments with a natural, science-led approach — laser, filler, botox, HIFU and Thermage in Tehran."
   },
   "Navigation": {
     "brand": "Dr. Nasim Gholami",
+    "tagline": "Skin, hair, laser & aesthetic medicine",
     "items": {
       "home": "Home",
-      "about": "About",
       "services": "Treatments",
-      "results": "Results",
-      "articles": "Articles",
+      "about": "About",
+      "guests": "Guests",
+      "reviews": "Reviews",
       "contact": "Contact"
     },
-    "phoneCta": "Call now",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "languageDropdown": {
@@ -21,71 +21,88 @@
       "menuLabel": "Available languages",
       "current": "Current language"
     },
-    "bookAppointment": "Book consultation",
-    "shortBookAppointment": "Book"
+    "bookAppointment": "Book appointment",
+    "shortBookAppointment": "Book now"
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",
-    "title": "Natural beauty, genuine confidence",
-    "description": "By combining science, years of expertise and a true sense of artistry, I help you reveal the finest, most natural version of yourself.",
-    "primaryAction": "Book consultation",
+    "title": "Natural beauty,\nreal confidence",
+    "description": "Combining science, experience and an artist's eye, I create the best version of you — natural, balanced and unmistakably yours.",
+    "primaryAction": "Book a consultation",
     "secondaryAction": "View treatments",
-    "patients": "Satisfied patients",
-    "certification": "Board certified",
-    "discipline": "Aesthetic Medicine"
+    "patients": "Happy patients",
+    "experience": "Years of experience",
+    "certifications": [
+      "Member, American Academy of Dermatology",
+      "Medical Council No. 137300",
+      "Over 10 years of specialist practice"
+    ]
+  },
+  "Marquee": {
+    "words": [
+      "Rejuvenation",
+      "Laser",
+      "Skin",
+      "Natural beauty",
+      "Tehran — Elahiyeh"
+    ]
   },
   "Services": {
     "eyebrow": "Our treatments",
-    "title": "The most-loved treatments for beauty, rejuvenation and skin health",
-    "items": {
-      "rejuvenation": {
-        "title": "Facial rejuvenation",
-        "description": "Skin revival through proven science and a long-lasting, balanced approach."
+    "title": "Eight specialist treatments,\nchosen for what you actually need",
+    "description": "Every treatment is performed with certified devices and licensed products, after a thorough skin assessment.",
+    "viewAll": "View all treatments",
+    "explore": "Treatment details",
+    "bookThis": "Book this treatment"
+  },
+  "Trust": {
+    "items": [
+      {
+        "value": "10+",
+        "label": "Years of experience"
       },
-      "filler": {
-        "title": "Filler & contouring",
-        "description": "Restore volume and contour naturally with trusted fillers and gentle technique."
+      {
+        "value": "2000+",
+        "label": "Happy patients"
       },
-      "botox": {
-        "title": "Forehead & eye-area Botox",
-        "description": "Soften dynamic lines while keeping every facial expression beautifully natural."
+      {
+        "value": "8",
+        "label": "Specialist treatments"
       },
-      "laser": {
-        "title": "Laser hair removal",
-        "description": "Silky, even skin with the latest generation of safe, low-downtime lasers."
-      },
-      "meso": {
-        "title": "Mesotherapy & PRP",
-        "description": "Deep nourishment and collagen stimulation for visibly brighter, healthier skin."
+      {
+        "value": "100%",
+        "label": "Aftercare follow-up"
       }
-    },
-    "viewAll": "View all treatments"
+    ]
   },
   "About": {
-    "eyebrow": "About me",
+    "eyebrow": "About",
     "title": "Dr. Nasim Gholami",
-    "description": "Years of specialisation in aesthetic medicine and skin care have shaped a clear belief: real beauty is the harmony between preserving your natural features and quietly elevating your confidence. I combine the most trusted scientific methods with a precise artistic eye — so every result feels refined, balanced and unmistakably yours.",
-    "imageAlt": "Dr. Nasim Gholami — in clinic",
+    "lead": "Choosing medicine and aesthetic practice was a decision of both heart and mind: the rational Nasim inside me chose treatment, helping people feel better, while the artist — painter and sculptor — wanted to bring that eye for beauty to faces and to the people behind them.",
+    "description": "The result, after years of work, is the DN (Doctor Nasim) practice — where those aspirations become reality. Membership of the American Academy of Dermatology and keeping up with the latest protocols underpins every decision made here.",
+    "imageAlt": "Dr. Nasim Gholami at the practice",
+    "license": "Medical Council No. 137300",
     "features": [
-      "Over ten years of specialist experience in beauty, rejuvenation and skin care",
-      "Only the world's most trusted products and the very latest techniques",
-      "A treatment plan tailored entirely to each patient's individual needs"
+      "Member of the American Academy of Dermatology",
+      "Certified devices and licensed products only",
+      "A treatment plan built entirely around your needs",
+      "Close follow-up until the result you wanted"
     ],
-    "cta": "Free consultation",
+    "cta": "Talk to us directly",
     "stats": {
-      "heading": "Practice highlights",
+      "heading": "A look at the practice",
       "items": [
         {
-          "value": "+2000",
+          "value": "2000+",
           "label": "Happy patients"
         },
         {
-          "value": "+6",
+          "value": "10+",
           "label": "Years of practice"
         },
         {
-          "value": "+15",
-          "label": "Specialised courses"
+          "value": "15+",
+          "label": "Specialist courses"
         },
         {
           "value": "100%",
@@ -94,103 +111,118 @@
       ]
     }
   },
+  "Guests": {
+    "eyebrow": "Celebrity guests",
+    "title": "Who visits the practice",
+    "subtitle": "Actors, artists and athletes who have trusted our team."
+  },
   "Testimonials": {
     "eyebrow": "Patient voices",
     "title": "What patients say",
-    "subtitle": "Your trust is our pride",
+    "subtitle": "Your trust is our privilege.",
     "items": [
       {
-        "quote": "I'd been searching for a doctor whose results would look truly natural. The work was exceptional — my friends noticed something changed but none of them guessed what.",
+        "quote": "I had been looking for a doctor whose results look natural for a long time. The result was excellent — friends noticed, but nobody could tell what had been done.",
         "name": "Maryam K.",
         "role": "Rejuvenation patient"
       },
       {
-        "quote": "From the very first consultation I felt in safe hands. Everything was explained clearly and the final result exceeded everything I had hoped for.",
+        "quote": "I felt comfortable from the very first consultation. Everything was explained clearly and professionally, and the final result went beyond what I expected.",
         "name": "Negin R.",
         "role": "Filler patient"
       },
       {
-        "quote": "The clinic itself is so calming and professional. The quality of the work and the care behind it were absolutely worth trusting.",
+        "quote": "The practice is calm and genuinely professional. The standard of work was very high and it completely earned my trust.",
         "name": "Aida H.",
         "role": "Mesotherapy patient"
       }
     ]
   },
   "Cta": {
-    "title": "Book your specialist appointment today",
-    "description": "Reserve your consultation in seconds — by phone or via our online booking form.",
-    "primaryAction": "Book consultation",
-    "phoneLabel": "Direct call"
+    "eyebrow": "Appointments",
+    "title": "Book your specialist consultation",
+    "description": "At your consultation we assess your skin and goals, then set out a clear treatment plan.",
+    "primaryAction": "Book appointment",
+    "phoneLabel": "Call directly"
+  },
+  "ServicesPage": {
+    "eyebrow": "Treatments",
+    "title": "Specialist treatments",
+    "lead": "Every treatment begins with a careful assessment and aims for a natural, lasting result.",
+    "empty": "No treatments found."
+  },
+  "ServicePage": {
+    "breadcrumb": "Treatments",
+    "bookService": "Book this treatment",
+    "consultationNote": "Final pricing is confirmed after examination and once the number of sessions is set.",
+    "sections": {
+      "facts": "Key facts",
+      "intro": "About this treatment",
+      "benefits": "Benefits",
+      "suitableFor": "Suitable for",
+      "process": "How it works",
+      "faq": "Frequently asked questions",
+      "price": "Pricing",
+      "related": "Related treatments"
+    }
+  },
+  "AppointmentPage": {
+    "eyebrow": "Appointments",
+    "title": "Book your appointment",
+    "lead": "10% off all aesthetic treatments, exclusively for new patients.",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "e.g. Sara Mohammadi",
+      "phone": "Phone number",
+      "phonePlaceholder": "0912 000 0000",
+      "service": "Treatment of interest",
+      "servicePlaceholder": "Please choose",
+      "date": "Preferred date",
+      "dateHint": "Tell us the day you have in mind, if any",
+      "message": "Notes",
+      "messagePlaceholder": "Anything you think we should know.",
+      "submit": "Send request",
+      "successTitle": "Your request has been received",
+      "successNote": "Our coordinator will call you shortly to confirm an exact time.",
+      "callInstead": "Or call us now",
+      "required": "This field is required",
+      "invalidPhone": "Please enter a valid phone number"
+    },
+    "contact": {
+      "heading": "Contact the practice",
+      "addressLabel": "Address",
+      "phoneLabel": "Phone",
+      "mobileLabel": "Mobile",
+      "hoursLabel": "Opening hours",
+      "socialLabel": "Social media"
+    }
   },
   "Footer": {
-    "tagline": "Aesthetic medicine & skin health",
-    "address": "Tehran, Vali-e-Asr Street, No. 120",
-    "hours": "Saturday – Wednesday • 10:00 – 20:00",
+    "tagline": "Skin, hair, laser & aesthetic medicine",
     "sections": {
-      "contact": "Contact",
       "navigation": "Quick links",
-      "social": "Follow us"
+      "services": "Treatments",
+      "contact": "Contact"
     },
-    "rights": "All rights reserved.",
-    "credit": "Designed & built by",
-    "backToTopAria": "Back to top",
-    "signature": {
-      "eyebrow": "An invitation",
-      "title": "Let's begin your story.",
-      "note": "A short message — by phone, WhatsApp or a single tap — is all it takes to meet Dr Nasim in person and design the version of you that already feels true."
-    },
-    "reservationCard": {
-      "eyebrow": "Reservation",
-      "title": "Speak directly",
-      "note": "Confidential, unhurried. A 15-minute discovery call — we'll listen, advise, and only ever suggest what feels right.",
-      "phoneLabel": "Direct line"
-    },
-    "visitHeading": "Visit the studio",
+    "visitHeading": "Visit the practice",
     "addressLabel": "Address",
-    "hoursLabel": "Hours",
-    "exploreHeading": "Explore",
+    "hoursLabel": "Opening hours",
+    "rights": "All rights reserved to Dr. Nasim Gholami.",
+    "backToTopAria": "Back to top",
     "marquee": {
-      "label1": "Aesthetic Medicine",
-      "label2": "Skin Health",
-      "label3": "Naturally You",
+      "label1": "Aesthetic medicine",
+      "label2": "Skin health",
+      "label3": "Your true self",
       "label4": "Dr. Nasim Gholami",
-      "label5": "Est. Tehran 2019"
+      "label5": "Tehran — Elahiyeh"
     }
   },
   "Common": {
-    "bookConsultation": "Book consultation",
-    "learnMore": "Learn more",
+    "bookConsultation": "Book a consultation",
+    "learnMore": "Read more",
     "viewTreatments": "View treatments",
-    "backToTop": "Back to top"
-  },
-  "BeforeAfter": {
-    "eyebrow": "Results gallery",
-    "title": "Real examples from our treatments",
-    "subtitle": "Every result is designed to preserve your natural identity.",
-    "before": "Before",
-    "after": "After",
-    "viewDetail": "View details",
-    "cases": [
-      {
-        "treatment": "Facial rejuvenation",
-        "duration": "3 months",
-        "summary": "Restored skin vitality through a combined technique."
-      },
-      {
-        "treatment": "Cheek filler",
-        "duration": "1 session",
-        "summary": "Subtle volume and contour with a trusted filler."
-      },
-      {
-        "treatment": "Forehead Botox",
-        "duration": "1 session",
-        "summary": "Softened dynamic lines, kept natural expression."
-      },
-      {
-        "treatment": "Hair mesotherapy",
-        "duration": "4 sessions",
-        "summary": "Strengthened growth via direct follicle nutrition."
-      }
-    ]
+    "backToTop": "Back to top",
+    "call": "Call",
+    "whatsapp": "WhatsApp"
   }
 }

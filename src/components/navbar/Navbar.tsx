@@ -14,9 +14,9 @@ import { LanguageDropdown } from "@/components/navbar/LanguageDropdown";
 
 const NAV_KEYS = [
   "services",
-  "results",
-  "articles",
   "about",
+  "guests",
+  "reviews",
   "contact"
 ] as const;
 
@@ -47,12 +47,16 @@ export function Navbar() {
   }, [open]);
 
   const hrefFor = (key: (typeof NAV_KEYS)[number]) => {
-    return `/${locale}#${key}`;
+    return key === "services"
+      ? `/${locale}/services`
+      : `/${locale}#${key}`;
   };
 
   const isActive = (key: (typeof NAV_KEYS)[number]) => {
-    if (key === "services") return pathname === `/${locale}#services`;
-    return pathname.includes(`#${key}`);
+    if (key === "services") {
+      return pathname.startsWith(`/${locale}/services`);
+    }
+    return false;
   };
 
   return (

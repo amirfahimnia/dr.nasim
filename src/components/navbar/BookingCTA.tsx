@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { CalendarIcon } from "@/design-system/icons";
 
@@ -29,6 +30,7 @@ export function BookingCTA({
   size = "sm"
 }: BookingCTAProps) {
   const t = useTranslations("Navigation");
+  const locale = useLocale();
   const ref = React.useRef<HTMLAnchorElement | null>(null);
   const firedRef = React.useRef(false);
 
@@ -50,9 +52,9 @@ export function BookingCTA({
   }, []);
 
   return (
-    <a
+    <Link
       ref={ref}
-      href="#contact"
+      href={`/${locale}/appointment`}
       onClick={onClick}
       aria-label={t("bookAppointment")}
       className={cn("booking-cta", `booking-cta--${size}`, className)}
@@ -61,6 +63,6 @@ export function BookingCTA({
       <span className="booking-cta__label">
         {t("shortBookAppointment")}
       </span>
-    </a>
+    </Link>
   );
 }

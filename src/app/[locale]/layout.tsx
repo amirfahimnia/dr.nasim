@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "../globals.css";
-import { Inter, Vazirmatn } from "next/font/google";
+import {
+  Inter,
+  Playfair_Display,
+  Vazirmatn
+} from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
@@ -24,6 +28,15 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+/* Editorial display serif for latin locales. Persian falls back to Vazirmatn
+   (handled in globals.css), so the face is never downloaded on /fa. */
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -53,6 +66,7 @@ export async function generateMetadata({
   });
 
   return {
+    metadataBase: new URL("https://drnasimgholami.com"),
     title: t("title"),
     description: t("description")
   };
@@ -77,7 +91,7 @@ export default async function LocaleLayout({
     <html
       lang={htmlLang}
       dir={direction}
-      className={`${vazirmatn.variable} ${inter.variable}`}
+      className={`${vazirmatn.variable} ${inter.variable} ${playfair.variable}`}
       suppressHydrationWarning
     >
       <body>

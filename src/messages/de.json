@@ -1,91 +1,108 @@
 {
   "Metadata": {
     "title": "Dr. Nasim Gholami | Ästhetische Medizin & Hautgesundheit",
-    "description": "Spezialisierte ästhetische Behandlungen und Hautverjüngung – natürlich, wissenschaftlich und persönlich."
+    "description": "Fachärztliche ästhetische und verjüngende Behandlungen mit natürlicher, wissenschaftlicher Herangehensweise — Laser, Filler, Botulinum, HIFU und Thermage in Teheran."
   },
   "Navigation": {
     "brand": "Dr. Nasim Gholami",
+    "tagline": "Haut, Haare, Laser & Ästhetik",
     "items": {
-      "home": "Startseite",
-      "about": "Über mich",
+      "home": "Start",
       "services": "Behandlungen",
-      "results": "Ergebnisse",
-      "articles": "Artikel",
+      "about": "Über mich",
+      "guests": "Gäste",
+      "reviews": "Stimmen",
       "contact": "Kontakt"
     },
-    "phoneCta": "Jetzt anrufen",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
     "languageDropdown": {
-      "label": "Sprache ändern",
+      "label": "Sprache wechseln",
       "menuLabel": "Verfügbare Sprachen",
       "current": "Aktuelle Sprache"
     },
-    "bookAppointment": "Beratung buchen",
+    "bookAppointment": "Termin buchen",
     "shortBookAppointment": "Termin"
   },
   "Hero": {
     "eyebrow": "Dr. Nasim Gholami",
-    "title": "Natürliche Schönheit, echtes Selbstvertrauen",
-    "description": "Mit der Verbindung aus Wissenschaft, langjähriger Erfahrung und einem feinen Gespür für Ästhetik helfe ich Ihnen, die natürlichste und schönste Version Ihrer selbst zu zeigen.",
+    "title": "Natürliche Schönheit,\nechtes Selbstvertrauen",
+    "description": "Wissenschaft, Erfahrung und ein künstlerischer Blick vereinen sich — für die beste Version von Ihnen: natürlich, harmonisch und ganz die Ihre.",
     "primaryAction": "Beratung buchen",
     "secondaryAction": "Behandlungen ansehen",
     "patients": "Zufriedene Patienten",
-    "certification": "Fachärztlich zertifiziert",
-    "discipline": "Ästhetische Medizin"
+    "experience": "Jahre Erfahrung",
+    "certifications": [
+      "Mitglied der American Academy of Dermatology",
+      "Ärztekammer-Nr. 137300",
+      "Über 10 Jahre Fachpraxis"
+    ]
+  },
+  "Marquee": {
+    "words": [
+      "Verjüngung",
+      "Laser",
+      "Haut",
+      "Natürliche Schönheit",
+      "Teheran — Elahiyeh"
+    ]
   },
   "Services": {
     "eyebrow": "Unsere Behandlungen",
-    "title": "Die beliebtesten Behandlungen für Schönheit, Verjüngung und Hautgesundheit",
-    "items": {
-      "rejuvenation": {
-        "title": "Hautverjüngung",
-        "description": "Hauterneuerung durch bewährte Wissenschaft – langanhaltend und harmonisch."
+    "title": "Acht Fachbehandlungen,\ngewählt nach Ihrem echten Bedarf",
+    "description": "Jede Behandlung erfolgt mit zertifizierten Geräten und zugelassenen Präparaten — nach sorgfältiger Hautanalyse.",
+    "viewAll": "Alle Behandlungen",
+    "explore": "Details zur Behandlung",
+    "bookThis": "Diese Behandlung buchen"
+  },
+  "Trust": {
+    "items": [
+      {
+        "value": "10+",
+        "label": "Jahre Erfahrung"
       },
-      "filler": {
-        "title": "Filler & Konturierung",
-        "description": "Volumen und Kontur natürlich wiederherstellen mit geprüften Fillern und sanfter Technik."
+      {
+        "value": "2000+",
+        "label": "Zufriedene Patienten"
       },
-      "botox": {
-        "title": "Stirn- & Augenpartie-Botox",
-        "description": "Dynamische Falten mildern, ohne die natürliche Mimik zu verlieren."
+      {
+        "value": "8",
+        "label": "Fachbehandlungen"
       },
-      "laser": {
-        "title": "Laserepilation",
-        "description": "Glatte, gleichmäßige Haut mit der neuesten Generation sicherer Laser."
-      },
-      "meso": {
-        "title": "Mesotherapie & PRP",
-        "description": "Tiefenwirksame Nährstoffe und kollagenstimulierende Pflege für strahlende Haut."
+      {
+        "value": "100%",
+        "label": "Nachsorge-Kontrolle"
       }
-    },
-    "viewAll": "Alle Behandlungen ansehen"
+    ]
   },
   "About": {
     "eyebrow": "Über mich",
     "title": "Dr. Nasim Gholami",
-    "description": "Meine langjährige Spezialisierung in ästhetischer Medizin und Hautpflege hat eine klare Überzeugung gefestigt: Wahre Schönheit bewahrt Ihre natürlichen Züge und stärkt zugleich Ihr Selbstvertrauen. Ich verbinde modernste wissenschaftliche Methoden mit einem präzisen ästhetischen Auge — so entstehen Ergebnisse, die verfeinert, harmonisch und ganz individuell sind.",
-    "imageAlt": "Dr. Nasim Gholami — in der Klinik",
+    "lead": "Die Entscheidung für Medizin und Ästhetik war eine Entscheidung von Herz und Verstand: Die rationale Nasim in mir wählte die Therapie, das Helfen für das Wohlbefinden der Menschen — und die Künstlerin, Malerin und Bildhauerin, wollte diesen Blick für Schönheit nun auf Gesichter und Menschen übertragen.",
+    "description": "Das Ergebnis vieler Jahre Arbeit ist die Praxis DN (Doctor Nasim) — wo diese Wünsche Wirklichkeit werden. Mitgliedschaft in der American Academy of Dermatology und der Blick auf die neuesten Protokolle sind die Grundlage jeder Entscheidung hier.",
+    "imageAlt": "Dr. Nasim Gholami in der Praxis",
+    "license": "Ärztekammer-Nr. 137300",
     "features": [
-      "Über zehn Jahre spezialisierte Erfahrung in Ästhetik, Verjüngung und Hautpflege",
-      "Ausschließlich erstklassige Produkte und die modernsten Methoden weltweit",
-      "Ein Behandlungsplan, der vollständig auf die individuellen Bedürfnisse jedes Patienten abgestimmt ist"
+      "Mitglied der American Academy of Dermatology",
+      "Ausschließlich zertifizierte Geräte und zugelassene Präparate",
+      "Ein Behandlungsplan, der sich vollständig an Ihnen orientiert",
+      "Engmaschige Begleitung bis zum gewünschten Ergebnis"
     ],
-    "cta": "Kostenlose Beratung",
+    "cta": "Direkt mit uns sprechen",
     "stats": {
-      "heading": "Praxis auf einen Blick",
+      "heading": "Ein Blick in die Praxis",
       "items": [
         {
-          "value": "+2000",
+          "value": "2000+",
           "label": "Zufriedene Patienten"
         },
         {
-          "value": "+6",
-          "label": "Jahre Erfahrung"
+          "value": "10+",
+          "label": "Jahre Praxis"
         },
         {
-          "value": "+15",
-          "label": "Spezialisierungen"
+          "value": "15+",
+          "label": "Fachkurse"
         },
         {
           "value": "100%",
@@ -94,103 +111,118 @@
       ]
     }
   },
+  "Guests": {
+    "eyebrow": "Prominente Gäste",
+    "title": "Wer zu uns kommt",
+    "subtitle": "Schauspieler, Künstler und Sportler, die unserem Team vertraut haben."
+  },
   "Testimonials": {
-    "eyebrow": "Stimmen unserer Patienten",
+    "eyebrow": "Stimmen der Patienten",
     "title": "Was Patienten sagen",
-    "subtitle": "Ihr Vertrauen ist unser Stolz",
+    "subtitle": "Ihr Vertrauen ist unser Privileg.",
     "items": [
       {
-        "quote": "Ich hatte lange nach einer Ärztin gesucht, deren Ergebnisse wirklich natürlich wirken. Die Arbeit war hervorragend — meine Freunde sahen, dass sich etwas verändert hatte, ohne zu wissen, was genau.",
+        "quote": "Ich suchte lange nach einer Ärztin, deren Ergebnis natürlich aussieht. Das Ergebnis war hervorragend — Freunde haben es bemerkt, aber niemand wusste, was gemacht wurde.",
         "name": "Maryam K.",
-        "role": "Verjüngung"
+        "role": "Patientin, Verjüngung"
       },
       {
-        "quote": "Schon beim ersten Beratungsgespräch fühlte ich mich bestens aufgehoben. Alles wurde klar erklärt und das Ergebnis übertraf meine Erwartungen.",
+        "quote": "Vom ersten Beratungstermin an hatte ich ein gutes Gefühl. Alles wurde klar und professionell erklärt, und das Endergebnis hat meine Erwartungen übertroffen.",
         "name": "Negin R.",
-        "role": "Filler-Behandlung"
+        "role": "Patientin, Filler"
       },
       {
-        "quote": "Die Klinik selbst ist unglaublich beruhigend und professionell. Die Qualität der Arbeit und die Fürsorge dahinter sind es absolut wert, zu vertrauen.",
+        "quote": "Die Praxis ist ruhig und wirklich professionell. Die Qualität der Arbeit war sehr hoch und hat mein Vertrauen völlig begründet.",
         "name": "Aida H.",
-        "role": "Mesotherapie"
+        "role": "Patientin, Mesotherapie"
       }
     ]
   },
   "Cta": {
-    "title": "Vereinbaren Sie Ihren Spezialistentermin",
-    "description": "Reservieren Sie Ihre Beratung in Sekunden – telefonisch oder über unser Online-Formular.",
-    "primaryAction": "Beratung buchen",
+    "eyebrow": "Termine",
+    "title": "Buchen Sie Ihre Fachberatung",
+    "description": "In der Beratung prüfen wir Haut und Ziele und legen dann einen klaren Behandlungsplan fest.",
+    "primaryAction": "Termin buchen",
     "phoneLabel": "Direkt anrufen"
   },
-  "Footer": {
-    "tagline": "Ästhetische Medizin & Hautgesundheit",
-    "address": "Teheran, Vali-e-Asr-Straße, Nr. 120",
-    "hours": "Samstag – Mittwoch • 10:00 – 20:00",
+  "ServicesPage": {
+    "eyebrow": "Behandlungen",
+    "title": "Fachbehandlungen",
+    "lead": "Jede Behandlung beginnt mit einer sorgfältigen Analyse und zielt auf ein natürliches, bleibendes Ergebnis.",
+    "empty": "Keine Behandlungen gefunden."
+  },
+  "ServicePage": {
+    "breadcrumb": "Behandlungen",
+    "bookService": "Diese Behandlung buchen",
+    "consultationNote": "Der Endpreis wird nach Untersuchung und Festlegung der Sitzungszahl bestätigt.",
     "sections": {
-      "contact": "Kontakt",
+      "facts": "Kurzüberblick",
+      "intro": "Über diese Behandlung",
+      "benefits": "Vorteile",
+      "suitableFor": "Geeignet für",
+      "process": "Ablauf der Behandlung",
+      "faq": "Häufige Fragen",
+      "price": "Preis",
+      "related": "Ähnliche Behandlungen"
+    }
+  },
+  "AppointmentPage": {
+    "eyebrow": "Termine",
+    "title": "Termin buchen",
+    "lead": "10% Rabatt auf alle ästhetischen Behandlungen — exklusiv für neue Patienten.",
+    "form": {
+      "name": "Vor- und Nachname",
+      "namePlaceholder": "z. B. Sara Mohammadi",
+      "phone": "Telefonnummer",
+      "phonePlaceholder": "0912 000 0000",
+      "service": "Gewünschte Behandlung",
+      "servicePlaceholder": "Bitte wählen",
+      "date": "Wunschtermin",
+      "dateHint": "Schreiben Sie uns gern den gewünschten Tag",
+      "message": "Anmerkungen",
+      "messagePlaceholder": "Alles, was wir wissen sollten.",
+      "submit": "Anfrage senden",
+      "successTitle": "Ihre Anfrage ist eingegangen",
+      "successNote": "Unsere Koordinatorin ruft Sie in Kürze an, um einen genauen Termin zu bestätigen.",
+      "callInstead": "Oder jetzt anrufen",
+      "required": "Dieses Feld ist erforderlich",
+      "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein"
+    },
+    "contact": {
+      "heading": "Kontakt zur Praxis",
+      "addressLabel": "Adresse",
+      "phoneLabel": "Telefon",
+      "mobileLabel": "Mobil",
+      "hoursLabel": "Öffnungszeiten",
+      "socialLabel": "Soziale Netzwerke"
+    }
+  },
+  "Footer": {
+    "tagline": "Haut, Haare, Laser & Ästhetik",
+    "sections": {
       "navigation": "Schnellzugriff",
-      "social": "Folgen Sie uns"
+      "services": "Behandlungen",
+      "contact": "Kontakt"
     },
-    "rights": "Alle Rechte vorbehalten.",
-    "credit": "Design & Entwicklung",
-    "backToTopAria": "Nach oben",
-    "signature": {
-      "eyebrow": "Eine Einladung",
-      "title": "Beginnen wir Ihre Geschichte.",
-      "note": "Eine kurze Nachricht — per Telefon, WhatsApp oder mit einem Fingertipp — genügt, um Dr. Nasim persönlich zu treffen und die Version Ihrer selbst zu gestalten, die sich schon lange richtig anfühlt."
-    },
-    "reservationCard": {
-      "eyebrow": "Termin",
-      "title": "Direkt sprechen",
-      "note": "Vertraulich, in Ruhe. Ein 15-min\u00fctiges Erstgespr\u00e4ch — wir h\u00f6ren zu, beraten und empfehlen nur, was sich stimmig anf\u00fchlt.",
-      "phoneLabel": "Direktwahl"
-    },
-    "visitHeading": "Studio besuchen",
+    "visitHeading": "Besuchen Sie uns",
     "addressLabel": "Adresse",
     "hoursLabel": "Öffnungszeiten",
-    "exploreHeading": "Entdecken",
+    "rights": "Alle Rechte vorbehalten bei Dr. Nasim Gholami.",
+    "backToTopAria": "Nach oben",
     "marquee": {
       "label1": "Ästhetische Medizin",
       "label2": "Hautgesundheit",
-      "label3": "Natürlich Sie",
+      "label3": "Ihr wahres Ich",
       "label4": "Dr. Nasim Gholami",
-      "label5": "Gegründet Teheran 2019"
+      "label5": "Teheran — Elahiyeh"
     }
   },
   "Common": {
     "bookConsultation": "Beratung buchen",
-    "learnMore": "Mehr erfahren",
+    "learnMore": "Mehr lesen",
     "viewTreatments": "Behandlungen ansehen",
-    "backToTop": "Nach oben"
-  },
-  "BeforeAfter": {
-    "eyebrow": "Ergebnisse-Galerie",
-    "title": "Echte Beispiele aus unseren Behandlungen",
-    "subtitle": "Jedes Ergebnis bewahrt Ihre natürliche Identität.",
-    "before": "Vorher",
-    "after": "Nachher",
-    "viewDetail": "Details ansehen",
-    "cases": [
-      {
-        "treatment": "Hautverjüngung",
-        "duration": "3 Monate",
-        "summary": "Wiederhergestellte Vitalität durch kombinierte Technik."
-      },
-      {
-        "treatment": "Wangen-Filler",
-        "duration": "1 Sitzung",
-        "summary": "Subtile Kontur und Volumen mit geprüftem Filler."
-      },
-      {
-        "treatment": "Stirn-Botox",
-        "duration": "1 Sitzung",
-        "summary": "Dynamische Falten gemildert, Mimik gewahrt."
-      },
-      {
-        "treatment": "Haar-Mesotherapie",
-        "duration": "4 Sitzungen",
-        "summary": "Gesteigertes Wachstum durch direkte Follikel-Ernährung."
-      }
-    ]
+    "backToTop": "Nach oben",
+    "call": "Anrufen",
+    "whatsapp": "WhatsApp"
   }
 }

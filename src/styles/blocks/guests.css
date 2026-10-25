@@ -1,0 +1,104 @@
+/* ----------------------------------------------------------------------------
+ * .guests — dark band with a slow, pausable rail of guest portraits.
+ * --------------------------------------------------------------------------*/
+.guests {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem) clamp(3rem, 5vw, 4.5rem);
+  background: var(--color-espresso);
+  color: var(--color-cream);
+  overflow: hidden;
+}
+
+.guests__header {
+  max-width: 44rem;
+}
+
+.guests__eyebrow {
+  color: var(--color-gold-soft);
+}
+
+.guests__title {
+  margin-block: 0.875rem 0;
+  font-size: clamp(1.75rem, 3.2vw, 2.625rem);
+  color: var(--color-cream);
+}
+
+.guests__subtitle {
+  margin-block-start: 0.875rem;
+  font-size: var(--text-base);
+  line-height: 1.9rem;
+  color: rgba(248, 244, 239, 0.66);
+}
+
+.guests__rail {
+  margin-block-start: clamp(2rem, 4vw, 3rem);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.guests__rail-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  padding-inline: 1.25rem;
+  animation: guests-scroll 46s linear infinite;
+}
+
+html[dir="rtl"] .guests__rail-track {
+  animation-direction: reverse;
+}
+
+.guests__rail:hover .guests__rail-track {
+  animation-play-state: paused;
+}
+
+.guests__item {
+  margin: 0;
+  height: 11rem;
+  width: 11rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 175, 127, 0.28),
+    0 18px 40px -22px rgba(0, 0, 0, 0.8);
+  transition: box-shadow 300ms ease-out, transform 300ms ease-out;
+}
+
+@media (min-width: 768px) {
+  .guests__item {
+    height: 13.5rem;
+    width: 13.5rem;
+  }
+}
+
+.guests__item:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 175, 127, 0.6),
+    0 24px 48px -22px rgba(0, 0, 0, 0.9);
+}
+
+.guests__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@keyframes guests-scroll {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

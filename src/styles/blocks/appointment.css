@@ -1,0 +1,369 @@
+/* ----------------------------------------------------------------------------
+ * .appointment / .booking — booking route.
+ *   Left:  the request form (or its review step)
+ *   Right: practice contact panel + discount note
+ * --------------------------------------------------------------------------*/
+.appointment {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  background: var(--color-cream);
+}
+
+.appointment__title {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
+
+.appointment__grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 960px) {
+  .appointment__grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+.appointment__form-card {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+  box-shadow:
+    inset 0 0 0 1px var(--color-line),
+    var(--shadow-sm);
+}
+
+/* Form ----------------------------------------------------------------- */
+.booking {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.booking__row {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .booking__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.booking__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.booking__label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.booking__input {
+  height: 3rem;
+  padding-inline: 0.875rem;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-cream-soft);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+  transition: box-shadow 180ms ease-out, background-color 180ms ease-out;
+}
+
+.booking__input::placeholder {
+  color: var(--color-muted);
+}
+
+.booking__input:hover {
+  background: var(--color-cream-light);
+}
+
+.booking__input:focus {
+  outline: none;
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 1px var(--color-gold), 0 0 0 3px rgba(180, 135, 79, 0.14);
+}
+
+.booking__input[aria-invalid="true"] {
+  box-shadow: inset 0 0 0 1px #c0563f;
+}
+
+.booking__input--ltr {
+  direction: ltr;
+  text-align: start;
+}
+
+.booking__select {
+  appearance: none;
+  padding-inline-end: 2.5rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-body) 50%),
+    linear-gradient(135deg, var(--color-body) 50%, transparent 50%);
+  background-position: calc(100% - 1.125rem) 50%, calc(100% - 0.875rem) 50%;
+  background-size: 0.25rem 0.25rem, 0.25rem 0.25rem;
+  background-repeat: no-repeat;
+}
+
+html[dir="rtl"] .booking__select {
+  background-position: 1.125rem 50%, 0.875rem 50%;
+  background-image: linear-gradient(45deg, var(--color-body) 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, var(--color-body) 50%);
+}
+
+.booking__textarea {
+  height: auto;
+  padding-block: 0.75rem;
+  line-height: 1.7rem;
+  resize: vertical;
+}
+
+.booking__error {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: #c0563f;
+}
+
+.booking__submit {
+  align-self: flex-start;
+  margin-block-start: 0.5rem;
+  min-width: 12rem;
+}
+
+html[dir="rtl"] .booking__submit svg {
+  transform: scaleX(-1);
+}
+
+.booking__footnote {
+  margin: 0.25rem 0 0;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.booking__footnote a {
+  color: var(--color-gold-deep);
+  font-weight: 500;
+}
+
+/* Review step ---------------------------------------------------------- */
+.booking__review {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.booking__review-eyebrow {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-eyebrow);
+}
+
+html[dir="rtl"] .booking__review-eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.booking__review-title {
+  margin: 0;
+  font-size: var(--text-2xl);
+  color: var(--color-ink);
+}
+
+.booking__review-note {
+  margin: 0;
+  max-width: 46ch;
+  font-size: var(--text-sm);
+  line-height: 1.8rem;
+  color: var(--color-body);
+}
+
+.booking__summary {
+  width: 100%;
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.75rem 0 0;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-cream-soft);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+}
+
+.booking__summary > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.booking__summary dt {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.booking__summary dd {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+  text-align: end;
+}
+
+.booking__review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 0.75rem;
+}
+
+html[dir="rtl"] .booking__review-actions .button svg {
+  transform: scaleX(-1);
+}
+
+.booking__edit {
+  margin-block-start: 0.5rem;
+  border: 0;
+  background: none;
+  padding: 0;
+  font-size: var(--text-sm);
+  color: var(--color-body);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.booking__edit:hover {
+  color: var(--color-ink);
+}
+
+/* Contact panel -------------------------------------------------------- */
+.appointment__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.appointment__panel {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--radius-2xl);
+  background: var(--color-espresso);
+  color: var(--color-cream);
+  box-shadow: var(--shadow-md);
+}
+
+.appointment__panel-eyebrow {
+  margin: 0 0 1.5rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-soft);
+}
+
+html[dir="rtl"] .appointment__panel-eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: var(--text-sm);
+}
+
+.appointment__list {
+  display: grid;
+  gap: 1.125rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.appointment__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.appointment__item svg {
+  margin-block-start: 0.25rem;
+  color: var(--color-gold-soft);
+  flex-shrink: 0;
+}
+
+.appointment__item > span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.appointment__item-label {
+  font-size: var(--text-xs);
+  color: rgba(248, 244, 239, 0.5);
+}
+
+.appointment__item-value {
+  font-size: var(--text-sm);
+  line-height: 1.7rem;
+  color: rgba(248, 244, 239, 0.9);
+}
+
+.appointment__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-block-start: 1.75rem;
+  padding-block-start: 1.5rem;
+  border-block-start: 1px solid rgba(248, 244, 239, 0.12);
+}
+
+.appointment__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: rgba(248, 244, 239, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(248, 244, 239, 0.18);
+  transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+
+.appointment__social:hover {
+  background: var(--color-gold);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px var(--color-gold);
+}
+
+.appointment__discount {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-2xl);
+  background: var(--color-cream-light);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+}
+
+.appointment__discount-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-gold-deep);
+}
+
+.appointment__discount-text {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.7rem;
+  color: var(--color-body);
+}

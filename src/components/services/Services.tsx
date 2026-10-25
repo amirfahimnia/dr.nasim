@@ -1,29 +1,16 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
+import Image from "next/image";
+import Link from "next/link";
 
 import { Container } from "@/design-system/ui/Container";
-import { Button } from "@/design-system/ui/Button";
-import { PlaceholderImage } from "@/design-system/ui/PlaceholderImage";
-import {
-  ArrowLeftIcon,
-  BotoxIcon,
-  FaceRejuvenationIcon,
-  FillerIcon,
-  LaserIcon,
-  MesoPrpIcon
-} from "@/design-system/icons";
-
-const ICONS = [
-  FaceRejuvenationIcon,
-  FillerIcon,
-  BotoxIcon,
-  LaserIcon,
-  MesoPrpIcon
-] as const;
-
-const KEYS = ["rejuvenation", "filler", "botox", "laser", "meso"] as const;
+import { ButtonLink } from "@/design-system/ui/Button";
+import { services } from "@/content/services";
+import type { Locale } from "@/content/clinic";
+import { ArrowLeftIcon, ArrowIcon } from "@/design-system/icons";
 
 export async function Services() {
   const t = await getTranslations("Services");
+  const locale = (await getLocale()) as Locale;
 
   return (
     <section
@@ -33,54 +20,76 @@ export async function Services() {
     >
       <Container>
         <header className="services__header">
-          <p className="services__eyebrow">
-            <span className="services__eyebrow-rule" />
-            {t("eyebrow")}
-            <span className="services__eyebrow-rule" />
-          </p>
-          <h2 id="services-title" className="services__title">
-            {t("title")}
-          </h2>
+          <div className="services__header-text">
+            <p className="eyebrow">{t("eyebrow")}</p>
+            <h2
+              id="services-title"
+              className="services__title preserve-lines"
+            >
+              {t("title")}
+            </h2>
+          </div>
+
+          <div className="services__header-aside">
+            <p className="services__description">{t("description")}</p>
+            <ButtonLink
+              href={`/${locale}/services`}
+              variant="ghost"
+              size="md"
+              className="services__view-all"
+            >
+              {t("viewAll")}
+              <ArrowLeftIcon size={15} />
+            </ButtonLink>
+          </div>
         </header>
 
-        <ul className="services__list" role="list">
-          {KEYS.map((key, idx) => {
-            const Icon = ICONS[idx];
+        <ul className="services__grid" role="list">
+          {services.map((service) => {
+            const copy = service.copy[locale];
             return (
-              <li key={key} className="services__card">
-                <PlaceholderImage
-                  tone="soft"
-                  kind="service"
-                  ratio="5/4"
-                  label={t(`items.${key}.title`)}
-                />
-                <div className="services__card-head">
-                  <h3 className="services__card-title">
-                    {t(`items.${key}.title`)}
-                  </h3>
-                  <span className="services__card-icon" aria-hidden>
-                    <Icon size={18} />
+              <li key={service.slug} className="services__card">
+                <Link
+                  href={`/${locale}/services/${service.slug}`}
+                  className="services__card-link"
+                >
+                  <span className="services__card-media">
+                    <Image
+                      src={service.image}
+                      alt={copy.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="services__card-img"
+                    />
+                    <span className="services__card-scrim" aria-hidden />
+                    <span className="services__card-category">
+                      {copy.category}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="services__card-arrow services__card-arrow--light"
+                    >
+                      <ArrowIcon size={16} />
+                    </span>
                   </span>
-                </div>
-                <p className="services__card-description">
-                  {t(`items.${key}.description`)}
-                </p>
-                <a href="#contact" className="services__card-link">
-                  <span>
-                    {t("viewAll").split(" ").slice(0, 2).join(" ")}
+
+                  <span className="services__card-body">
+                    <span className="services__card-title">
+                      {copy.title}
+                    </span>
+                    <span className="services__card-tagline">
+                      {copy.tagline}
+                    </span>
+                    <span className="services__card-more">
+                      {t("explore")}
+                      <ArrowLeftIcon size={14} />
+                    </span>
                   </span>
-                  <ArrowLeftIcon size={14} />
-                </a>
+                </Link>
               </li>
             );
           })}
         </ul>
-
-        <div className="services__cta-row">
-          <Button variant="ghost" size="lg">
-            {t("viewAll")}
-          </Button>
-        </div>
       </Container>
     </section>
   );

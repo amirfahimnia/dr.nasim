@@ -147,6 +147,74 @@ export function InstagramIcon(props: IconProps) {
   );
 }
 
+export function MapPinIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: 1.5 });
+  return (
+    <svg {...p}>
+      <path d="M12 21c4.5-4.2 7-7.4 7-10.5a7 7 0 1 0-14 0C5 13.6 7.5 16.8 12 21Z" />
+      <circle cx="12" cy="10.5" r="2.6" />
+    </svg>
+  );
+}
+
+export function ClockIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: 1.5 });
+  return (
+    <svg {...p}>
+      <circle cx="12" cy="12" r="8.75" />
+      <path d="M12 7.5V12l3 2" />
+    </svg>
+  );
+}
+
+export function AwardIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: 1.5 });
+  return (
+    <svg {...p}>
+      <circle cx="12" cy="9" r="5.25" />
+      <path d="M8.5 13.5 7.5 21.5l4.5-2.5 4.5 2.5-1-8" />
+    </svg>
+  );
+}
+
+export function PlusIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: 1.6 });
+  return (
+    <svg {...p}>
+      <path d="M12 5v14" />
+      <path d="M5 12h14" />
+    </svg>
+  );
+}
+
+export function ArrowUpIcon(props: IconProps) {
+  return (
+    <svg {...withDefaults(props)}>
+      <path d="M12 19V5" />
+      <path d="M5 12l7-7 7 7" />
+    </svg>
+  );
+}
+
+export function SparkleIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: 1.4 });
+  return (
+    <svg {...p}>
+      <path d="M12 3c.9 4.3 3.8 7.2 8.1 8.1-4.3.9-7.2 3.8-8.1 8.1-.9-4.3-3.8-7.2-8.1-8.1C8.2 10.2 11.1 7.3 12 3Z" />
+    </svg>
+  );
+}
+
+export function ShieldIcon(props: IconProps) {
+  const p = withDefaults({ ...props, strokeWidth: 1.5 });
+  return (
+    <svg {...p}>
+      <path d="M12 3l7 2.5v5.8c0 4.3-2.9 8.2-7 9.7-4.1-1.5-7-5.4-7-9.7V5.5Z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  );
+}
+
 /* ----- Service-tile icons (decorative, brand-coloured inline shapes) ----- */
 
 export function FaceRejuvenationIcon(props: IconProps) {

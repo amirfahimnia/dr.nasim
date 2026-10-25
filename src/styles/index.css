@@ -25,10 +25,17 @@
 
 /* Section content blocks */
 @import "./blocks/hero.css";
+@import "./blocks/marquee.css";
 @import "./blocks/services.css";
-@import "./blocks/before-after.css";
+@import "./blocks/guests.css";
 @import "./blocks/testimonials.css";
 @import "./blocks/cta.css";
+
+/* Route-level blocks */
+@import "./blocks/page-hero.css";
+@import "./blocks/services-index.css";
+@import "./blocks/service-detail.css";
+@import "./blocks/appointment.css";
 
 /* Section assembly blocks (depend on the primitives + content blocks) */
 @import "./blocks/navbar.css";

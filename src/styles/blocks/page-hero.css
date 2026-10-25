@@ -1,0 +1,87 @@
+/* ----------------------------------------------------------------------------
+ * .page-hero — espresso header band shared by the inner routes.
+ * --------------------------------------------------------------------------*/
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-espresso);
+  color: var(--color-cream);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem) clamp(3rem, 6vw, 5.5rem);
+}
+
+.page-hero__wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      90% 120% at 90% 0%,
+      rgba(180, 135, 79, 0.28) 0%,
+      rgba(36, 31, 28, 0) 62%
+    ),
+    radial-gradient(
+      70% 100% at 0% 100%,
+      rgba(138, 166, 142, 0.14) 0%,
+      rgba(36, 31, 28, 0) 60%
+    );
+}
+
+.page-hero__inner {
+  max-width: 46rem;
+}
+
+/* Breadcrumbs ---------------------------------------------------------- */
+.page-hero__crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.page-hero__crumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-hero__crumb {
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: rgba(248, 244, 239, 0.55);
+  text-decoration: none;
+  transition: color 180ms ease-out;
+}
+
+.page-hero__crumb:hover {
+  color: var(--color-gold-soft);
+}
+
+.page-hero__crumb--current {
+  color: var(--color-gold-soft);
+}
+
+.page-hero__crumb-sep {
+  color: rgba(248, 244, 239, 0.35);
+}
+
+.page-hero__eyebrow {
+  color: var(--color-gold-soft);
+}
+
+.page-hero__title {
+  margin-block: 0.875rem 0;
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  color: var(--color-cream);
+}
+
+.page-hero__lead {
+  margin-block-start: 1rem;
+  max-width: 52ch;
+  font-size: var(--text-lg);
+  line-height: 1.95rem;
+  color: rgba(248, 244, 239, 0.72);
+}

@@ -1,6 +1,8 @@
 /* ----------------------------------------------------------------------------
  * .button — primary CTA element used across the site.
- * Six color variants × three sizes. Always pill-shaped (radius-full).
+ * Five colour variants × three sizes. Always pill-shaped (radius-full).
+ * Colour set is deliberately narrow: gold (primary), ink, cream (on dark),
+ * ghost (quiet), outline-light (secondary on cream).
  * --------------------------------------------------------------------------*/
 .button {
   display: inline-flex;
@@ -18,6 +20,7 @@
     background-color 200ms ease-out,
     color 200ms ease-out,
     box-shadow 200ms ease-out,
+    border-color 200ms ease-out,
     transform 100ms ease-out;
 }
 
@@ -50,7 +53,7 @@
 /* colour variants */
 .button--gold {
   background: var(--color-gold);
-  color: var(--color-surface);
+  color: #ffffff;
   box-shadow: var(--shadow-sm);
 }
 .button--gold:hover {
@@ -58,51 +61,39 @@
   box-shadow: var(--shadow-md);
 }
 
-.button--purple {
-  background: var(--color-nasim-purple);
-  color: #ffffff;
-  box-shadow: var(--shadow-sm);
-}
-.button--purple:hover {
-  background: var(--color-nasim-purple-deep);
-  box-shadow:
-    0 8px 24px -8px rgba(105, 38, 79, 0.4),
-    0 2px 6px -2px rgba(43, 38, 34, 0.05);
-}
-.button--purple:active {
-  transform: scale(0.98);
-}
-
-.button--sage {
-  background: var(--color-sage);
-  color: var(--color-surface);
-  box-shadow: var(--shadow-sm);
-}
-.button--sage:hover {
-  background: var(--color-sage-deep);
-  box-shadow: var(--shadow-md);
-}
-
-.button--ghost {
-  background: var(--color-surface);
-  color: var(--color-ink);
-  box-shadow: inset 0 0 0 1px var(--color-line);
-}
-.button--ghost:hover {
-  background: var(--color-cream-soft);
-  box-shadow: inset 0 0 0 1px rgba(43, 38, 34, 0.2);
-}
-
 .button--ink {
-  background: var(--color-ink);
+  background: var(--color-espresso);
   color: var(--color-cream);
   box-shadow: var(--shadow-sm);
 }
 .button--ink:hover {
-  background: var(--color-ink-soft);
+  background: #16120f;
   box-shadow: var(--shadow-md);
 }
 
+/* On dark surfaces — warm paper button */
+.button--cream {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  box-shadow: var(--shadow-sm);
+}
+.button--cream:hover {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+}
+.button--ghost:hover {
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 1px var(--color-gold);
+  color: var(--color-gold-deep);
+}
+
+/* Secondary — hairline on cream, fills in on hover */
 .button--outline-light {
   background: transparent;
   color: var(--color-ink);
@@ -112,4 +103,16 @@
   background: var(--color-ink);
   color: var(--color-cream);
   box-shadow: inset 0 0 0 1px var(--color-ink);
+}
+
+/* Secondary on dark — light hairline that fills with cream */
+.button--outline-light-solid {
+  background: transparent;
+  color: var(--color-cream);
+  box-shadow: inset 0 0 0 1px rgba(248, 244, 239, 0.4);
+}
+.button--outline-light-solid:hover {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  box-shadow: inset 0 0 0 1px var(--color-cream);
 }

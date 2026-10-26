@@ -116,7 +116,7 @@ export async function Footer() {
               {services.slice(0, 6).map((service) => (
                 <li key={service.slug}>
                   <Link
-                    href={`/${locale}/services/${service.slug}`}
+                    href={`/${locale}/treatments/${service.slug}`}
                     className="footer__link"
                   >
                     {service.copy[locale].title}

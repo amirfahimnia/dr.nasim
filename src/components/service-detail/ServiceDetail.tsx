@@ -65,7 +65,7 @@ export async function ServiceDetail({ service, locale }: Props) {
                 </li>
                 <li>
                   <Link
-                    href={`/${locale}/services`}
+                    href={`/${locale}/treatments`}
                     className="page-hero__crumb"
                   >
                     {t("breadcrumb")}
@@ -102,7 +102,7 @@ export async function ServiceDetail({ service, locale }: Props) {
                 <ArrowLeftIcon size={16} />
               </ButtonLink>
               <Link
-                href={`/${locale}/services`}
+                href={`/${locale}/treatments`}
                 className="detail-hero__back"
               >
                 {t("breadcrumb")}
@@ -281,7 +281,7 @@ export async function ServiceDetail({ service, locale }: Props) {
             {related.map((item) => (
               <li key={item.slug} className="detail-related__item">
                 <Link
-                  href={`/${locale}/services/${item.slug}`}
+                  href={`/${locale}/treatments/${item.slug}`}
                   className="detail-related__card"
                 >
                   <span className="detail-related__media">

@@ -10,8 +10,10 @@ const PHOTOS = [
   { src: "/images/celebs/elnaz-habibi.webp", alt: "Elnaz Habibi" },
   { src: "/images/celebs/farahbakhsh.webp", alt: "Farahbakhsh" },
   { src: "/images/celebs/majid-mozafari.webp", alt: "Majid Mozafari" },
-  { src: "/images/celebs/naser-zaynali.webp", alt: "Naser Zaynali" },
-  { src: "/images/celebs/shabnam-moghadammi.webp", alt: "Shabnam Moghadammi" }
+  { src: "/images/celebs/shabnam-moghadammi.webp", alt: "Shabnam Moghadammi" },
+  { src: "/images/celebs/saed-and-gloria-1.webp", alt: "Saed and Gloria" },
+  { src: "/images/celebs/Hossein-Pourkarimi.webp", alt: "Hossein Pourkarimi" },
+  { src: "/images/celebs/barbod-1.webp", alt: "Barbod" }
 ] as const;
 
 /**

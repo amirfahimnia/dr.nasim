@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
- * .services — treatment grid on the homepage.
+ * .services — treatment rail on the homepage.
  * Header is a two-column editorial row (statement left, aside right); the
- * grid is a strict card wall with photographic tiles.
+ * cards ride a horizontal line as a drag/scroll rail.
  * --------------------------------------------------------------------------*/
 .services {
   padding-block: clamp(4rem, 7vw, 7rem);
@@ -51,39 +51,66 @@
   color: var(--color-body);
 }
 
-/* Grid — 1 / 2 / 4 columns */
-.services__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/* Rail — the cards ride a horizontal line and are dragged sideways */
+.services__rail-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-@media (min-width: 640px) {
-  .services__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.services__rail {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.25rem 0 0.75rem;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+.services__rail::-webkit-scrollbar {
+  display: none;
+}
+
+.services__rail--dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+@media (min-width: 760px) {
+  .services__rail {
     gap: 1.5rem;
   }
 }
 
-@media (min-width: 760px) and (max-width: 1099px) {
-  .services__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+/* The line itself — a hairline track with a gold fill showing progress */
+.services__line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background: rgba(180, 135, 79, 0.25);
 }
 
-/* Nine cards tile perfectly as 3 × 3 on wide screens. */
-@media (min-width: 1100px) {
-  .services__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem;
-  }
+.services__line-fill {
+  position: absolute;
+  inset-block-start: -1px;
+  inset-inline-start: 0;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: var(--color-gold-deep);
+  transition: width 140ms ease-out;
 }
 
 /* Card */
 .services__card {
+  flex: 0 0 min(78%, 21rem);
+  scroll-snap-align: start;
   border-radius: var(--radius-xl);
   background: var(--color-surface);
   box-shadow: inset 0 0 0 1px var(--color-line);
@@ -106,6 +133,19 @@
   height: 100%;
   color: inherit;
   text-decoration: none;
+}
+
+/* ~2.4 cards visible on tablets, ~3.4 on wide screens */
+@media (min-width: 760px) {
+  .services__card {
+    flex-basis: calc((100% - 3rem) / 2.4);
+  }
+}
+
+@media (min-width: 1100px) {
+  .services__card {
+    flex-basis: calc((100% - 4.5rem) / 3.35);
+  }
 }
 
 .services__card-media {

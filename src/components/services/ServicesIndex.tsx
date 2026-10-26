@@ -40,7 +40,7 @@ export async function ServicesIndex() {
               return (
                 <li key={service.slug} className="services-index__item">
                   <Link
-                    href={`/${locale}/services/${service.slug}`}
+                    href={`/${locale}/treatments/${service.slug}`}
                     className="services-index__card"
                   >
                     <span className="services-index__media">
@@ -48,7 +48,7 @@ export async function ServicesIndex() {
                         src={service.image}
                         alt={copy.title}
                         fill
-                        sizes="(max-width: 760px) 100vw, 50vw"
+                        sizes="(max-width: 760px) 100vw, (max-width: 1099px) 50vw, 33vw"
                         className="services-index__img"
                       />
                       <span

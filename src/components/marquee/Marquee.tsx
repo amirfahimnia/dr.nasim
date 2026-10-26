@@ -15,7 +15,7 @@ export async function Marquee() {
         {[...run, ...run].map((word, i) => (
           <span key={i} className="marquee__item">
             <span className="marquee__word">{word}</span>
-            <span className="marquee__sep">//</span>
+            <span className="marquee__sep">{"//"}</span>
           </span>
         ))}
       </div>

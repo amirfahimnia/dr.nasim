@@ -48,13 +48,13 @@ export function Navbar() {
 
   const hrefFor = (key: (typeof NAV_KEYS)[number]) => {
     return key === "services"
-      ? `/${locale}/services`
+      ? `/${locale}/treatments`
       : `/${locale}#${key}`;
   };
 
   const isActive = (key: (typeof NAV_KEYS)[number]) => {
     if (key === "services") {
-      return pathname.startsWith(`/${locale}/services`);
+      return pathname.startsWith(`/${locale}/treatments`);
     }
     return false;
   };

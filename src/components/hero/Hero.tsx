@@ -66,7 +66,7 @@ export async function Hero() {
                 {t("primaryAction")}
               </ButtonLink>
               <ButtonLink
-                href={`/${locale}/services`}
+                href={`/${locale}/treatments`}
                 variant="outline-light-solid"
                 size="lg"
               >

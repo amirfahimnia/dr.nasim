@@ -28,7 +28,7 @@ export default async function HomePage({ params }: Props) {
         <Hero />
         <Marquee />
         <Services />
-        <About />
+        <About withReadMore />
         <Guests />
         <Testimonials />
         <CallToAction />

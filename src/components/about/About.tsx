@@ -9,8 +9,14 @@ import { CheckIcon, ArrowLeftIcon } from "@/design-system/icons";
 
 type StatItem = { value: string; label: string };
 
-export async function About() {
+type AboutProps = {
+  /** Show a secondary link to the full about page (used on the home page). */
+  withReadMore?: boolean;
+};
+
+export async function About({ withReadMore = false }: AboutProps) {
   const t = await getTranslations("About");
+  const tCommon = await getTranslations("Common");
   const locale = (await getLocale()) as Locale;
   const features = (t.raw("features") as string[]) ?? [];
   const stats = (t.raw("stats.items") as StatItem[]) ?? [];
@@ -69,6 +75,15 @@ export async function About() {
                 {t("cta")}
                 <ArrowLeftIcon size={16} />
               </ButtonLink>
+              {withReadMore ? (
+                <ButtonLink
+                  href={`/${locale}/about`}
+                  variant="ghost"
+                  size="lg"
+                >
+                  {tCommon("learnMore")}
+                </ButtonLink>
+              ) : null}
             </div>
           </div>
         </div>

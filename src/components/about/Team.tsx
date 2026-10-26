@@ -1,4 +1,5 @@
 import { getTranslations, getLocale } from "next-intl/server";
+import Image from "next/image";
 
 import { Container } from "@/design-system/ui/Container";
 import { clinic } from "@/content/clinic";
@@ -29,9 +30,22 @@ export async function Team() {
             const name = member.name[locale];
             return (
               <li key={member.name.en} className="team__card">
-                <span aria-hidden className="team__avatar">
-                  {initialsOf(name)}
-                </span>
+                {member.photo ? (
+                  <span className="team__media">
+                    <Image
+                      src={member.photo}
+                      alt={name}
+                      width={640}
+                      height={853}
+                      sizes="(max-width: 760px) 45vw, (max-width: 1099px) 30vw, 18vw"
+                      className="team__photo"
+                    />
+                  </span>
+                ) : (
+                  <span aria-hidden className="team__avatar">
+                    {initialsOf(name)}
+                  </span>
+                )}
                 <span className="team__name">{name}</span>
                 <span className="team__role">{member.role[locale]}</span>
               </li>

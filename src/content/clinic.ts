@@ -52,22 +52,27 @@ export const clinic = {
     {
       name: { fa: "سپیده حمیدزاده", en: "Sepideh Hamidzadeh", de: "Sepideh Hamidzadeh" },
       role: { fa: "مدیر داخلی", en: "Practice Manager", de: "Praxismanagerin" },
+      photo: "/images/team/sepideh.webp",
     },
     {
       name: { fa: "فاطمه آقایی", en: "Fatemeh Aghaei", de: "Fatemeh Aghaei" },
       role: { fa: "اپراتور لیزر", en: "Laser Technician", de: "Laser-Technikerin" },
+      photo: "/images/team/fatemeh.webp",
     },
     {
       name: { fa: "اعظم لرستانی", en: "Azam Lorastani", de: "Azam Lorastani" },
       role: { fa: "اپراتور لیزر", en: "Laser Technician", de: "Laser-Technikerin" },
+      photo: "/images/team/azam.webp",
     },
     {
       name: { fa: "الناز اسدی", en: "ElNaz Asadi", de: "ElNaz Asadi" },
       role: { fa: "امور مالی", en: "Finance", de: "Finanzen" },
+      photo: "/images/team/elnaz.webp",
     },
     {
       name: { fa: "سوگل صالحی", en: "Sogol Salehi", de: "Sogol Salehi" },
       role: { fa: "فیشالیست", en: "Facialist", de: "Facialistin" },
+      photo: "/images/team/sogol.webp",
     },
   ],
 } as const;

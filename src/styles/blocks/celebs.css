@@ -46,8 +46,16 @@
 }
 
 .celebs__card {
-  margin: 0;
+  display: block;
+  width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
   border-radius: var(--radius-2xl);
   overflow: hidden;
   background: var(--color-surface);
@@ -57,6 +65,11 @@
   transition:
     transform 260ms ease-out,
     box-shadow 260ms ease-out;
+}
+
+.celebs__card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
 }
 
 .celebs__card:hover {
@@ -134,4 +147,167 @@ html[dir="rtl"] .celebs__name {
   font-family: var(--font-vazirmatn-fallback);
   font-weight: 700;
   font-size: var(--text-sm);
+}
+
+/* Lightbox ----------------------------------------------------------------
+ * Fixed overlay with the full original image, a caption, prev/next arrows
+ * and a close button. Click the backdrop or press Esc to close.
+ * --------------------------------------------------------------------------*/
+.celebs__modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(20, 16, 13, 0.84);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: celebs-fade 200ms ease-out;
+}
+
+@keyframes celebs-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes celebs-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.celebs__modal-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  max-width: min(90vw, 64rem);
+  animation: celebs-pop 260ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.celebs__modal-img {
+  width: auto;
+  height: auto;
+  max-width: min(88vw, 60rem);
+  max-height: 74vh;
+  border-radius: var(--radius-xl);
+  background: var(--color-espresso);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.celebs__modal-caption {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  color: var(--color-cream);
+  text-align: center;
+}
+
+.celebs__modal-index {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-gold-soft);
+}
+
+html[dir="rtl"] .celebs__modal-index {
+  font-family: var(--font-vazirmatn-fallback);
+  font-weight: 700;
+}
+
+.celebs__modal-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+html[dir="rtl"] .celebs__modal-name {
+  font-family: var(--font-vazirmatn-fallback);
+  font-weight: 700;
+}
+
+/* Round glass controls --------------------------------------------------- */
+.celebs__modal-close,
+.celebs__modal-nav {
+  position: absolute;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem;
+  width: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: rgba(248, 244, 239, 0.14);
+  color: var(--color-cream);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background-color 160ms ease-out;
+}
+
+.celebs__modal-close:hover,
+.celebs__modal-nav:hover {
+  background: rgba(248, 244, 239, 0.28);
+}
+
+.celebs__modal-close:focus-visible,
+.celebs__modal-nav:focus-visible {
+  outline: 2px solid var(--color-gold-soft);
+  outline-offset: 2px;
+}
+
+.celebs__modal-close {
+  inset-block-start: 1.25rem;
+  inset-inline-end: 1.25rem;
+}
+
+.celebs__modal-nav {
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.celebs__modal-nav--prev {
+  inset-inline-start: 1.25rem;
+}
+
+.celebs__modal-nav--next {
+  inset-inline-end: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .celebs__modal {
+    padding: 1rem;
+  }
+
+  .celebs__modal-close,
+  .celebs__modal-nav {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .celebs__modal-close {
+    inset-block-start: 0.875rem;
+    inset-inline-end: 0.875rem;
+  }
+
+  .celebs__modal-nav--prev {
+    inset-inline-start: 0.5rem;
+  }
+
+  .celebs__modal-nav--next {
+    inset-inline-end: 0.5rem;
+  }
+
+  .celebs__modal-img {
+    max-height: 68vh;
+  }
 }

@@ -148,7 +148,10 @@
   "GuestsPage": {
     "eyebrow": "Gäste",
     "title": "Gäste der Praxis",
-    "lead": "Schauspieler, Künstler und Sportler, die unserem Team vertraut haben."
+    "lead": "Schauspieler, Künstler und Sportler, die unserem Team vertraut haben.",
+    "close": "Schließen",
+    "prev": "Vorheriges Bild",
+    "next": "Nächstes Bild"
   },
   "AboutPage": {
     "eyebrow": "Über uns",

@@ -148,7 +148,10 @@
   "GuestsPage": {
     "eyebrow": "Guests",
     "title": "Practice guests",
-    "lead": "Actors, artists and athletes who have trusted our team."
+    "lead": "Actors, artists and athletes who have trusted our team.",
+    "close": "Close",
+    "prev": "Previous image",
+    "next": "Next image"
   },
   "AboutPage": {
     "eyebrow": "About us",

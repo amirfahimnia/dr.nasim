@@ -38,7 +38,7 @@ export async function ArticlesIndex() {
             {articles.map((article, idx) => (
               <li key={article.slug} className="articles-index__item">
                 <Link
-                  href={`/${locale}/artikelen/${article.slug}`}
+                  href={`/${locale}/articles/${article.slug}`}
                   className="articles-index__card"
                 >
                   <span className="articles-index__media">

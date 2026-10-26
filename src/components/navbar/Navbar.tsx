@@ -51,7 +51,7 @@ export function Navbar() {
     if (key === "services") return `/${locale}/treatments`;
     if (key === "about") return `/${locale}/about`;
     if (key === "guests") return `/${locale}/guests`;
-    if (key === "articles") return `/${locale}/artikelen`;
+    if (key === "articles") return `/${locale}/articles`;
     return `/${locale}#${key}`;
   };
 
@@ -66,7 +66,7 @@ export function Navbar() {
       return pathname === `/${locale}/guests`;
     }
     if (key === "articles") {
-      return pathname.startsWith(`/${locale}/artikelen`);
+      return pathname.startsWith(`/${locale}/articles`);
     }
     return false;
   };

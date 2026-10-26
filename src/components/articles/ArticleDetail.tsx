@@ -33,7 +33,7 @@ export async function ArticleDetail({ article, locale }: ArticleDetailProps) {
         title={article.title}
         breadcrumbs={[
           { label: tNav("items.home"), href: `/${locale}` },
-          { label: t("eyebrow"), href: `/${locale}/artikelen` },
+          { label: t("eyebrow"), href: `/${locale}/articles` },
           { label: article.title }
         ]}
       >
@@ -72,7 +72,7 @@ export async function ArticleDetail({ article, locale }: ArticleDetailProps) {
 
           <div className="article__footer">
             <ButtonLink
-              href={`/${locale}/artikelen`}
+              href={`/${locale}/articles`}
               variant="ghost"
               size="md"
             >
@@ -99,7 +99,7 @@ export async function ArticleDetail({ article, locale }: ArticleDetailProps) {
             {related.map((item) => (
               <li key={item.slug} className="article-related__item">
                 <Link
-                  href={`/${locale}/artikelen/${item.slug}`}
+                  href={`/${locale}/articles/${item.slug}`}
                   className="article-related__card"
                 >
                   <span className="article-related__media">

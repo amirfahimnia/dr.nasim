@@ -18,20 +18,20 @@ const nextConfig: NextConfig = {
         destination: '/:locale/treatments/:slug*',
         permanent: true
       },
-      // Legacy blog: /blog (archive) and every old post URL → /fa/artikelen
+      // Legacy blog: /blog (archive) and every old post URL → /fa/articles
       {
         source: '/blog',
-        destination: '/fa/artikelen',
+        destination: '/fa/articles',
         permanent: true
       },
       {
         source: '/blog/:path*',
-        destination: '/fa/artikelen',
+        destination: '/fa/articles',
         permanent: true
       },
       ...legacyArticleSlugs.map((slug) => ({
         source: `/${slug}`,
-        destination: `/fa/artikelen/${slug}`,
+        destination: `/fa/articles/${slug}`,
         permanent: true
       }))
     ];

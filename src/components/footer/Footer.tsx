@@ -46,6 +46,7 @@ export async function Footer() {
     if (key === "home") return `/${locale}`;
     if (key === "services") return `/${locale}/treatments`;
     if (key === "about") return `/${locale}/about`;
+    if (key === "guests") return `/${locale}/guests`;
     return `/${locale}#${key}`;
   };
 

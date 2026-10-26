@@ -145,6 +145,11 @@
     "primaryAction": "Book appointment",
     "phoneLabel": "Call directly"
   },
+  "GuestsPage": {
+    "eyebrow": "Guests",
+    "title": "Practice guests",
+    "lead": "Actors, artists and athletes who have trusted our team."
+  },
   "AboutPage": {
     "eyebrow": "About us",
     "title": "About the practice and our team",

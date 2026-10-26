@@ -145,6 +145,11 @@
     "primaryAction": "Termin buchen",
     "phoneLabel": "Direkt anrufen"
   },
+  "GuestsPage": {
+    "eyebrow": "Gäste",
+    "title": "Gäste der Praxis",
+    "lead": "Schauspieler, Künstler und Sportler, die unserem Team vertraut haben."
+  },
   "AboutPage": {
     "eyebrow": "Über uns",
     "title": "Über die Praxis und unser Team",

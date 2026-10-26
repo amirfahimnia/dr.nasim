@@ -49,6 +49,7 @@ export function Navbar() {
   const hrefFor = (key: (typeof NAV_KEYS)[number]) => {
     if (key === "services") return `/${locale}/treatments`;
     if (key === "about") return `/${locale}/about`;
+    if (key === "guests") return `/${locale}/guests`;
     return `/${locale}#${key}`;
   };
 
@@ -58,6 +59,9 @@ export function Navbar() {
     }
     if (key === "about") {
       return pathname === `/${locale}/about`;
+    }
+    if (key === "guests") {
+      return pathname === `/${locale}/guests`;
     }
     return false;
   };

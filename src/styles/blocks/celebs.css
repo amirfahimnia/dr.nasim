@@ -1,0 +1,137 @@
+/* ----------------------------------------------------------------------------
+ * .celebs — celebrity guest gallery on the /guests route. Square photos in a
+ * responsive grid with a dark gradient carrying an always-visible caption:
+ * a gold index number plus the guest's name.
+ * --------------------------------------------------------------------------*/
+.celebs {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  background: var(--color-cream);
+}
+
+.celebs__title {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
+
+.celebs__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .celebs__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .celebs__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.celebs__item {
+  margin: 0;
+}
+
+.celebs__card {
+  margin: 0;
+  height: 100%;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow:
+    inset 0 0 0 1px var(--color-line),
+    var(--shadow-xs);
+  transition:
+    transform 260ms ease-out,
+    box-shadow 260ms ease-out;
+}
+
+.celebs__card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 135, 79, 0.45),
+    var(--shadow-lg);
+}
+
+.celebs__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-cream-light);
+}
+
+.celebs__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.celebs__card:hover .celebs__img {
+  transform: scale(1.05);
+}
+
+.celebs__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 16, 13, 0.78) 0%,
+    rgba(20, 16, 13, 0.25) 32%,
+    rgba(20, 16, 13, 0) 55%
+  );
+}
+
+/* Caption — always visible over the photo ------------------------------- */
+.celebs__caption {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.75rem 0.875rem;
+}
+
+.celebs__index {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  color: var(--color-gold-soft);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+html[dir="rtl"] .celebs__index {
+  font-family: var(--font-vazirmatn-fallback);
+  font-weight: 700;
+}
+
+.celebs__name {
+  font-family: var(--font-display);
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-cream);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+html[dir="rtl"] .celebs__name {
+  font-family: var(--font-vazirmatn-fallback);
+  font-weight: 700;
+  font-size: var(--text-sm);
+}

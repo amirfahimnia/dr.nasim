@@ -82,12 +82,13 @@ html[dir="rtl"] .team__title {
     var(--shadow-lg);
 }
 
-/* Portrait — 3:4, matching the source photos, framed with a hairline */
+/* Square portrait, framed with a hairline. The photos are 640×853, so a
+ * square crop anchored just below the top edge keeps the whole face in. */
 .team__media {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   margin-block-end: 1rem;
   border-radius: var(--radius-xl);
@@ -96,8 +97,11 @@ html[dir="rtl"] .team__title {
 }
 
 .team__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 12%;
   transition: transform 800ms cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 
@@ -110,7 +114,7 @@ html[dir="rtl"] .team__title {
   display: grid;
   place-items: center;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
   margin-block-end: 1rem;
   border-radius: var(--radius-xl);
   background: var(--color-cream-soft);

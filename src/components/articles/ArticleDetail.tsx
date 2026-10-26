@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Container } from "@/design-system/ui/Container";
 import { ButtonLink } from "@/design-system/ui/Button";
 import { PageHero } from "@/components/page-hero/PageHero";
+import { ArticleCta } from "@/components/articles/ArticleCta";
 import { articles, type Article } from "@/content/articles";
 import { formatArticleDate } from "@/lib/formatArticleDate";
 import { clinic } from "@/content/clinic";
@@ -50,41 +51,50 @@ export async function ArticleDetail({ article, locale }: ArticleDetailProps) {
 
       <article className="article">
         <Container>
-          <div className="article__cover">
-            <Image
-              src={article.featured}
-              alt={article.title}
-              width={1600}
-              height={900}
-              priority
-              sizes="(max-width: 1100px) 100vw, 1100px"
-              className="article__cover-img"
-            />
-          </div>
+          <div className="article__layout">
+            <div className="article__main">
+              <div className="article__cover">
+                <Image
+                  src={article.featured}
+                  alt={article.title}
+                  width={1600}
+                  height={900}
+                  priority
+                  sizes="(max-width: 1000px) 100vw, 46rem"
+                  className="article__cover-img"
+                />
+              </div>
 
-          {/* The migrated body is always Persian — keep it right-to-left. */}
-          <div
-            className="article-body"
-            dir="rtl"
-            lang="fa"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+              {/* The migrated body is always Persian — keep it right-to-left. */}
+              <div
+                className="article-body"
+                dir="rtl"
+                lang="fa"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
 
-          <div className="article__footer">
-            <ButtonLink
-              href={`/${locale}/articles`}
-              variant="ghost"
-              size="md"
-            >
-              {t("backToAll")}
-            </ButtonLink>
-            <ButtonLink
-              href={`/${locale}/appointment`}
-              variant="gold"
-              size="md"
-            >
-              {tNav("bookAppointment")}
-            </ButtonLink>
+              <div className="article__footer">
+                <ButtonLink
+                  href={`/${locale}/articles`}
+                  variant="ghost"
+                  size="md"
+                >
+                  {t("backToAll")}
+                </ButtonLink>
+                <ButtonLink
+                  href={`/${locale}/appointment`}
+                  variant="gold"
+                  size="md"
+                >
+                  {tNav("bookAppointment")}
+                </ButtonLink>
+              </div>
+            </div>
+
+            {/* Sticky consultation rail — scrolls along with the reading */}
+            <div className="article__aside">
+              <ArticleCta />
+            </div>
           </div>
         </Container>
       </article>

@@ -146,6 +146,25 @@
     "primaryAction": "Book appointment",
     "phoneLabel": "Call directly"
   },
+  "ArticleCta": {
+    "usps": [
+      "10% discount exclusively for new patients",
+      "Consultation and examination by Dr. Nasim Gholami",
+      "Careful follow-up until the desired result"
+    ],
+    "note": "Leave your name and number and our coordinator will call you back shortly.",
+    "title": "Request a free consultation",
+    "nameLabel": "Full name",
+    "namePlaceholder": "e.g. Sara Mohammadi",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "0912 000 0000",
+    "submit": "Send request",
+    "successTitle": "Your request has been received",
+    "successNote": "For a faster reply you can also reach us on WhatsApp right now.",
+    "edit": "Edit details",
+    "required": "This field is required",
+    "invalidPhone": "Please enter a valid phone number"
+  },
   "ArticlesPage": {
     "eyebrow": "Articles",
     "title": "Clinical articles",

@@ -146,6 +146,25 @@
     "primaryAction": "Termin buchen",
     "phoneLabel": "Direkt anrufen"
   },
+  "ArticleCta": {
+    "usps": [
+      "10 % Rabatt exklusiv für neue Patientinnen und Patienten",
+      "Beratung und Untersuchung durch Dr. Nasim Gholami",
+      "Sorgfältige Begleitung bis zum gewünschten Ergebnis"
+    ],
+    "note": "Hinterlassen Sie Ihren Namen und Ihre Telefonnummer — wir rufen Sie in Kürze zurück.",
+    "title": "Kostenlose Beratung anfragen",
+    "nameLabel": "Vor- und Nachname",
+    "namePlaceholder": "z. B. Sara Mohammadi",
+    "phoneLabel": "Telefonnummer",
+    "phonePlaceholder": "0912 000 0000",
+    "submit": "Anfrage senden",
+    "successTitle": "Ihre Anfrage ist eingegangen",
+    "successNote": "Für eine schnellere Antwort können Sie uns auch direkt über WhatsApp kontaktieren.",
+    "edit": "Angaben bearbeiten",
+    "required": "Dieses Feld ist erforderlich",
+    "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein"
+  },
   "ArticlesPage": {
     "eyebrow": "Artikel",
     "title": "Fachartikel",

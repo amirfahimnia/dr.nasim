@@ -47,14 +47,17 @@ export function Navbar() {
   }, [open]);
 
   const hrefFor = (key: (typeof NAV_KEYS)[number]) => {
-    return key === "services"
-      ? `/${locale}/treatments`
-      : `/${locale}#${key}`;
+    if (key === "services") return `/${locale}/treatments`;
+    if (key === "about") return `/${locale}/about`;
+    return `/${locale}#${key}`;
   };
 
   const isActive = (key: (typeof NAV_KEYS)[number]) => {
     if (key === "services") {
       return pathname.startsWith(`/${locale}/treatments`);
+    }
+    if (key === "about") {
+      return pathname === `/${locale}/about`;
     }
     return false;
   };

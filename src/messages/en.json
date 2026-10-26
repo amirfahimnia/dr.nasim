@@ -145,6 +145,16 @@
     "primaryAction": "Book appointment",
     "phoneLabel": "Call directly"
   },
+  "AboutPage": {
+    "eyebrow": "About us",
+    "title": "About the practice and our team",
+    "lead": "DN (Doctor Nasim) is where medical science and the art of aesthetics meet — led by Dr. Nasim Gholami and a team of experienced colleagues.",
+    "team": {
+      "eyebrow": "Our team",
+      "title": "Practice staff",
+      "subtitle": "The colleagues who support you at every step of your treatment."
+    }
+  },
   "ServicesPage": {
     "eyebrow": "Treatments",
     "title": "Specialist treatments",

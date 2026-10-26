@@ -102,6 +102,8 @@
   inset-block-start: -1px;
   inset-inline-start: 0;
   height: 3px;
+  /* always show where the rail starts, even before it is scrolled */
+  min-width: 4rem;
   border-radius: var(--radius-full);
   background: var(--color-gold-deep);
   transition: width 140ms ease-out;

@@ -42,8 +42,12 @@ export async function Footer() {
   const year = new Date().getFullYear();
   const marqueeItems = MARQUEE_KEYS.map((k) => tF(`marquee.${k}`));
 
-  const hrefFor = (key: (typeof NAV_KEYS)[number]) =>
-    key === "home" ? `/${locale}` : `/${locale}#${key}`;
+  const hrefFor = (key: (typeof NAV_KEYS)[number]) => {
+    if (key === "home") return `/${locale}`;
+    if (key === "services") return `/${locale}/treatments`;
+    if (key === "about") return `/${locale}/about`;
+    return `/${locale}#${key}`;
+  };
 
   const socials = [
     { href: clinic.socials.instagram, label: "Instagram", icon: InstagramIcon },

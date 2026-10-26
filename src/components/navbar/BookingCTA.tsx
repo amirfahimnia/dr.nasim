@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
@@ -16,9 +16,11 @@ interface BookingCTAProps {
 }
 
 /**
- * Locale-aware booking CTA. Plays `cta-attention-in` (a subtle scale +
- * halo) exactly once on first intersection with the viewport. Reuses
- * the global `prefers-reduced-motion` media query to silence the
+ * Locale-aware booking CTA. `Link` from `@/i18n/navigation` prefixes the
+ * current locale itself, so the href must stay locale-free — prefixing it
+ * here produced `/en/en/appointment` (404). Plays `cta-attention-in` (a
+ * subtle scale + halo) exactly once on first intersection with the viewport.
+ * Reuses the global `prefers-reduced-motion` media query to silence the
  * animation for users who opt out of motion.
  *
  * `sm` — header pill (mobile-friendly height).
@@ -30,7 +32,6 @@ export function BookingCTA({
   size = "sm"
 }: BookingCTAProps) {
   const t = useTranslations("Navigation");
-  const locale = useLocale();
   const ref = React.useRef<HTMLAnchorElement | null>(null);
   const firedRef = React.useRef(false);
 
@@ -54,7 +55,7 @@ export function BookingCTA({
   return (
     <Link
       ref={ref}
-      href={`/${locale}/appointment`}
+      href="/appointment"
       onClick={onClick}
       aria-label={t("bookAppointment")}
       className={cn("booking-cta", `booking-cta--${size}`, className)}

@@ -225,7 +225,7 @@
       "service": "Treatment of interest",
       "servicePlaceholder": "Please choose",
       "date": "Preferred date",
-      "dateHint": "Tell us the day you have in mind, if any",
+      "dateHint": "Open Saturday to Thursday, 10:00 – 20:00",
       "message": "Notes",
       "messagePlaceholder": "Anything you think we should know.",
       "submit": "Send request",
@@ -233,7 +233,29 @@
       "successNote": "Our coordinator will call you shortly to confirm an exact time.",
       "callInstead": "Or call us now",
       "required": "This field is required",
-      "invalidPhone": "Please enter a valid phone number"
+      "invalidPhone": "Please enter a valid phone number",
+      "steps": {
+        "treatment": "Which treatment are you interested in?",
+        "datetime": "When would you like to come in?",
+        "details": "Where can we reach you?"
+      },
+      "stepsShort": {
+        "treatment": "Treatment",
+        "datetime": "Date & time",
+        "details": "Your details"
+      },
+      "stepOf": "Step {current} of {total}",
+      "consultation": "Free consultation — I'm not sure yet",
+      "serviceRequired": "Please choose a treatment to continue",
+      "dateRequired": "Please choose a day",
+      "dateInvalid": "That day has already passed — pick a future date",
+      "closedDay": "We're closed on Fridays — please choose another day",
+      "time": "Preferred time",
+      "timeHint": "Optional — leave it open and we'll agree a time by phone.",
+      "timeFlexible": "Flexible — we'll agree a time by phone",
+      "back": "Back",
+      "next": "Continue",
+      "editRequest": "Change my details"
     },
     "contact": {
       "heading": "Contact the practice",

@@ -155,6 +155,226 @@ html[dir="rtl"] .booking__submit svg {
   font-weight: 500;
 }
 
+/* Wizard ---------------------------------------------------------------- */
+.booking__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.booking__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.booking__step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: start;
+  cursor: pointer;
+}
+
+.booking__step:disabled {
+  cursor: default;
+}
+
+.booking__step-rail {
+  display: block;
+  height: 3px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-line);
+}
+
+.booking__step-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-gold);
+  transition: width 320ms ease-out;
+}
+
+.booking__step-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.booking__step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: var(--radius-full);
+  background: var(--color-cream-light);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-body);
+  transition:
+    background-color 200ms ease-out,
+    box-shadow 200ms ease-out,
+    color 200ms ease-out;
+}
+
+.booking__step--active .booking__step-index,
+.booking__step--done .booking__step-index {
+  background: var(--color-espresso);
+  box-shadow: inset 0 0 0 1px var(--color-espresso);
+  color: var(--color-cream);
+}
+
+.booking__step-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.booking__step--active .booking__step-label {
+  color: var(--color-ink);
+}
+
+.booking__step--done .booking__step-label {
+  color: var(--color-body);
+}
+
+.booking__step:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+.booking__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.booking__step-title {
+  margin: 0;
+  font-size: var(--text-xl);
+  color: var(--color-ink);
+}
+
+.booking__step-title:focus {
+  outline: none;
+}
+
+.booking__hint {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin: 0;
+  font-size: var(--text-xs);
+  line-height: 1.5rem;
+  color: var(--color-muted);
+}
+
+.booking__hint svg {
+  flex-shrink: 0;
+}
+
+.booking__field--time {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.booking__field--time .booking__label {
+  padding: 0;
+}
+
+.booking__times {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.25rem, 1fr));
+  gap: 0.5rem;
+}
+
+.booking__time {
+  height: 2.5rem;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-cream-soft);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition:
+    background-color 160ms ease-out,
+    box-shadow 160ms ease-out,
+    color 160ms ease-out;
+}
+
+.booking__time:hover {
+  background: var(--color-cream-light);
+}
+
+.booking__time--selected,
+.booking__time--selected:hover {
+  background: var(--color-espresso);
+  box-shadow: inset 0 0 0 1px var(--color-espresso);
+  color: var(--color-cream);
+}
+
+.booking__time:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.booking__recap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem 1.25rem;
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-cream-soft);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  font-size: var(--text-sm);
+  color: var(--color-body);
+}
+
+.booking__recap > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.booking__recap svg {
+  flex-shrink: 0;
+  color: var(--color-gold-deep);
+}
+
+.booking__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block-start: 0.25rem;
+}
+
+html[dir="rtl"] .booking__nav .button svg {
+  transform: scaleX(-1);
+}
+
 /* Review step ---------------------------------------------------------- */
 .booking__review {
   display: flex;

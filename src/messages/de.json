@@ -225,7 +225,7 @@
       "service": "Gewünschte Behandlung",
       "servicePlaceholder": "Bitte wählen",
       "date": "Wunschtermin",
-      "dateHint": "Schreiben Sie uns gern den gewünschten Tag",
+      "dateHint": "Geöffnet Samstag bis Donnerstag, 10:00 – 20:00",
       "message": "Anmerkungen",
       "messagePlaceholder": "Alles, was wir wissen sollten.",
       "submit": "Anfrage senden",
@@ -233,7 +233,29 @@
       "successNote": "Unsere Koordinatorin ruft Sie in Kürze an, um einen genauen Termin zu bestätigen.",
       "callInstead": "Oder jetzt anrufen",
       "required": "Dieses Feld ist erforderlich",
-      "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein"
+      "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein",
+      "steps": {
+        "treatment": "Welche Behandlung interessiert Sie?",
+        "datetime": "Wann möchten Sie vorbeikommen?",
+        "details": "Wie erreichen wir Sie?"
+      },
+      "stepsShort": {
+        "treatment": "Behandlung",
+        "datetime": "Datum & Zeit",
+        "details": "Ihre Daten"
+      },
+      "stepOf": "Schritt {current} von {total}",
+      "consultation": "Kostenlose Beratung — ich bin mir noch nicht sicher",
+      "serviceRequired": "Bitte wählen Sie eine Behandlung",
+      "dateRequired": "Bitte wählen Sie einen Tag",
+      "dateInvalid": "Dieser Tag liegt bereits zurück — wählen Sie einen zukünftigen Termin",
+      "closedDay": "Freitags hat die Praxis geschlossen — bitte wählen Sie einen anderen Tag",
+      "time": "Wunschzeit",
+      "timeHint": "Optional — wir stimmen die Uhrzeit gern telefonisch ab.",
+      "timeFlexible": "Flexibel — stimmen wir telefonisch ab",
+      "back": "Zurück",
+      "next": "Weiter",
+      "editRequest": "Angaben ändern"
     },
     "contact": {
       "heading": "Kontakt zur Praxis",

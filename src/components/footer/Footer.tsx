@@ -22,6 +22,7 @@ const NAV_KEYS = [
   "services",
   "about",
   "guests",
+  "articles",
   "reviews",
   "contact"
 ] as const;
@@ -47,6 +48,7 @@ export async function Footer() {
     if (key === "services") return `/${locale}/treatments`;
     if (key === "about") return `/${locale}/about`;
     if (key === "guests") return `/${locale}/guests`;
+    if (key === "articles") return `/${locale}/artikelen`;
     return `/${locale}#${key}`;
   };
 

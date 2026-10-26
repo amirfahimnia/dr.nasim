@@ -11,6 +11,7 @@
       "services": "Treatments",
       "about": "About",
       "guests": "Guests",
+      "articles": "Articles",
       "reviews": "Reviews",
       "contact": "Contact"
     },
@@ -144,6 +145,15 @@
     "description": "At your consultation we assess your skin and goals, then set out a clear treatment plan.",
     "primaryAction": "Book appointment",
     "phoneLabel": "Call directly"
+  },
+  "ArticlesPage": {
+    "eyebrow": "Articles",
+    "title": "Clinical articles",
+    "lead": "Dr. Nasim Gholami's latest articles on aesthetic, skin and hair treatments — grounded in scientific sources and clinical practice.",
+    "empty": "No articles found.",
+    "backToAll": "All articles",
+    "related": "Related articles",
+    "publishedAt": "Published"
   },
   "GuestsPage": {
     "eyebrow": "Guests",

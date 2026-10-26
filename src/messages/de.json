@@ -11,6 +11,7 @@
       "services": "Behandlungen",
       "about": "Über mich",
       "guests": "Gäste",
+      "articles": "Artikel",
       "reviews": "Stimmen",
       "contact": "Kontakt"
     },
@@ -144,6 +145,15 @@
     "description": "In der Beratung prüfen wir Haut und Ziele und legen dann einen klaren Behandlungsplan fest.",
     "primaryAction": "Termin buchen",
     "phoneLabel": "Direkt anrufen"
+  },
+  "ArticlesPage": {
+    "eyebrow": "Artikel",
+    "title": "Fachartikel",
+    "lead": "Die neuesten Artikel von Dr. Nasim Gholami zu ästhetischen, Haut- und Haarbehandlungen — auf Basis wissenschaftlicher Quellen und klinischer Erfahrung.",
+    "empty": "Keine Artikel gefunden.",
+    "backToAll": "Alle Artikel",
+    "related": "Ähnliche Artikel",
+    "publishedAt": "Veröffentlicht"
   },
   "GuestsPage": {
     "eyebrow": "Gäste",

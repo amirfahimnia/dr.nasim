@@ -35,6 +35,8 @@
 /* Route-level blocks */
 @import "./blocks/page-hero.css";
 @import "./blocks/services-index.css";
+@import "./blocks/articles-index.css";
+@import "./blocks/article-detail.css";
 @import "./blocks/service-detail.css";
 @import "./blocks/appointment.css";
 

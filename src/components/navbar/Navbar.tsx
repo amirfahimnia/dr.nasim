@@ -16,6 +16,7 @@ const NAV_KEYS = [
   "services",
   "about",
   "guests",
+  "articles",
   "reviews",
   "contact"
 ] as const;
@@ -50,6 +51,7 @@ export function Navbar() {
     if (key === "services") return `/${locale}/treatments`;
     if (key === "about") return `/${locale}/about`;
     if (key === "guests") return `/${locale}/guests`;
+    if (key === "articles") return `/${locale}/artikelen`;
     return `/${locale}#${key}`;
   };
 
@@ -62,6 +64,9 @@ export function Navbar() {
     }
     if (key === "guests") {
       return pathname === `/${locale}/guests`;
+    }
+    if (key === "articles") {
+      return pathname.startsWith(`/${locale}/artikelen`);
     }
     return false;
   };

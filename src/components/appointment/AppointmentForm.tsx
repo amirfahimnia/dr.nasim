@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useLocale, useTranslations } from "next-intl";
 
+import { PersianDatePicker } from "@/components/appointment/PersianDatePicker";
 import { clinic } from "@/content/clinic";
 import {
   ArrowLeftIcon,
@@ -39,6 +40,9 @@ const EMPTY: FormValues = {
 
 /** Not a catalogue slug — the "I'm not sure yet" choice in the picker. */
 const CONSULTATION = "consultation";
+
+/** Persian digits — only used for display, values and URLs stay Latin. */
+const FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
 
 /** Practice hours are 10:00–20:00 (Saturday–Thursday): one slot per hour. */
 const TIME_SLOTS = Array.from(
@@ -199,6 +203,11 @@ export function AppointmentForm({
     if (Object.keys(found).length === 0) setSent(true);
   };
 
+  const toDisplayDigits = (text: string) =>
+    locale === "fa"
+      ? text.replace(/[0-9]/g, (digit) => FA_DIGITS[Number(digit)])
+      : text;
+
   const serviceLabel =
     values.service === CONSULTATION
       ? t("consultation")
@@ -208,7 +217,7 @@ export function AppointmentForm({
   const message = [
     `${t("service")}: ${serviceLabel}`,
     values.date ? `${t("date")}: ${formatDate(values.date, locale)}` : "",
-    values.time ? `${t("time")}: ${values.time}` : "",
+    values.time ? `${t("time")}: ${toDisplayDigits(values.time)}` : "",
     `${t("name")}: ${values.name}`,
     `${t("phone")}: ${values.phone}`,
     values.message ? `${t("message")}: ${values.message}` : ""
@@ -239,7 +248,7 @@ export function AppointmentForm({
           {values.time ? (
             <div>
               <dt>{t("time")}</dt>
-              <dd dir="ltr">{values.time}</dd>
+              <dd dir="ltr">{toDisplayDigits(values.time)}</dd>
             </div>
           ) : null}
           <div>
@@ -380,19 +389,33 @@ export function AppointmentForm({
             <label htmlFor="booking-date" className="booking__label">
               {t("date")}
             </label>
-            <input
-              id="booking-date"
-              name="date"
-              type="date"
-              ref={dateRef}
-              min={minDate}
-              max={maxDate}
-              value={values.date}
-              onClick={openDatePicker}
-              onChange={update("date")}
-              aria-invalid={Boolean(errors.date)}
-              className="booking__input booking__input--ltr"
-            />
+            {locale === "fa" ? (
+              <PersianDatePicker
+                value={values.date}
+                min={minDate}
+                max={maxDate}
+                placeholder={t("datePlaceholder")}
+                invalid={Boolean(errors.date)}
+                onChange={(iso) => {
+                  setValues((prev) => ({ ...prev, date: iso }));
+                  setErrors((prev) => ({ ...prev, date: undefined }));
+                }}
+              />
+            ) : (
+              <input
+                id="booking-date"
+                name="date"
+                type="date"
+                ref={dateRef}
+                min={minDate}
+                max={maxDate}
+                value={values.date}
+                onClick={openDatePicker}
+                onChange={update("date")}
+                aria-invalid={Boolean(errors.date)}
+                className="booking__input booking__input--ltr"
+              />
+            )}
             <p className="booking__hint">{t("dateHint")}</p>
             {errors.date ? (
               <p className="booking__error">{errors.date}</p>
@@ -421,7 +444,7 @@ export function AppointmentForm({
                       }));
                     }}
                   >
-                    {slot}
+                    {toDisplayDigits(slot)}
                   </button>
                 );
               })}
@@ -505,7 +528,7 @@ export function AppointmentForm({
             </span>
             <span>
               <ClockIcon size={14} />
-              {values.time || t("timeFlexible")}
+              {values.time ? toDisplayDigits(values.time) : t("timeFlexible")}
             </span>
           </div>
         </section>

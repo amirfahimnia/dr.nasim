@@ -226,6 +226,7 @@
       "servicePlaceholder": "انتخاب کنید",
       "date": "تاریخ مراجعه",
       "dateHint": "شنبه تا پنجشنبه، ۱۰:۰۰ تا ۲۰:۰۰",
+      "datePlaceholder": "انتخاب تاریخ",
       "message": "توضیحات",
       "messagePlaceholder": "هر نکته‌ای که فکر می‌کنید مهم است.",
       "submit": "ثبت درخواست",

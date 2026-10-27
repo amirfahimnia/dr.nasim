@@ -226,6 +226,7 @@
       "servicePlaceholder": "Bitte wählen",
       "date": "Wunschtermin",
       "dateHint": "Geöffnet Samstag bis Donnerstag, 10:00 – 20:00",
+      "datePlaceholder": "Datum wählen",
       "message": "Anmerkungen",
       "messagePlaceholder": "Alles, was wir wissen sollten.",
       "submit": "Anfrage senden",

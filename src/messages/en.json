@@ -226,6 +226,7 @@
       "servicePlaceholder": "Please choose",
       "date": "Preferred date",
       "dateHint": "Open Saturday to Thursday, 10:00 – 20:00",
+      "datePlaceholder": "Pick a date",
       "message": "Notes",
       "messagePlaceholder": "Anything you think we should know.",
       "submit": "Send request",

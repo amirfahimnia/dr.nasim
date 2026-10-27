@@ -9,7 +9,8 @@ import {
   CalendarIcon,
   CheckIcon,
   ClockIcon,
-  PhoneIcon
+  PhoneIcon,
+  SparkleIcon
 } from "@/design-system/icons";
 import { cn } from "@/lib/cn";
 
@@ -49,6 +50,9 @@ const CLOSED_WEEKDAY = 5;
 
 const STEP_COUNT = 3;
 const LAST_STEP = STEP_COUNT - 1;
+
+/** One icon per step: treatment → date & time → contact details. */
+const STEP_ICONS = [SparkleIcon, CalendarIcon, PhoneIcon];
 
 const DATE_LOCALES: Record<string, string> = {
   fa: "fa-IR",
@@ -102,6 +106,20 @@ export function AppointmentForm({
   const [sent, setSent] = React.useState(false);
 
   const headingRef = React.useRef<HTMLHeadingElement | null>(null);
+  const dateRef = React.useRef<HTMLInputElement | null>(null);
+
+  /* Chrome/Firefox only open the native calendar from the little icon, so
+     open it for the user wherever they click inside the field. */
+  const openDatePicker = () => {
+    const input = dateRef.current;
+    if (input && typeof input.showPicker === "function") {
+      try {
+        input.showPicker();
+      } catch {
+        /* not triggered by a user gesture — the icon still works */
+      }
+    }
+  };
 
   const today = React.useMemo(() => {
     const now = new Date();
@@ -273,42 +291,44 @@ export function AppointmentForm({
       </p>
 
       <ol className="booking__steps">
-        {(["treatment", "datetime", "details"] as const).map(
-          (key, index) => {
-            const active = index === step;
-            const done = index < step;
-            return (
-              <li key={key} className="booking__step-cell">
-                <button
-                  type="button"
-                  className={cn(
-                    "booking__step",
-                    active && "booking__step--active",
-                    done && "booking__step--done"
-                  )}
-                  aria-current={active ? "step" : undefined}
-                  disabled={index > step}
-                  onClick={() => goTo(index)}
-                >
-                  <span className="booking__step-rail">
-                    <span
-                      className="booking__step-fill"
-                      style={{ width: index <= step ? "100%" : "0%" }}
-                    />
+        {(["treatment", "datetime", "details"] as const).map((key, index) => {
+          const active = index === step;
+          const done = index < step;
+          return (
+            <li key={key} className="booking__step-cell">
+              <button
+                type="button"
+                className={cn(
+                  "booking__step",
+                  active && "booking__step--active",
+                  done && "booking__step--done"
+                )}
+                aria-current={active ? "step" : undefined}
+                disabled={index > step}
+                onClick={() => goTo(index)}
+              >
+                <span className="booking__step-rail">
+                  <span
+                    className="booking__step-fill"
+                    style={{ width: index <= step ? "100%" : "0%" }}
+                  />
+                </span>
+                <span className="booking__step-meta">
+                  <span className="booking__step-index" aria-hidden="true">
+                    {done ? <CheckIcon size={12} /> : index + 1}
                   </span>
-                  <span className="booking__step-meta">
-                    <span className="booking__step-index" aria-hidden="true">
-                      {done ? <CheckIcon size={12} /> : index + 1}
-                    </span>
-                    <span className="booking__step-label">
-                      {t(`stepsShort.${key}`)}
-                    </span>
+                  {React.createElement(STEP_ICONS[index], {
+                    size: 25,
+                    className: "booking__step-icon"
+                  })}
+                  <span className="booking__step-label">
+                    {t(`stepsShort.${key}`)}
                   </span>
-                </button>
-              </li>
-            );
-          }
-        )}
+                </span>
+              </button>
+            </li>
+          );
+        })}
       </ol>
 
       {step === 0 ? (
@@ -351,11 +371,7 @@ export function AppointmentForm({
 
       {step === 1 ? (
         <section className="booking__panel">
-          <h3
-            className="booking__step-title"
-            tabIndex={-1}
-            ref={headingRef}
-          >
+          <h3 className="booking__step-title" tabIndex={-1} ref={headingRef}>
             {t("steps.datetime")}
           </h3>
 
@@ -367,9 +383,11 @@ export function AppointmentForm({
               id="booking-date"
               name="date"
               type="date"
+              ref={dateRef}
               min={minDate}
               max={maxDate}
               value={values.date}
+              onClick={openDatePicker}
               onChange={update("date")}
               aria-invalid={Boolean(errors.date)}
               className="booking__input booking__input--ltr"
@@ -417,11 +435,7 @@ export function AppointmentForm({
 
       {step === 2 ? (
         <section className="booking__panel">
-          <h3
-            className="booking__step-title"
-            tabIndex={-1}
-            ref={headingRef}
-          >
+          <h3 className="booking__step-title" tabIndex={-1} ref={headingRef}>
             {t("steps.details")}
           </h3>
 

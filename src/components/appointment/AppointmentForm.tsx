@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { clinic } from "@/content/clinic";
 import {
   ArrowLeftIcon,
+  ArrowRightIcon,
   CalendarIcon,
   CheckIcon,
   ClockIcon,
@@ -259,7 +260,7 @@ export function AppointmentForm({
             className="button button--gold button--lg"
           >
             WhatsApp
-            <ArrowLeftIcon size={16} />
+            <ArrowRightIcon size={16} />
           </a>
           <a
             href={`tel:${clinic.phone.tel}`}
@@ -529,7 +530,7 @@ export function AppointmentForm({
             onClick={goNext}
           >
             {t("next")}
-            <ArrowLeftIcon size={16} />
+            <ArrowRightIcon size={16} />
           </button>
         ) : (
           <button
@@ -538,7 +539,7 @@ export function AppointmentForm({
           >
             <CalendarIcon size={17} />
             {t("submit")}
-            <ArrowLeftIcon size={16} />
+            <ArrowRightIcon size={16} />
           </button>
         )}
       </div>

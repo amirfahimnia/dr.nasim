@@ -51,6 +51,9 @@ export function ArrowIcon(props: IconProps) {
   );
 }
 
+/** Right-pointing arrow for forward actions (alias of ArrowIcon). */
+export const ArrowRightIcon = ArrowIcon;
+
 export function ArrowLeftIcon(props: IconProps) {
   return (
     <svg {...withDefaults(props)}>

@@ -5,7 +5,7 @@ import { Container } from "@/design-system/ui/Container";
 import { ButtonLink } from "@/design-system/ui/Button";
 import { clinic } from "@/content/clinic";
 import type { Locale } from "@/content/clinic";
-import { CheckIcon, ArrowLeftIcon } from "@/design-system/icons";
+import { CheckIcon, ArrowRightIcon } from "@/design-system/icons";
 
 type StatItem = { value: string; label: string };
 
@@ -73,7 +73,7 @@ export async function About({ withReadMore = false }: AboutProps) {
                 size="lg"
               >
                 {t("cta")}
-                <ArrowLeftIcon size={16} />
+                <ArrowRightIcon size={16} />
               </ButtonLink>
               {withReadMore ? (
                 <ButtonLink

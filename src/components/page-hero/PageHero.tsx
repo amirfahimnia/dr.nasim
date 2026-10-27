@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/design-system/ui/Container";
-import { ArrowLeftIcon } from "@/design-system/icons";
+import { ArrowRightIcon } from "@/design-system/icons";
 
 type Crumb = { label: string; href?: string };
 
@@ -49,7 +49,7 @@ export function PageHero({
                         </span>
                       )}
                       {last ? null : (
-                        <ArrowLeftIcon
+                        <ArrowRightIcon
                           size={12}
                           className="page-hero__crumb-sep flip-rtl"
                         />

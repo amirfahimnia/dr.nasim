@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { clinic } from "@/content/clinic";
 import type { Locale } from "@/content/clinic";
-import { ArrowLeftIcon, CheckIcon, PhoneIcon } from "@/design-system/icons";
+import { ArrowRightIcon, CheckIcon, PhoneIcon } from "@/design-system/icons";
 
 /**
  * Sticky consultation card shown next to the article body: doctor portrait,
@@ -68,7 +68,7 @@ export function ArticleCta() {
             className="button button--gold button--md article-cta__whatsapp"
           >
             WhatsApp
-            <ArrowLeftIcon size={14} />
+            <ArrowRightIcon size={14} className="flip-rtl" />
           </a>
 
           <a href={`tel:${clinic.phone.tel}`} className="article-cta__call">
@@ -171,7 +171,7 @@ export function ArticleCta() {
           className="button button--gold button--md article-cta__submit"
         >
           {t("submit")}
-          <ArrowLeftIcon size={14} />
+          <ArrowRightIcon size={14} className="flip-rtl" />
         </button>
       </form>
     </div>

@@ -5,7 +5,7 @@ import { Container } from "@/design-system/ui/Container";
 import { ButtonLink } from "@/design-system/ui/Button";
 import { clinic } from "@/content/clinic";
 import {
-  ArrowLeftIcon,
+  ArrowRightIcon,
   AwardIcon,
   CalendarIcon,
   ShieldIcon,
@@ -71,7 +71,7 @@ export async function Hero() {
                 size="lg"
               >
                 {t("secondaryAction")}
-                <ArrowLeftIcon size={16} />
+                <ArrowRightIcon size={16} className="flip-rtl" />
               </ButtonLink>
             </div>
 

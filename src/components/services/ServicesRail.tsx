@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-import { ArrowIcon, ArrowLeftIcon } from "@/design-system/icons";
+import { ArrowIcon, ArrowRightIcon } from "@/design-system/icons";
 
 export interface RailItem {
   slug: string;
@@ -197,7 +197,7 @@ export function ServicesRail({ items, locale }: ServicesRailProps) {
                 <span className="services__card-tagline">{item.tagline}</span>
                 <span className="services__card-more">
                   {t("explore")}
-                  <ArrowLeftIcon size={14} />
+                  <ArrowRightIcon size={14} />
                 </span>
               </span>
             </Link>

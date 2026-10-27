@@ -5,7 +5,7 @@ import { ButtonLink } from "@/design-system/ui/Button";
 import { ServicesRail, type RailItem } from "@/components/services/ServicesRail";
 import { services } from "@/content/services";
 import type { Locale } from "@/content/clinic";
-import { ArrowLeftIcon } from "@/design-system/icons";
+import { ArrowRightIcon } from "@/design-system/icons";
 
 export async function Services() {
   const t = await getTranslations("Services");
@@ -49,7 +49,7 @@ export async function Services() {
               className="services__view-all"
             >
               {t("viewAll")}
-              <ArrowLeftIcon size={15} />
+              <ArrowRightIcon size={15} />
             </ButtonLink>
           </div>
         </header>

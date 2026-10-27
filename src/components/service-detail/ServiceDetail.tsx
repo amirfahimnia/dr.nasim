@@ -10,8 +10,8 @@ import type { Locale } from "@/content/clinic";
 import { services } from "@/content/services";
 import type { Service } from "@/content/services";
 import {
-  ArrowIcon,
   ArrowLeftIcon,
+  ArrowRightIcon,
   CheckIcon,
   PhoneIcon,
   PlusIcon
@@ -58,7 +58,7 @@ export async function ServiceDetail({ service, locale }: Props) {
                   <Link href={`/${locale}`} className="page-hero__crumb">
                     {tNav("items.home")}
                   </Link>
-                  <ArrowLeftIcon
+                  <ArrowRightIcon
                     size={12}
                     className="page-hero__crumb-sep flip-rtl"
                   />
@@ -70,7 +70,7 @@ export async function ServiceDetail({ service, locale }: Props) {
                   >
                     {t("breadcrumb")}
                   </Link>
-                  <ArrowLeftIcon
+                  <ArrowRightIcon
                     size={12}
                     className="page-hero__crumb-sep flip-rtl"
                   />
@@ -99,14 +99,14 @@ export async function ServiceDetail({ service, locale }: Props) {
                 size="lg"
               >
                 {t("bookService")}
-                <ArrowLeftIcon size={16} />
+                <ArrowRightIcon size={16} />
               </ButtonLink>
               <Link
                 href={`/${locale}/treatments`}
                 className="detail-hero__back"
               >
                 {t("breadcrumb")}
-                <ArrowIcon size={15} />
+                <ArrowLeftIcon size={15} />
               </Link>
             </div>
           </div>
